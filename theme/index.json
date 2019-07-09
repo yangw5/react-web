@@ -1,3 +1,7 @@
 {
-  "@primary-color": "#5f4280"
+  "@font-size-base": "13px",
+  "@primary-color": "#5f4280",
+  "@layout-header-background": "#5f4280",
+  "@layout-body-background": "#ffffff",
+  "@layout-sider-background-light": "#f9f9f9"
 }
