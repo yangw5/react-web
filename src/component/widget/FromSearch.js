@@ -7,13 +7,14 @@ class FromSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: ""
+      initialValue: "密码",
+      initialValue1: "性别"
     };
   }
   onsumit = () => {
-    let data = this.props.form.getFieldsValue();
-    alert(data["password"]);
-    alert(data["userName"]);
+    // this.props.form.getFieldsValue();
+    alert(this.props.form.getFieldsValue()["password"]);
+    this.props.form.setFieldsValue({ password: "" });
   };
   render() {
     let { form } = this.props;
@@ -26,7 +27,38 @@ class FromSearch extends Component {
           required={true}
         />
         <p>----------------------</p>
-        <FromInput max={5} form={form} field="password" label={"密码"} />
+        <FromInput
+          max={5}
+          form={form}
+          field="password"
+          label={"密码"}
+          initialValue={this.state.initialValue}
+          required={true}
+          addonAfter={(id, props) => (
+            <span
+              onClick={props => {
+                this.onsumit();
+              }}>
+              清除
+            </span>
+          )}
+        />
+        <FromInput
+          max={5}
+          form={form}
+          field="sex"
+          label={"性别"}
+          initialValue={this.state.initialValue1}
+          required={true}
+          addonAfter={(id, props) => (
+            <span
+              onClick={props => {
+                this.onsumit();
+              }}>
+              清除
+            </span>
+          )}
+        />
         <Button onClick={this.onsumit} type="primary">
           FromSearch提交
         </Button>

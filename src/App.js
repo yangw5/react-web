@@ -24,7 +24,7 @@ function App() {
           Learn React
         </a> */}
         <p>---------------------------------</p>
-        <Button type="primary">Primary</Button>
+        <Button type="primary">APP-Primary</Button>
         <Cp />
       </header>
     </div>

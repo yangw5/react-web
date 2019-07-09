@@ -184,6 +184,13 @@ module.exports = function(webpackEnv) {
         : isEnvDevelopment &&
           (info => path.resolve(info.absoluteResourcePath).replace(/\\/g, "/"))
     },
+    externals: {
+      lodash: {
+        commonjs: "lodash",
+        amd: "lodash",
+        root: "_" // 指向全局变量
+      }
+    },
     optimization: {
       minimize: isEnvProduction,
       minimizer: [

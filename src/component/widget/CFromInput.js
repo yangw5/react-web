@@ -12,7 +12,11 @@ class CFromInput extends Component {
   handleSubmit = () => {
     let data = this.props.form.getFieldsValue();
     alert(data["userName"]);
+    this.clearinput();
     console.log(data);
+  };
+  clearinput = () => {
+    this.props.form.setFieldsValue({ [this.props.field]: "" });
   };
   render() {
     let {
