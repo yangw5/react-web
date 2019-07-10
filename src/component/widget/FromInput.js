@@ -43,7 +43,7 @@ export default ({
   wrapperCol = { span: 60 }, //input长度
   validator, //自定义验证格式
   addonAfter = true, //输入框后标签
-  ...restProps
+  ...restProps //其他相关属性
 }) => {
   let { getFieldDecorator } = form;
   let rules = [
