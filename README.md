@@ -6,6 +6,6 @@
 
 ## 技术简介
 
-- react 全家桶 + antd 组件式，配置化开发
+- react 全家桶 + antd 组件化，配置化开发
 
 - 本项目用于 4 个分支 react-dev(全开发)，react（测试）， master(主分支) 和 book-dev（记账本开发分支）

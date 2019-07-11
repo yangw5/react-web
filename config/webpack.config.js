@@ -45,6 +45,8 @@ const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
+const lessRegex = /\.less$/;
+const lessModuleRegex = /\.module\.less$/;
 
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
@@ -72,7 +74,7 @@ module.exports = function(webpackEnv) {
   const env = getClientEnvironment(publicUrl);
 
   // common function to get style loaders
-  const getStyleLoaders = (cssOptions, preProcessor) => {
+  const getStyleLoaders = (cssOptions, preProcessor, newOptions) => {
     const loaders = [
       isEnvDevelopment && require.resolve("style-loader"),
       isEnvProduction && {
@@ -107,18 +109,20 @@ module.exports = function(webpackEnv) {
           ],
           sourceMap: isEnvProduction && shouldUseSourceMap
         }
-      },
-      {
-        loader: require.resolve("less-loader"),
-        options: {
-          modifyVars: theme
-        }
       }
+      //老版本
+      // {
+      //   loader: require.resolve("less-loader"),
+      //   options: {
+      //     modifyVars: theme
+      //   }
+      // }
     ].filter(Boolean);
     if (preProcessor) {
       loaders.push({
         loader: require.resolve(preProcessor),
         options: {
+          ...newOptions,
           sourceMap: isEnvProduction && shouldUseSourceMap
         }
       });
@@ -152,6 +156,9 @@ module.exports = function(webpackEnv) {
         require.resolve("react-dev-utils/webpackHotDevClient"),
       // Finally, this is your app's code:
       paths.appIndexJs
+      // login:[
+      //    paths.appSrc + '/login.js',
+      // ]
       // We include the app code last so that if there is a runtime error during
       // initialization, it doesn't blow up the WebpackDevServer client, and
       // changing JS code would still trigger a refresh.
@@ -465,6 +472,53 @@ module.exports = function(webpackEnv) {
                   getLocalIdent: getCSSModuleLocalIdent
                 },
                 "sass-loader"
+              )
+            },
+            {
+              test: lessRegex,
+              exclude: lessModuleRegex,
+              use: getStyleLoaders(
+                {
+                  importLoaders: 1,
+                  modules: true, // 增加这个可以通过模块方式来访问css
+                  sourceMap: isEnvProduction && shouldUseSourceMap
+                },
+                "less-loader",
+                {
+                  javascriptEnabled: true,
+                  modifyVars: {
+                    "primary-color": "#1890ff", // 全局主色
+                    "link-color": "#1890ff", // 链接色
+                    "success-color": "#52c41a", // 成功色
+                    "warning-color": "#faad14", // 警告色
+                    "error-color": "#f5222d", // 错误色
+                    "font-size-base": "14px", // 主字号
+                    "heading-color": "rgba(0, 0, 0, 0.85)", // 标题色
+                    "text-color": "rgba(0, 0, 0, 0.65)", // 主文本色
+                    "text-color-secondary": rgba(0, 0, 0, 0.45), // 次文本色
+                    "disabled-color": "rgba(0, 0, 0, .25)", // 失效色
+                    "border-radius-base": "4px", // 组件/浮层圆角
+                    "border-color-base": "#d9d9d9", // 边框色
+                    "box-shadow-base": "0 2px 8px rgba(0, 0, 0, 0.15)" // 浮层阴影
+                  }
+                }
+              ),
+              sideEffects: true
+            },
+            {
+              test: lessModuleRegex,
+              use: getStyleLoaders(
+                {
+                  importLoaders: 1,
+                  sourceMap: isEnvProduction && shouldUseSourceMap,
+                  modules: true,
+                  getLocalIdent: getCSSModuleLocalIdent
+                },
+                "less-loader",
+                {
+                  javascriptEnabled: true,
+                  modifyVars: { "primary-color": "#5f4280" }
+                }
               )
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.

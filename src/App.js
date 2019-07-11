@@ -1,33 +1,36 @@
 import React from "react";
-// import logo from "./logo.svg";
 import "./App.css";
 import Cp from "./component";
-import { Button } from "antd";
+import { Button, Layout, LocaleProvider } from "antd";
+import HeaderCustom from "./HeaderCustom";
+import "./style/index.less";
+import "./style/antd/index.less";
+import zh_CN from "antd/lib/locale-provider/zh_CN";
+import moment from "moment";
+import "moment/locale/zh-cn";
+moment.locale("zh-cn");
+const { Header, Content, Footer } = Layout;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" />
-        <img src={logo} className="App-logo" alt="logo" />
-        <img src={logo} className="App-logo" alt="logo" />
-        <img src={logo} className="App-logo" alt="logo" />
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer">
-          Learn React
-        </a> */}
-        <p>---------------------------------</p>
-        <Button type="primary">APP-Primary</Button>
-        <Cp />
-      </header>
-    </div>
+    <LocaleProvider locale={zh_CN}>
+      <Layout>
+        <HeaderCustom />
+        <Layout>
+          <Content>Content</Content>
+          <Footer style={{ textAlign: "center" }}>
+            {!false ? (
+              <div>
+                <Button type="primary">APP-Primary</Button>
+                <Cp />
+              </div>
+            ) : (
+              " copy © karakal {new Date().getFullYear()} created by karakal-fed"
+            )}
+          </Footer>
+        </Layout>
+      </Layout>
+    </LocaleProvider>
   );
 }
 
