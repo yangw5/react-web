@@ -35,7 +35,7 @@ export const querySrting = () => {
 export const getCookie = name => {
   //cookie相关属性：name value domain path Size http secure expires
   let value = `; ${document.cookie}`;
-  let pars = value.split(`; ${name}=`); //document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+    let pars = value.split(`; ${name}=`); //document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));  return unescape(arr[2]);
   if (pars.length === 2) {
     return pars.pop.split(";").shift();
   }
