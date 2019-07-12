@@ -45,8 +45,8 @@ const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
-const lessRegex = /\.less$/;
-const lessModuleRegex = /\.module\.less$/;
+const lessRegex = /\.(less)$/;
+const lessModuleRegex = /\.module\.(less)$/;
 
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
@@ -74,7 +74,7 @@ module.exports = function(webpackEnv) {
   const env = getClientEnvironment(publicUrl);
 
   // common function to get style loaders
-  const getStyleLoaders = (cssOptions, preProcessor, newOptions) => {
+  const getStyleLoaders = (cssOptions, preProcessor, newProcessor) => {
     const loaders = [
       isEnvDevelopment && require.resolve("style-loader"),
       isEnvProduction && {
@@ -119,13 +119,28 @@ module.exports = function(webpackEnv) {
       // }
     ].filter(Boolean);
     if (preProcessor) {
-      loaders.push({
-        loader: require.resolve(preProcessor),
-        options: {
-          ...newOptions,
-          sourceMap: isEnvProduction && shouldUseSourceMap
-        }
-      });
+      let loader = require.resolve(preProcessor);
+      if (preProcessor === "less-loader") {
+        loader = {
+          loader,
+          options: {
+            modifyVars: {
+              //自定义主题
+              "primary-color": " #1890ff "
+            },
+            javascriptEnabled: true,
+            sourceMap: isEnvProduction && shouldUseSourceMap
+          }
+        };
+      } else {
+        loaders.push({
+          loader: require.resolve(preProcessor),
+          options: {
+            sourceMap: isEnvProduction && shouldUseSourceMap
+          }
+        });
+      }
+      loaders.push(loader);
     }
     return loaders;
   };
@@ -437,7 +452,7 @@ module.exports = function(webpackEnv) {
               use: getStyleLoaders({
                 importLoaders: 1,
                 sourceMap: isEnvProduction && shouldUseSourceMap,
-                modules: true,
+                // modules: true,
                 getLocalIdent: getCSSModuleLocalIdent
               })
             },
@@ -495,7 +510,7 @@ module.exports = function(webpackEnv) {
                     "font-size-base": "14px", // 主字号
                     "heading-color": "rgba(0, 0, 0, 0.85)", // 标题色
                     "text-color": "rgba(0, 0, 0, 0.65)", // 主文本色
-                    "text-color-secondary": rgba(0, 0, 0, 0.45), // 次文本色
+                    "text-color-secondary": "rgba(0, 0, 0, 0.45)", // 次文本色
                     "disabled-color": "rgba(0, 0, 0, .25)", // 失效色
                     "border-radius-base": "4px", // 组件/浮层圆角
                     "border-color-base": "#d9d9d9", // 边框色
