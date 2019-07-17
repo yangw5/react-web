@@ -34,20 +34,17 @@ class SiderCustom extends PureComponent {
   };
   render() {
     return (
-      <div>
-        <Sider
-          trigger={null}
-          style={{ overflowY: "auto" }}
-          breakpoint="lg"
-          theme="light"
-          width="13.69%">
-          <SiderMenu
-            onClick={this.menuClick}
-            selectedKeys={[this.state.selectedKey]}
-            menus={routes.menus}
-          />
-        </Sider>
-      </div>
+      <Sider
+        trigger={null}
+        style={{ padding: "0px", width: "35px" }}
+        collapsible
+        collapsed={this.props.collapsed}>
+        <SiderMenu
+          onClick={this.menuClick}
+          selectedKeys={[this.state.selectedKey]}
+          menus={routes.menus}
+        />
+      </Sider>
     );
   }
 }

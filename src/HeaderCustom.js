@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Layout } from "antd";
+import { Layout, Icon } from "antd";
 import styles from "./HeaderCustom.module.less";
 import classnames from "classnames";
 import "./style/index.less";
@@ -21,14 +21,17 @@ class HeaderCustom extends Component {
           <div className={"header-logo"}>
             <div className={"header-title"}>
               <img
-                className={"logo-img"}
+                className={this.props.collapsed ? "logo-img-small" : "logo-img"}
                 src={require("./style/img/app-logo.png")}
               />
-              {this.state.istitle ? (
-                <div className={"logo-name"}>小伍花钱</div>
-              ) : (
-                ""
+              {!this.props.collapsed && (
+                <span className={"logo-name"}>随手记</span>
               )}
+              <Icon
+                className={styles["trigger"]}
+                type={this.props.collapsed ? "menu-unfold" : "menu-fold"}
+                onClick={this.props.toggle}
+              />
             </div>
           </div>
           <div className={`${styles["header-right"]}`}>左边</div>

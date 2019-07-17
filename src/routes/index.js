@@ -37,7 +37,7 @@ export default class RootRouter extends Component {
                         : {}
                     });
                     const wrappedComponent = (
-                      // 重新包装组件
+                      // 重新包装组件 浏览器title设置
                       <DocumentTitle title={r.title}>
                         <Component {...props} />
                       </DocumentTitle>
@@ -47,7 +47,7 @@ export default class RootRouter extends Component {
                 />
               );
             };
-            return r.component ? route(r) : r.sunb.map(r => route(r));
+            return r.component ? route(r) : r.subs.map(r => route(r));
           })
         )}
         <Route render={() => <Redirect to="404" />} />

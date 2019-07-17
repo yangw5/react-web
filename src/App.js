@@ -12,33 +12,45 @@ import moment from "moment";
 import "moment/locale/zh-cn";
 moment.locale("zh-cn");
 const { Header, Content, Footer } = Layout;
-
-function App() {
-  return (
-    <LocaleProvider locale={zh_CN}>
-      <Layout>
-        <HeaderCustom />
+class App extends React.Component {
+  state = {
+    collapsed: false
+  };
+  toggle = () => {
+    this.setState({
+      collapsed: !this.state.collapsed
+    });
+  };
+  render() {
+    return (
+      <LocaleProvider locale={zh_CN}>
         <Layout>
-          <SiderCustom />
-          <Layout>
-            <Content>
-              <Routes />
-            </Content>
-            <Footer style={{ textAlign: "center" }}>
-              {false ? (
-                <div>
-                  <Button type="primary">APP-Primary</Button>
-                  <Cp />
-                </div>
-              ) : (
-                " copy © karakal {new Date().getFullYear()} created by karakal-fed"
-              )}
-            </Footer>
+          <HeaderCustom toggle={this.toggle} collapsed={this.state.collapsed} />
+          <Layout
+            style={{
+              height: "990px"
+            }}>
+            <SiderCustom collapsed={this.state.collapsed} />
+            <Layout style={{ background: "#fff" }}>
+              <Content>
+                <Routes />
+              </Content>
+              <Footer style={{ textAlign: "center" }}>
+                {false ? (
+                  <div>
+                    <Button type="primary">APP-Primary</Button>
+                    <Cp />
+                  </div>
+                ) : (
+                  " copy © karakal {new Date().getFullYear()} created by karakal-fed"
+                )}
+              </Footer>
+            </Layout>
           </Layout>
         </Layout>
-      </Layout>
-    </LocaleProvider>
-  );
+      </LocaleProvider>
+    );
+  }
 }
 
 export default App;
