@@ -1,15 +1,23 @@
-import React, { Component } from "react";
-import { felsit } from "../../axios";
-// 加载mock
-import "../../mock.js";
+import React, { Component } from 'react';
+import { felsit } from '../../axios';
 
 class FrontEnd extends Component {
-  componentDidMount() {
-    felsit();
-  }
-  render() {
-    return <div>Frontend</div>;
-  }
+    state = {
+        data: {},
+    };
+    componentDidMount() {
+        this.setState({
+            data: 'yang5',
+        });
+        felsit().then(res =>
+            this.setState({
+                data: res.data,
+            })
+        );
+    }
+    render() {
+        return <div>{this.state.data.name}</div>;
+    }
 }
 
 export default FrontEnd;
