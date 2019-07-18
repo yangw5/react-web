@@ -36,6 +36,7 @@ const setOption = ({
     //设置headers
     Object.assign(basic, {
         headers: {
+            //JWT
             //  Authorization: delAuthor ? "" : AuthorizationPc, //将token 添加到Authorization（字段值为身份验证凭证信息）
             'Content-Type': isJson //Json形式
                 ? 'application/json'
