@@ -12,7 +12,7 @@ class Login extends React.Component {
             if (!err) {
                 if (value.userName === 'admin') {
                     setCookie('y5Login', 1, 1);
-                    toHtmlPage('index');
+                    toHtmlPage('index', 'app');
                 }
                 if (value.userName === 'guest') {
                     alert(2);

@@ -7,13 +7,13 @@ import DocumentTitle from 'react-document-title'; //组件
 import { getCookie, toHtmlPage } from '../utils';
 
 export default class RootRouter extends Component {
-    //权限判断
-
     //登录判断
-    requireLogin = () => {
+    requireLogin = component => {
         if (!getCookie('y5Login')) {
             return toHtmlPage('login');
         }
+        //权限判断
+        return component;
     };
 
     render() {
@@ -52,7 +52,9 @@ export default class RootRouter extends Component {
                                                 <Component {...props} />
                                             </DocumentTitle>
                                         );
-                                        return r.login ? wrappedComponent : this.requireLogin();
+                                        return r.login
+                                            ? wrappedComponent
+                                            : this.requireLogin(wrappedComponent);
                                     }}
                                 />
                             );

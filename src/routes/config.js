@@ -39,6 +39,24 @@ export default {
             // subs: []
         },
         {
+            key: '/app/caseshow',
+            title: 'UI库',
+            icon: 'ant-design',
+            requirement: ['head'],
+            subs: [
+                {
+                    key: '/app/ui',
+                    title: 'UI汇总',
+                    component: 'Uis',
+                },
+                {
+                    key: '/app/ui/gallery',
+                    title: '画廊',
+                    component: 'Gallery',
+                },
+            ],
+        },
+        {
             key: '/app/caseshow/index',
             title: '案例展示',
             icon: 'file-done',

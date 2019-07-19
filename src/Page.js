@@ -19,7 +19,7 @@ export default () => (
                     />
                 )}
             /> */}
-            <Route path="/login" component={Login} />
+            <Route exact path="/" component={Login} />
             <Route path="/app" component={App} />
             <Route path="/404" component={NotFound} />
             <Route component={NotFound} />

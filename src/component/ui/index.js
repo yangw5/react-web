@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { BreadcrumbCustom } from '../widget';
-class ToolsShow extends Component {
+
+class Ui extends Component {
     render() {
-        let breadItems = [{ title: '前端工具' }];
+        const breadItems = [{ title: 'UI汇总', icon: 'home' }];
         return (
             <div>
                 <BreadcrumbCustom {...{ breadItems }} />
@@ -11,4 +12,4 @@ class ToolsShow extends Component {
     }
 }
 
-export default ToolsShow;
+export default Ui;

@@ -556,14 +556,14 @@ module.exports = function(webpackEnv) {
             new HtmlWebpackPlugin(
                 Object.assign(
                     {},
-                    // {
-                    //   inject: true,
-                    //   template: paths.appHtml
-                    // },
                     {
                         inject: true,
-                        template: paths.appLoginHtml,
+                        template: paths.appHtml,
                     },
+                    // {
+                    //     inject: true,
+                    //     template: paths.appLoginHtml,
+                    // },
                     isEnvProduction
                         ? {
                               minify: {

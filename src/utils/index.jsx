@@ -69,11 +69,12 @@ export const deleteCookie = name => {
  *  origin：协议+域名
  *  test:用来与正则表达式匹配的字符串
  */
-export const toHtmlPage = htmlName => {
+export const toHtmlPage = (htmlName, hashUrl = '') => {
     const { location } = window;
     const { pathname } = location;
     const reg = /\/[a-z]*.html/g;
     location.href =
         location.origin +
-        pathname.replace(reg.test(pathname) ? reg : pathname, `/${htmlName}.html`);
+        pathname.replace(reg.test(pathname) ? reg : pathname, `/${htmlName}.html`) +
+        `#/${hashUrl}`;
 };

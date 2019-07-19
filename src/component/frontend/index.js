@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { felsit } from '../../axios';
+import { BreadcrumbCustom } from '../widget';
 
 class FrontEnd extends Component {
     state = {
@@ -16,7 +17,13 @@ class FrontEnd extends Component {
         );
     }
     render() {
-        return <div>{this.state.data.name}</div>;
+        const breadItems = [{ title: '前端首页', icon: 'home' }];
+        return (
+            <div>
+                <BreadcrumbCustom {...{ breadItems }} />
+                {this.state.data.name}
+            </div>
+        );
     }
 }
 
