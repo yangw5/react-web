@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Button, Col } from 'antd';
 import CFromInput from './CFromInput';
 import FromInput from './FromInput';
+import FormSelect from './FormSelect';
 
 const formItemLayout = {
     labelCol: {
@@ -26,6 +27,48 @@ class FromSearch extends Component {
         alert(this.props.form.getFieldsValue()['password']);
         this.props.form.setFieldsValue({ password: '' });
     };
+    //
+    sliceArray=(array,size)=>{
+        var result=[];
+        for(let i=0;i<=array.length/size;i++){
+            let start=i*size;
+            let end=start+size;
+            result.push(array.slice(start,end));
+        }
+        return result;
+    }
+    //类型渲染
+    _renderFromInput=(parms)=><FromInput {...{...formItemLayout,...parms,...this.props.form}}></FromInput>
+    _renderFormSelect=(parms)=><FormSelect {...{...formItemLayout,...parms,...this.props.form}} />
+    //类型判断
+    _renderFormItem=(item)=>{
+        switch(item.type){
+            case 'input':
+                return this._renderFromInput(item)
+            case 'select':
+                return this._renderFormSelect(item)
+
+        }
+    }
+    // fromItem jsx
+    getFields=(fromItems)=>{
+        return fromItems.map((v,i)=>(
+            // <Row gutter={24} key={i}>
+            //     v.map((m,n)=>(
+            // <Row gutter={24} key={i}>
+                    <Col span={6} key={i}>
+                        {this._renderFormItem(v)}
+                    </Col>
+              //  )
+            //     )
+            // </Row>
+        )
+        )
+    }
+    //提交
+    handleSearch=()=>{
+
+    }
     render() {
         let { form, searchItem } = this.props;
         return (
@@ -38,7 +81,11 @@ class FromSearch extends Component {
                     paddingRight: '90px',
                 }}
             >
-                {searchItem.map(v => (
+                  <Form onSubmit={this.handleSearch}>
+            {
+                this.getFields(searchItem)
+            }
+                {/* {searchItem.map(v => (
                     <Col span={6}>
                         <FromInput
                             {...{
@@ -63,7 +110,7 @@ class FromSearch extends Component {
                             // )}
                         />
                     </Col>
-                ))}
+                ))} */}
 
                 {false && (
                     <div>
@@ -108,6 +155,7 @@ class FromSearch extends Component {
                         </Button>
                     </div>
                 )}
+                </Form>
             </div>
         );
     }
