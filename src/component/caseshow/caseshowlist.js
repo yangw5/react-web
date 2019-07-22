@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import FromSearch from '../widget/FromSearch';
-// import { numberFilter as valueFilter } from '../../utils';
-const numberFilter = (value, regex = /\d+\.{0,1}\d*/g) => {
-    if (!value) return value;
-    // 正则表达式 匹配整数和小数
-    const match = (window._.isString(value) ? value : JSON.stringify(value)).match(regex);
-    return match ? match[0] : '';
-};
+import { numberFilter as valueFilter } from '../../utils';
 
 class CaseShowList extends Component {
     render() {
@@ -15,7 +9,7 @@ class CaseShowList extends Component {
                 label: '案例ID',
                 field: 'caseId',
                 type: 'input',
-                valueFilter: numberFilter,
+                valueFilter,
                 // valueFilter: value => valueFilter(value, REGEX_COPYRIGHTID),
             },
             {
