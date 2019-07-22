@@ -78,3 +78,14 @@ export const toHtmlPage = (htmlName, hashUrl = '') => {
         pathname.replace(reg.test(pathname) ? reg : pathname, `/${htmlName}.html`) +
         `#/${hashUrl}`;
 };
+/**
+/**
+ * 过滤字符串中的数字
+ * @param {*} value 数值
+ */
+export const numberFilter = (value, regex = /\d+\.{0,1}\d*/g) => {
+    if (!value) return value;
+    // 正则表达式 匹配整数和小数
+    const match = (window._.isString(value) ? value : JSON.stringify(value)).match(regex);
+    return match ? match[0] : '';
+};

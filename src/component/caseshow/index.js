@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BreadcrumbCustom } from '../widget';
+import CaseShowList from './caseshowlist';
 
 class CaseShow extends Component {
     render() {
@@ -7,6 +8,7 @@ class CaseShow extends Component {
         return (
             <div>
                 <BreadcrumbCustom {...{ breadItems }} />
+                <CaseShowList />
             </div>
         );
     }
