@@ -3,6 +3,7 @@ import { Form, Button, Col } from 'antd';
 import CFromInput from './CFromInput';
 import FromInput from './FromInput';
 import FormSelect from './FormSelect';
+import TableWidget from './TableWidget'
 const formItemLayout = {
     labelCol: {
         span: 6,
@@ -71,7 +72,6 @@ class FromSearch extends Component {
     render() {
         let { form, searchItem } = this.props;
         return (
-<<<<<<< .mine
             <div
                 className={'From_input'}
                 style={{
@@ -111,8 +111,8 @@ class FromSearch extends Component {
                         />
                     </Col>
                 ))} */}
-=======
-            <div>
+
+        
                 <div
                     className={'From_input'}
                     style={{
@@ -122,7 +122,7 @@ class FromSearch extends Component {
                         paddingRight: '90px',
                     }}
                 >
-                    {searchItem.map((v, i) => (
+                    {false&&searchItem.map((v, i) => (
                         <Col span={6} key={i}>
                             <FromInput
                                 {...{
@@ -150,8 +150,6 @@ class FromSearch extends Component {
                     ))}
                 </div>
 
-
->>>>>>> .theirs
 
                 {<TableWidget />}
                 {false && (
