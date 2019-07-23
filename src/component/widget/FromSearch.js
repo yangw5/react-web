@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Button, Col } from 'antd';
 import CFromInput from './CFromInput';
 import FromInput from './FromInput';
+import TableWidget from './TableWidget';
 
 const formItemLayout = {
     labelCol: {
@@ -29,42 +30,45 @@ class FromSearch extends Component {
     render() {
         let { form, searchItem } = this.props;
         return (
-            <div
-                className={'From_input'}
-                style={{
-                    display: 'flex',
-                    justifyContent: 'flex-start',
-                    flexWrap: 'wrap',
-                    paddingRight: '90px',
-                }}
-            >
-                {searchItem.map(v => (
-                    <Col span={6}>
-                        <FromInput
-                            {...{
-                                ...this.props.form,
-                                ...formItemLayout,
-                                ...v,
-                            }}
-                            max={10}
-                            form={form}
-                            // field={v.field}
-                            // label={v.label}
-                            // valueFilter={v.valueFilter}
-                            // initialValue={this.state.initialValue}
-                            // addonAfter={(id, props) => (
-                            //     <span
-                            //         onClick={props => {
-                            //             this.onsumit();
-                            //         }}
-                            //     >
-                            //         清除
-                            //     </span>
-                            // )}
-                        />
-                    </Col>
-                ))}
+            <div>
+                <div
+                    className={'From_input'}
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'flex-start',
+                        flexWrap: 'wrap',
+                        paddingRight: '90px',
+                    }}
+                >
+                    {searchItem.map((v, i) => (
+                        <Col span={6} key={i}>
+                            <FromInput
+                                {...{
+                                    ...this.props.form,
+                                    ...formItemLayout,
+                                    ...v,
+                                }}
+                                max={10}
+                                form={form}
+                                // field={v.field}
+                                // label={v.label}
+                                // valueFilter={v.valueFilter}
+                                // initialValue={this.state.initialValue}
+                                // addonAfter={(id, props) => (
+                                //     <span
+                                //         onClick={props => {
+                                //             this.onsumit();
+                                //         }}
+                                //     >
+                                //         清除
+                                //     </span>
+                                // )}
+                            />
+                        </Col>
+                    ))}
+                </div>
 
+                {<TableWidget />}
                 {false && (
                     <div>
                         <CFromInput label={'姓名'} field={'userName'} max={50} required={true} />
