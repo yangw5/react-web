@@ -1,0 +1,32 @@
+.root {
+    &:global.ant-form {
+        display: flex;
+        flex-wrap: wrap;
+        .ant-form-item {
+            margin-bottom: 16px;
+            // width: 100%;
+        }
+        .ant-form-item-label {
+            width: 100px !important;
+        }
+        .ant-input {
+            border-radius: 2px;
+        }
+    }
+    .whole {
+        flex-basis: 100%;
+    }
+    .average-3 {
+        display: flex;
+        flex-basis: 33.3%;
+    }
+    .average-2 {
+        flex-basis: 50%;
+    }
+    :global {
+        .ant-dropdown-menu {
+            height: 300px;
+            overflow: auto;
+        }
+    }
+}

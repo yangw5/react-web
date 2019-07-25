@@ -1,6 +1,7 @@
 import React, { useRef, forwardRef, useImperativeHandle } from 'react';
 import { ModalContainer, DataEdit } from '../widget';
 import { Form, Row } from 'antd';
+const STATUS = [{ id: '1', name: '在线' }, { id: '2', name: '离线' }, { id: '3', name: '潜水' }];
 const CaseForm = (props, ref) => {
     const modalRef = useRef();
     // 通过处理，父组件获取HOC子ref使用
@@ -10,6 +11,13 @@ const CaseForm = (props, ref) => {
             label: '案例名称',
             field: 'name',
             fieldType: 'input',
+            required: true,
+        },
+        {
+            label: '状态',
+            field: 'status',
+            fieldType: 'select',
+            options: STATUS,
             required: true,
         },
     ];

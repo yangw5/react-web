@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form } from 'antd';
-import { FromInput } from './index';
+import { FromInput, FormSelect, Col } from './index';
 import styles from './DataEdit.module.less';
 
 class DataEdit extends Component {
@@ -9,7 +9,7 @@ class DataEdit extends Component {
         this.state = {};
         this.components = {
             input: FromInput,
-            // select: FormSelect,
+            select: FormSelect,
             // 'textarea': FormTextArea,
             // 'radio': FormRadio,
             // 'inputGroup': FormInputGroup,
@@ -43,9 +43,11 @@ class DataEdit extends Component {
     render() {
         const { items } = this.props;
         return (
-            <Form>
+            <Form className={styles.root} layout="inline">
                 {items.map((item, i) => (
-                    <span key={i}>{this._renderForm(this.components[item.fieldType], item)}</span>
+                    <span key={i} className={styles['average-3']}>
+                        {this._renderForm(this.components[item.fieldType], item)}
+                    </span>
                 ))}
             </Form>
         );
