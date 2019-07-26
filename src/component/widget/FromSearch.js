@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Form, Button, Col } from 'antd';
+import { Form, Button, Col, Card } from 'antd';
 import CFromInput from './CFromInput';
 import FromInput from './FromInput';
 import FormSelect from './FormSelect';
-import TableWidget from './TableWidget'
+import TableWidget from './TableWidget';
 const formItemLayout = {
     labelCol: {
         span: 6,
@@ -28,49 +28,49 @@ class FromSearch extends Component {
         this.props.form.setFieldsValue({ password: '' });
     };
     //
-    sliceArray=(array,size)=>{
-        var result=[];
-        for(let i=0;i<=array.length/size;i++){
-            let start=i*size;
-            let end=start+size;
-            result.push(array.slice(start,end));
+    sliceArray = (array, size) => {
+        var result = [];
+        for (let i = 0; i <= array.length / size; i++) {
+            let start = i * size;
+            let end = start + size;
+            result.push(array.slice(start, end));
         }
         return result;
-    }
+    };
     //类型渲染
-    _renderFromInput=(parms)=><FromInput {...{...formItemLayout,...parms,...this.props.form}}></FromInput>
-    _renderFormSelect=(parms)=><FormSelect {...{...formItemLayout,...parms,...this.props.form}} />
+    _renderFromInput = parms => (
+        <FromInput {...{ ...formItemLayout, ...parms, ...this.props.form }} />
+    );
+    _renderFormSelect = parms => (
+        <FormSelect {...{ ...formItemLayout, ...parms, ...this.props.form }} />
+    );
     //类型判断
-    _renderFormItem=(item)=>{
-        switch(item.type){
+    _renderFormItem = item => {
+        switch (item.type) {
             case 'input':
-                return this._renderFromInput(item)
+                return this._renderFromInput(item);
             case 'select':
-                return this._renderFormSelect(item)
-
+                return this._renderFormSelect(item);
         }
-    }
+    };
     // fromItem jsx
-    getFields=(fromItems)=>{
-        return fromItems.map((v,i)=>(
+    getFields = fromItems => {
+        return fromItems.map((v, i) => (
             // <Row gutter={24} key={i}>
             //     v.map((m,n)=>(
             // <Row gutter={24} key={i}>
-                    <Col span={6} key={i}>
-                        {this._renderFormItem(v)}
-                    </Col>
-              //  )
+            <Col span={6} key={i}>
+                {this._renderFormItem(v)}
+            </Col>
+            //  )
             //     )
             // </Row>
-        )
-        )
-    }
+        ));
+    };
     //提交
-    handleSearch=()=>{
-
-    }
+    handleSearch = () => {};
     render() {
-        let { form, searchItem } = this.props;
+        let { form, searchItem, title = '' } = this.props;
         return (
             <div
                 className={'From_input'}
@@ -81,11 +81,10 @@ class FromSearch extends Component {
                     paddingRight: '90px',
                 }}
             >
-                  <Form onSubmit={this.handleSearch}>
-            {
-                this.getFields(searchItem)
-            }
-                {/* {searchItem.map(v => (
+                <Card id="area" title={title} bordered={false}>
+                    <Form onSubmit={this.handleSearch}>
+                        {this.getFields(searchItem)}
+                        {/* {searchItem.map(v => (
                     <Col span={6}>
                         <FromInput
                             {...{
@@ -112,46 +111,49 @@ class FromSearch extends Component {
                     </Col>
                 ))} */}
 
-        
-                <div
-                    className={'From_input'}
-                    style={{
-                        display: 'flex',
-                        justifyContent: 'flex-start',
-                        flexWrap: 'wrap',
-                        paddingRight: '90px',
-                    }}
-                >
-                    {false&&searchItem.map((v, i) => (
-                        <Col span={6} key={i}>
-                            <FromInput
-                                {...{
-                                    ...this.props.form,
-                                    ...formItemLayout,
-                                    ...v,
-                                }}
-                                max={10}
-                                form={form}
-                                // field={v.field}
-                                // label={v.label}
-                                // valueFilter={v.valueFilter}
-                                // initialValue={this.state.initialValue}
-                                // addonAfter={(id, props) => (
-                                //     <span
-                                //         onClick={props => {
-                                //             this.onsumit();
-                                //         }}
-                                //     >
-                                //         清除
-                                //     </span>
-                                // )}
-                            />
-                        </Col>
-                    ))}
+                        <div
+                            className={'From_input'}
+                            style={{
+                                display: 'flex',
+                                justifyContent: 'flex-start',
+                                flexWrap: 'wrap',
+                                paddingRight: '90px',
+                            }}
+                        >
+                            {false &&
+                                searchItem.map((v, i) => (
+                                    <Col span={6} key={i}>
+                                        <FromInput
+                                            {...{
+                                                ...this.props.form,
+                                                ...formItemLayout,
+                                                ...v,
+                                            }}
+                                            max={10}
+                                            form={form}
+                                            // field={v.field}
+                                            // label={v.label}
+                                            // valueFilter={v.valueFilter}
+                                            // initialValue={this.state.initialValue}
+                                            // addonAfter={(id, props) => (
+                                            //     <span
+                                            //         onClick={props => {
+                                            //             this.onsumit();
+                                            //         }}
+                                            //     >
+                                            //         清除
+                                            //     </span>
+                                            // )}
+                                        />
+                                    </Col>
+                                ))}
+                        </div>
+                    </Form>
+                </Card>
+                <div style={{ width: '100%' }}>
+                    <Card bordered={false}>{<TableWidget />}</Card>
                 </div>
 
-
-                {<TableWidget />}
                 {false && (
                     <div>
                         <CFromInput label={'姓名'} field={'userName'} max={50} required={true} />
@@ -195,7 +197,6 @@ class FromSearch extends Component {
                         </Button>
                     </div>
                 )}
-                </Form>
             </div>
         );
     }

@@ -40,13 +40,17 @@ class FormSelect extends Component {
         const {
             label,
             labelCol = { span: 6 },
-            wrapperCol = { span: 18 },
+            wrapperCol = { span: 10 },
             getFieldDecorator,
             field = '',
             message = '',
         } = this.props;
         return (
-            <Form.Item {...{ label, labelCol, wrapperCol }} id="area" style={{ display: 'flex' }}>
+            <Form.Item
+                {...{ label, labelCol, wrapperCol }}
+                id="area"
+                style={{ display: 'flex', width: '100%' }}
+            >
                 <InputGroup>
                     {getFieldDecorator(field, {})(
                         <Select
@@ -54,7 +58,7 @@ class FormSelect extends Component {
                                 document.getElementById('area') || document.querySelector('body')
                             }
                             placeholder={message || `请选择${label}`}
-                            style={{ width: '80%', marginRight: 2 }}
+                            style={{ width: '100%', marginRight: 2 }}
                         >
                             {this.setOptions({})}
                         </Select>

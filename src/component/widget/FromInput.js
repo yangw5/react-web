@@ -61,8 +61,8 @@ export default ({
             },
         },
         {
-            // validator: (rule, value, callback) =>
-            //     numberValidator(rule, value, callback, validator, ruleType),
+            validator: (rule, value, callback) =>
+                numberValidator(rule, value, callback, validator, ruleType),
         },
     ];
     if (max) rules.push({ max, message: `不能输入超过${max}个字符` });

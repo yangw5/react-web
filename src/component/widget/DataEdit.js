@@ -45,7 +45,7 @@ class DataEdit extends Component {
         return (
             <Form className={styles.root} layout="inline">
                 {items.map((item, i) => (
-                    <span key={i} className={styles['average-3']}>
+                    <span key={i} className={styles['average-2']}>
                         {this._renderForm(this.components[item.fieldType], item)}
                     </span>
                 ))}

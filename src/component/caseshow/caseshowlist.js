@@ -7,6 +7,7 @@ import CaseForm from './CaseForm';
 const CaseShowList = () => {
     const [events, setEvents] = useState([]);
     const modalFormRef = useRef(null);
+    //useEffect(()=>{},[])
     //    useEffect(() => {
     //        console.log('请求数据');
     //        setLoading(true);
