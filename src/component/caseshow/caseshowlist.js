@@ -6,7 +6,17 @@ import CaseForm from './CaseForm';
 
 const CaseShowList = () => {
     const [events, setEvents] = useState([]);
+
     const modalFormRef = useRef(null);
+    let [count, setCount] = useState(0);
+    const prevCountRef = useRef();
+
+    useEffect(() => {
+        console.log('inside:' + count);
+        prevCountRef.current = count;
+    });
+    const prevCount = prevCountRef.current;
+    console.log('outside:' + count);
     //useEffect(()=>{},[])
     //    useEffect(() => {
     //        console.log('请求数据');
@@ -77,6 +87,15 @@ const CaseShowList = () => {
             /> */}
             <Button onClick={() => modalFormRef.current._open()}>新建</Button>
             <CaseForm wrappedComponentRef={modalFormRef} {...{ onOk }} />
+            <Button
+                onClick={() => {
+                    let a = count++;
+                    setCount(a);
+                }}
+            >
+                count++
+            </Button>
+            <p>{`value:${count},prevCount:${prevCount}`}</p>
         </div>
     );
 };
