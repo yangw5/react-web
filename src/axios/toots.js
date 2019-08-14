@@ -17,7 +17,7 @@ const setOption = ({
     data,
     meg = '接口异常',
     method = 'get',
-    isFormData,
+    isFormData = false,
     isJson,
     timeout = TIMEOUT,
     ...restArgs
@@ -106,7 +106,7 @@ export const post = ({
     msg = '接口异常',
     method = 'post',
     isFormData,
-    isjson,
+    isJson,
     axiosConfig,
 }) =>
     axios(
@@ -116,7 +116,7 @@ export const post = ({
             msg,
             method,
             isFormData,
-            isjson,
+            isJson,
             axiosConfig,
         })
     )

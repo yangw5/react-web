@@ -5,5 +5,15 @@ import FromSearch from './FromSearch';
 import BreadcrumbCustom from './BreadcrumbCustom';
 import ModalContainer from './ModalContainer';
 import DataEdit from './DataEdit';
+import ImgList from './ImgList';
 
-export { FromInput, FormSelect, Buttons, FromSearch, BreadcrumbCustom, ModalContainer, DataEdit };
+export {
+    FromInput,
+    FormSelect,
+    Buttons,
+    FromSearch,
+    BreadcrumbCustom,
+    ModalContainer,
+    DataEdit,
+    ImgList,
+};

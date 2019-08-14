@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BreadcrumbCustom } from '../../widget';
+import { BreadcrumbCustom, ImgList } from '../../widget';
 
 class Gallery extends Component {
     render() {
@@ -8,6 +8,7 @@ class Gallery extends Component {
         return (
             <div>
                 <BreadcrumbCustom {...{ separator: '>', breadItems }} />
+                <ImgList />
             </div>
         );
     }
