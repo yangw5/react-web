@@ -70,6 +70,9 @@ class CaseShow extends Component {
         if (key === 70) {
             this.state.actorarry['actor1'].fighting();
         }
+        if (key === 69) {
+            this.state.actorarry['actor1'].say();
+        }
     };
     onkeydown;
     render() {

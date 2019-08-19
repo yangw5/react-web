@@ -8,6 +8,7 @@ import { subnetMatch } from 'ipaddr.js';
 //类比：组件化开发
 
 //享元模式+寄生组合式继承实现多角色创建
+
 //创建一个基础角色
 //基础属性
 //基础权限
@@ -47,24 +48,8 @@ actor.prototype.walking = function() {
 actor.prototype.pause = function() {
     clearInterval(this.time);
 };
-//角色池
-function actorpoor(type, id, name, outside, permission, actorpoor, dom, fight1) {
-    if (actorpoor[type]) return actorpoor;
-    let newactor = null;
-    if (type === 'actor')
-        newactor = new actor({
-            id,
-            name,
-            outside,
-            permission,
-            dom,
-        });
-    else newactor = new actor1({ id, name, outside, permission, dom, fight1 });
-    // else newactor = new actor2(id, name, permission);
-    actorpoor[type] = newactor;
-    return actorpoor;
-}
 
+//定义继承父级的prototype的方法
 function inheritProtype(sub, sup) {
     let prototype = Object.create(sup.prototype);
     prototype.constructor = sub;
@@ -86,12 +71,12 @@ function actor1({ id, name, outside, permission, dom, fight1 }) {
     actor.call(this, { id, name, outside, permission, dom });
     this.fight1 = fight1;
 }
-
+//继承父级的prototype的方法
 inheritProtype(actor1, actor);
 
-//基础基础角色的方法
+//升级角色的方法
 actor1.prototype.say = function() {
-    console.log(`我是二代角色-${this.name}`);
+    alert(`我是二代角色-${this.name}`);
 };
 
 actor1.prototype.fight = function() {
@@ -107,7 +92,26 @@ actor.prototype.fighting = function() {
     this.pause();
     this.time = setInterval(() => this.fight(), 500);
 };
-//实例化基础角色
+
+//角色池
+function actorpoor(type, id, name, outside, permission, actorpoor, dom, fight1) {
+    if (actorpoor[type]) return actorpoor;
+    let newactor = null;
+    if (type === 'actor')
+        newactor = new actor({
+            id,
+            name,
+            outside,
+            permission,
+            dom,
+        });
+    else newactor = new actor1({ id, name, outside, permission, dom, fight1 });
+    // else newactor = new actor2(id, name, permission);
+    actorpoor[type] = newactor;
+    return actorpoor;
+}
+
+//实例化角色
 
 function CreactActor(type, id, name, outside, permission, actorarry, dom) {
     return actorpoor(type, id, name, outside, permission, actorarry, dom);
