@@ -60,9 +60,19 @@ export default {
             key: '/app/caseshow/index',
             title: '案例展示',
             icon: 'file-done',
-            component: 'CaseShow',
             requirement: ['head'],
-            // subs: []
+            subs: [
+                {
+                    key: '/app/caseshow/index',
+                    title: '案例汇总',
+                    component: 'CaseShow',
+                },
+                {
+                    key: '/app/caseshow/gameshow/Gameshow',
+                    title: '游戏人生',
+                    component: 'Gameshow',
+                },
+            ],
         },
     ],
 };

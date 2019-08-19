@@ -9,6 +9,7 @@ import CaseShow from './caseshow';
 import Uis from './ui';
 import Gallery from './ui/gallery';
 import DashBoard from './dashboard';
+import Gameshow from './caseshow/gameshow/Gameshow';
 export default {
     FrontEnd,
     BaseStation,
@@ -17,4 +18,5 @@ export default {
     DashBoard,
     Uis,
     Gallery,
+    Gameshow,
 };
