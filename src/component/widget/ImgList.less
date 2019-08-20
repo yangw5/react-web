@@ -8,19 +8,24 @@
             flex-direction: row;
             flex-wrap: wrap;
             align-items: flex-end;
+            padding: 0px;
             .img-container__ul__li {
                 list-style: none;
-                border: 5px solid #eee;
-                border-radius: 5px;
                 overflow: hidden;
                 display: block;
-                margin: 5px;
                 position: relative;
+                border-radius: 5px;
                 &:hover .img-container__img {
                     transform: scale(1.5);
                 }
                 &:hover .img-container-title {
                     display: block;
+                }
+                .img-container__img {
+                    border: 5px solid #fff;
+                    box-sizing: border-box;
+                    padding: 5px;
+                    border-radius: 5px;
                 }
                 .img-container__img,
                 .img-container-title {
