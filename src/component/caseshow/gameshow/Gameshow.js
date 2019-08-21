@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BreadcrumbCustom } from '../../widget';
-import { CreactActor, CreactActor1 } from '../../classextends/game/actor';
+import { CreactActor } from '../../classextends/game/js/creactactor';
 import img1 from '../../classextends/game/imgs/37988/1.png';
 import img2 from '../../classextends/game/imgs/37988/2.png';
 import img3 from '../../classextends/game/imgs/37988/3.png';
@@ -18,6 +18,17 @@ import fimg5 from '../../classextends/game/imgs/37988/F/f5.png';
 import fimg6 from '../../classextends/game/imgs/37988/F/f6.png';
 import fimg7 from '../../classextends/game/imgs/37988/F/f7.png';
 import fimg8 from '../../classextends/game/imgs/37988/F/f8.png';
+
+import a1 from '../../classextends/game/imgs/a1/a1.png';
+import a2 from '../../classextends/game/imgs/a1/a2.png';
+import a3 from '../../classextends/game/imgs/a1/a3.png';
+import a4 from '../../classextends/game/imgs/a1/a4.png';
+
+import aj1 from '../../classextends/game/imgs/a1/a1.jpg';
+import aj2 from '../../classextends/game/imgs/a1/a2.jpg';
+import aj3 from '../../classextends/game/imgs/a1/a3.jpg';
+import aj4 from '../../classextends/game/imgs/a1/a4.jpg';
+
 class CaseShow extends Component {
     constructor(props) {
         super(props);
@@ -30,50 +41,64 @@ class CaseShow extends Component {
     componentDidMount() {
         let outside = [img1, img2, img3, img4, img5, img6, img7, img8];
         let foutside = [fimg1, fimg2, fimg3, fimg4, fimg5, fimg6, fimg7, fimg8];
-        let a = CreactActor(
-            'actor',
-            1,
-            '小五',
-            outside,
-            [],
-            this.state.actorarry,
-            this.actor.current
-        );
-        let b = CreactActor1(
-            'actor1',
-            2,
-            '小五1',
-            outside,
-            [],
-            this.state.actorarry,
-            this.actor1.current,
-            foutside
-        );
+        let a = [a1, a2, a3, a4];
+        let aj = [aj1, aj2, aj3, aj4];
+        // let a = CreactActor(
+        //     'actor',
+        //     1,
+        //     '小五',
+        //     outside,
+        //     [],
+        //     this.state.actorarry,
+        //     this.actor.current
+        // );
+        // let b = CreactActor({
+        //     type: 'actor1',
+        //     id: 2,
+        //     name: '小五1',
+        //     outside: outside,
+        //     permission: [],
+        //     actorpoor: this.state.actorarry,
+        //     dom: this.actor1.current,
+        //     fight: foutside,
+        // });
+        let b = CreactActor({
+            type: 'monster',
+            id: 4,
+            name: '豹子',
+            outside: a,
+            permission: [],
+            actorpoor: this.state.actorarry,
+            dom: this.actor1.current,
+            fight: foutside,
+        });
+        let c = CreactActor({
+            type: 'monster',
+            id: 3,
+            name: '豹子',
+            outside: aj,
+            permission: [],
+            actorpoor: this.state.actorarry,
+            dom: this.actor1.current,
+            fight: foutside,
+        });
         this.setState(
             {
                 actorarry: b,
             },
             () => {
-                this.state.actorarry['actor1'].show();
+                this.state.actorarry['monster'][0].init();
             }
         );
-        window.addEventListener('keydown', this.hanldeUp);
+        // window.addEventListener('keydown', this.hanldeUp);
     }
     hanldeDown = e => {
-        this.state.actorarry['actor1'].pause();
+        this.state.actorarry['monster'].pause();
     };
-    hanldeUp = e => {
-        let key = e.keyCode;
-        if (key === 39) {
-            this.state.actorarry['actor1'].walking();
-        }
-        if (key === 70) {
-            this.state.actorarry['actor1'].fighting();
-        }
-        if (key === 69) {
-            this.state.actorarry['actor1'].say();
-        }
-    };
+    // hanldeUp = e => {
+    //     //初始化设置按键
+    //     this.state.actorarry['actor1'].init();
+    // };
     onkeydown;
     render() {
         const breadItems = [{ title: '游戏人生' }];
