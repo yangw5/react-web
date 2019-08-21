@@ -28,21 +28,31 @@ import aj1 from '../../classextends/game/imgs/a1/a1.jpg';
 import aj2 from '../../classextends/game/imgs/a1/a2.jpg';
 import aj3 from '../../classextends/game/imgs/a1/a3.jpg';
 import aj4 from '../../classextends/game/imgs/a1/a4.jpg';
+import { array } from 'prop-types';
+let outside = [img1, img2, img3, img4, img5, img6, img7, img8];
+let foutside = [fimg1, fimg2, fimg3, fimg4, fimg5, fimg6, fimg7, fimg8];
+let a = [a1, a2, a3, a4];
+let aj = [aj1, aj2, aj3, aj4];
 
 class CaseShow extends Component {
     constructor(props) {
         super(props);
         this.actor = React.createRef();
         this.actor1 = React.createRef();
+        this.actor2 = React.createRef();
         this.state = {
-            actorarry: [],
+            actorarry: {},
+            re: false,
         };
     }
     componentDidMount() {
-        let outside = [img1, img2, img3, img4, img5, img6, img7, img8];
-        let foutside = [fimg1, fimg2, fimg3, fimg4, fimg5, fimg6, fimg7, fimg8];
-        let a = [a1, a2, a3, a4];
-        let aj = [aj1, aj2, aj3, aj4];
+        this.newactor();
+    }
+    hanldeDown = e => {
+        this.state.actorarry['monster'][0].pause();
+    };
+    newactor = () => {
+        let actorpoor = { ...this.state.actorarry };
         // let a = CreactActor(
         //     'actor',
         //     1,
@@ -52,48 +62,50 @@ class CaseShow extends Component {
         //     this.state.actorarry,
         //     this.actor.current
         // );
-        // let b = CreactActor({
-        //     type: 'actor1',
-        //     id: 2,
-        //     name: '小五1',
-        //     outside: outside,
-        //     permission: [],
-        //     actorpoor: this.state.actorarry,
-        //     dom: this.actor1.current,
-        //     fight: foutside,
-        // });
-        let b = CreactActor({
+        CreactActor({
+            type: 'actor1',
+            id: 2,
+            name: '小五',
+            outside: outside,
+            permission: [],
+            actorpoor: actorpoor,
+            dom: this.actor1.current,
+            fight1: foutside,
+        });
+        CreactActor({
             type: 'monster',
             id: 4,
-            name: '豹子',
+            name: '凤凰',
             outside: a,
             permission: [],
-            actorpoor: this.state.actorarry,
-            dom: this.actor1.current,
-            fight: foutside,
+            actorpoor: actorpoor,
+            // dom: this.actor1.current,
         });
-        let c = CreactActor({
+        CreactActor({
             type: 'monster',
-            id: 3,
-            name: '豹子',
-            outside: aj,
+            id: 5,
+            name: '凤凰2',
+            outside: a,
             permission: [],
-            actorpoor: this.state.actorarry,
-            dom: this.actor1.current,
-            fight: foutside,
+            actorpoor: actorpoor,
+            // dom: this.actor1.current,
         });
         this.setState(
             {
-                actorarry: b,
+                actorarry: { ...actorpoor },
             },
             () => {
-                this.state.actorarry['monster'][0].init();
+                Object.keys(this.state.actorarry).forEach(v => {
+                    if (this.state.actorarry[v] instanceof Array) {
+                        this.state.actorarry[v].forEach((v, i) => {
+                            v.init(this);
+                        });
+                    } else {
+                        this.state.actorarry[v].init(this);
+                    }
+                });
             }
         );
-        // window.addEventListener('keydown', this.hanldeUp);
-    }
-    hanldeDown = e => {
-        this.state.actorarry['monster'].pause();
     };
     // hanldeUp = e => {
     //     //初始化设置按键
@@ -102,6 +114,7 @@ class CaseShow extends Component {
     onkeydown;
     render() {
         const breadItems = [{ title: '游戏人生' }];
+        let { actorarry } = this.state;
         return (
             <div>
                 <BreadcrumbCustom {...{ breadItems }} />
@@ -122,17 +135,46 @@ class CaseShow extends Component {
                         onClick={e => this.hanldeDown(e)}
                         onDoubleClick={() => this.hanldeUp()}
                     /> */}
-                    <p>-----------------------------</p>
-                    <img
+                    {Object.keys(actorarry).map(key => {
+                        if (actorarry[key] instanceof Array) {
+                            return actorarry[key].map((v, i) => (
+                                <div
+                                    key={i}
+                                    className="actor__div"
+                                    style={{
+                                        display: 'fiex',
+                                        position: 'relative',
+                                        left: `${v.left}px`,
+                                        marginLeft: '50px',
+                                    }}
+                                >
+                                    <img src={v.src} title={v.name} />
+                                </div>
+                            ));
+                        } else {
+                            return (
+                                <div
+                                    className="actor__div"
+                                    style={{
+                                        position: 'fiex',
+                                        left: `${actorarry[key].left}px`,
+                                    }}
+                                >
+                                    <img src={actorarry[key].src} title={actorarry[key].name} />
+                                </div>
+                            );
+                        }
+                    })}
+                    {/* <img
                         style={{
                             position: 'relative',
                             left: '50px',
                             top: '50px',
                         }}
-                        ref={this.actor1}
+                        ref={this.actor2}
                         onClick={e => this.hanldeDown(e)}
                         onDoubleClick={() => this.hanldeUp()}
-                    />
+                    /> */}
                     {/* <Actor /> */}
                     {/* onKeyDown={e => this.hanldeDown(e)} onKeyUp={e => this.hanldeUp(e)} */}
                     {/* <img src={require('../../classextends/game/imgs/37988/1.png')} /> */}

@@ -1,8 +1,7 @@
 import { actor, actor1, Monster } from '../actor';
-import { of } from 'rxjs';
 
 //角色池
-function actorpoor({ type, id, name, outside, permission, actorpoor, dom, fight1 }) {
+function actorpoor({ type, id, name, outside, permission, actorpoor, dom, fight1, src }) {
     let onlyone = ['actor', 'actor1']; //单例模式
     if (actorpoor[type] && onlyone.includes(type)) return actorpoor;
     let newactor = null;
@@ -14,6 +13,7 @@ function actorpoor({ type, id, name, outside, permission, actorpoor, dom, fight1
                 outside,
                 permission,
                 dom,
+                src,
             });
             break;
         case 'actor1':
@@ -24,6 +24,7 @@ function actorpoor({ type, id, name, outside, permission, actorpoor, dom, fight1
                 permission,
                 dom,
                 fight1,
+                src,
             });
             break;
         case 'monster':
@@ -33,11 +34,19 @@ function actorpoor({ type, id, name, outside, permission, actorpoor, dom, fight1
                 outside,
                 permission,
                 dom,
+                src,
             });
             break;
     }
     if (actorpoor[type] instanceof Array) actorpoor[type].push(newactor);
-    else actorpoor[type] = actorpoor;
+    else {
+        if (onlyone.includes(type)) {
+            actorpoor[type] = newactor;
+        } else {
+            actorpoor[type] = [];
+            actorpoor[type].push(newactor);
+        }
+    }
     return actorpoor;
 }
 

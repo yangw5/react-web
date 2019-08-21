@@ -15,7 +15,7 @@ import { setdo } from './js/actions';
 //基础属性
 //基础权限
 //设置动作 上下左右
-function actor({ id, name, outside, permission, dom, picSub = 0, noa = 0 }) {
+function actor({ id, name, outside, permission, dom, picSub = 0, noa = 0, src }) {
     //编号 名字 外形， 动作权限
     this.name = name;
     this.id = id;
@@ -26,28 +26,13 @@ function actor({ id, name, outside, permission, dom, picSub = 0, noa = 0 }) {
     this.noa = noa;
     this.config = {};
     this.time = null;
+    this.src = src;
+    this.left = 0;
 }
 //初始化
-actor.prototype.init = function(e) {
+actor.prototype.init = function() {
     //此时 setdata的this是Window
-    let _this = this;
-    window.addEventListener('keydown', e => {
-        this.setdata(e);
-    });
     this.show();
-};
-//e按键KeyboardEvent对象 ()=>{}保存this指向 h还是window
-actor.prototype.setdata = function(e) {
-    //设置按键属性
-    let walking = this.walking.bind(this);
-    let online = this.online.bind(this);
-    // let online = this.online.call(this);
-    // let online = this.online.apply(this);
-    let config = {
-        39: walking,
-        69: online,
-    };
-    setdo(e, config);
 };
 //角色上线
 actor.prototype.online = function() {
@@ -55,24 +40,25 @@ actor.prototype.online = function() {
 };
 //角色显示
 actor.prototype.show = function() {
-    this.dom.src = this.outside[this.picSub];
+    this.src = this.outside[this.picSub];
+    if (this.dom) this.dom.src = this.outside[this.picSub];
 };
 //通过修改img的src 实现图片切换达到行走的效果
 //行为 行走
-actor.prototype.walk = function() {
-    if (this.picSub == this.outside.length) {
+actor.prototype.walk = function(e, distance) {
+    if (this.picSub == this.outside.length - 1) {
         this.picSub = 0;
     } else this.picSub++;
-
-    this.dom.src = this.outside[this.picSub];
-    this.dom.style.left = parseInt(this.dom.style.left) + 20 + 'px';
-    console.log(this.dom.style.left);
+    this.src = this.outside[this.picSub];
+    if (this.dom) this.dom.src = this.outside[this.picSub];
+    if (this.dom) this.dom.style.left = parseInt(this.dom.style.left) + distance + 'px';
+    updata(e);
     // console.log(this.dom.getBoundingClientRect());
 };
-actor.prototype.walking = function() {
+actor.prototype.walking = function(e, time = 500, distance = 1) {
     console.log(this);
     this.pause();
-    this.time = setInterval(() => this.walk(), 500);
+    this.time = setInterval(() => this.walk(e, distance), time);
 };
 //行为 暂停
 actor.prototype.pause = function() {
@@ -98,8 +84,8 @@ function inheritProtype(sub, sup) {
  *
  * @function {*} actor1 角色版本1.0
  */
-function actor1({ id, name, outside, permission, dom, fight1 }) {
-    actor.call(this, { id, name, outside, permission, dom });
+function actor1({ id, name, outside, permission, dom, src, fight1 }) {
+    actor.call(this, { id, name, outside, permission, dom, src });
     this.fight1 = fight1;
 }
 //继承父级的prototype的方法
@@ -109,15 +95,40 @@ inheritProtype(actor1, actor);
 actor1.prototype.say = function() {
     alert(`我是二代角色-${this.name}`);
 };
+//初始化
+actor1.prototype.init = function(e) {
+    //此时 setdata的this是Window
+    let _this = this;
+    //()=>{}保存this指向
+    window.addEventListener('keydown', e => {
+        this.setdata(e);
+    });
+    this.show();
+};
+//e按键KeyboardEvent对象 ()=>{}保存this指向 h还是window
+actor1.prototype.setdata = function(e) {
+    //设置按键属性
+    let walking = this.walking.bind(this);
+    let online = this.online.bind(this);
+    let fight = this.fight.bind(this);
+    // let online = this.online.call(this);
+    // let online = this.online.apply(this);
+    let config = {
+        39: walking,
+        69: online,
+        70: fight,
+    };
+    setdo(e, config);
+};
 //行为 攻击
 actor1.prototype.fight = function() {
-    if (this.picSub == this.fight1.length) {
+    if (this.picSub === this.fight1.length - 1) {
         this.picSub = 0;
     } else this.picSub++;
-
-    this.dom.src = this.fight1[this.picSub];
-    this.dom.style.left = parseInt(this.dom.style.left) + 10 + 'px';
-    console.log(this.dom.style.left);
+    this.src = this.fight1[this.picSub];
+    this.left = parseInt(this.left) + 10;
+    if (this.dom) this.dom.src = this.fight1[this.picSub];
+    if (this.dom) this.dom.style.left = parseInt(this.dom.style.left) + 10 + 'px';
 };
 actor1.prototype.fighting = function() {
     this.pause();
@@ -128,11 +139,23 @@ actor1.prototype.fighting = function() {
  *
  * @function {*} Monster 怪兽角色1.0
  */
-function Monster({ id, name, outside, permission, dom }) {
-    actor.call(this, { id, name, outside, permission, dom });
+function Monster({ id, name, outside, permission, dom, src }) {
+    actor.call(this, { id, name, outside, permission, dom, src });
 }
 //继承父级基础角色的prototype的方法
 inheritProtype(Monster, actor);
+
+Monster.prototype.init = function(e) {
+    //e用来更新视图
+    this.walking(e);
+};
+
+function updata(e) {
+    e &&
+        e.setState({
+            re: !e.state.re,
+        });
+}
 
 //暴露对象
 export { actor, actor1, Monster };
