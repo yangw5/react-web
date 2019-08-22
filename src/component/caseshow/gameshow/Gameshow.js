@@ -28,11 +28,36 @@ import aj1 from '../../classextends/game/imgs/a1/a1.jpg';
 import aj2 from '../../classextends/game/imgs/a1/a2.jpg';
 import aj3 from '../../classextends/game/imgs/a1/a3.jpg';
 import aj4 from '../../classextends/game/imgs/a1/a4.jpg';
-import { array } from 'prop-types';
+
+import f1 from '../../classextends/game/imgs/32457/f1.png';
+import f2 from '../../classextends/game/imgs/32457/f2.png';
+import f3 from '../../classextends/game/imgs/32457/f3.png';
+import f4 from '../../classextends/game/imgs/32457/f4.png';
+
+import f11 from '../../classextends/game/imgs/32457/1.png';
+import f12 from '../../classextends/game/imgs/32457/2.png';
+import f13 from '../../classextends/game/imgs/32457/3.png';
+import f14 from '../../classextends/game/imgs/32457/4.png';
+import f15 from '../../classextends/game/imgs/32457/5.png';
+
+import a11 from '../../classextends/game/imgs/37790/2.png';
+import a12 from '../../classextends/game/imgs/37790/3.png';
+import a13 from '../../classextends/game/imgs/37790/4.png';
+import a14 from '../../classextends/game/imgs/37790/5.png';
+import a15 from '../../classextends/game/imgs/37790/6.png';
+import a16 from '../../classextends/game/imgs/37790/7.png';
+import a17 from '../../classextends/game/imgs/37790/8.png';
+import a18 from '../../classextends/game/imgs/37790/9.png';
+import a19 from '../../classextends/game/imgs/37790/10.png';
+import a110 from '../../classextends/game/imgs/37790/11.png';
+
 let outside = [img1, img2, img3, img4, img5, img6, img7, img8];
 let foutside = [fimg1, fimg2, fimg3, fimg4, fimg5, fimg6, fimg7, fimg8];
 let a = [a1, a2, a3, a4];
+let fa1 = [a11, a12, a13, a14, a15, a16, a17, a18, a19, a110];
 let aj = [aj1, aj2, aj3, aj4];
+let fh = [f1, f2, f3, f4];
+let fh1 = [f11, f12, f13, f14, f15];
 
 class CaseShow extends Component {
     constructor(props) {
@@ -70,7 +95,7 @@ class CaseShow extends Component {
             permission: [],
             actorpoor: actorpoor,
             dom: this.actor1.current,
-            fight1: foutside,
+            fight1: fa1,
         });
         CreactActor({
             type: 'monster',
@@ -81,11 +106,21 @@ class CaseShow extends Component {
             actorpoor: actorpoor,
             // dom: this.actor1.current,
         });
+
+        CreactActor({
+            type: 'monster',
+            id: 6,
+            name: '金凤凰',
+            outside: fh,
+            permission: [],
+            actorpoor: actorpoor,
+            // dom: this.actor1.current,
+        });
         CreactActor({
             type: 'monster',
             id: 5,
-            name: '凤凰2',
-            outside: a,
+            name: '金凤凰2',
+            outside: fh1,
             permission: [],
             actorpoor: actorpoor,
             // dom: this.actor1.current,
@@ -145,6 +180,7 @@ class CaseShow extends Component {
                                         display: 'fiex',
                                         position: 'relative',
                                         left: `${v.left}px`,
+                                        top: `${v.top}px`,
                                         marginLeft: '50px',
                                     }}
                                 >

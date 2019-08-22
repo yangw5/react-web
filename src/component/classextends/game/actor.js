@@ -27,7 +27,8 @@ function actor({ id, name, outside, permission, dom, picSub = 0, noa = 0, src })
     this.config = {};
     this.time = null;
     this.src = src;
-    this.left = 0;
+    this.left = Math.floor(Math.random() * 1000 + 1);
+    this.top = Math.floor(Math.random() * 50 + 1);
 }
 //初始化
 actor.prototype.init = function() {
