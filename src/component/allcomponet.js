@@ -10,6 +10,8 @@ import Uis from './ui';
 import Gallery from './ui/gallery';
 import DashBoard from './dashboard';
 import Gameshow from './caseshow/gameshow/Gameshow';
+import AntdUi from './antdUi';
+import AntdForm from './antdUi/antdform/AntdForm';
 export default {
     FrontEnd,
     BaseStation,
@@ -19,4 +21,6 @@ export default {
     Uis,
     Gallery,
     Gameshow,
+    AntdUi,
+    AntdForm,
 };

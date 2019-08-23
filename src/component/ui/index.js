@@ -10,6 +10,7 @@ class Ui extends Component {
                 label: '案例ID',
                 field: 'caseId',
                 type: 'input',
+                max: 5,
                 validator: (rule, value, callback, max = 10) => {
                     if (value && value.length > 10) {
                         callback(`不能输入超过${max}个字符`);
@@ -19,35 +20,29 @@ class Ui extends Component {
                 },
             },
             {
-                label: '案例名称',
-                field: 'caseName',
-                max: 5,
-                type: 'input',
-            },
-            {
-                label: '技术名称',
-                field: 'tnName',
-                type: 'input',
-            },
-            {
-                label: '作者',
-                field: 'author',
-                type: 'input',
-            },
-            {
                 label: '状态',
                 field: 'status',
                 type: 'select',
-            },
-            {
-                label: '时间',
-                field: 'time',
-                type: 'input',
-            },
-            {
-                label: '标签',
-                field: 'tags',
-                type: 'input',
+                // mode: 'multiple',
+                showSearch: true,
+                allowClear: true,
+                options: [
+                    {
+                        id: '1',
+                        name: '选项1',
+                        value: '数据1',
+                    },
+                    {
+                        id: '2',
+                        name: '选项2',
+                        value: '数据2',
+                    },
+                    {
+                        id: '3',
+                        name: '选项3',
+                        value: '数据3',
+                    },
+                ],
             },
         ];
         return (

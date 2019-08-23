@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, Button, Col, Card } from 'antd';
 import CFromInput from './CFromInput';
 import FromInput from './FromInput';
-import FormSelect from './FormSelect';
+import FormSelect from './Form/FormSelect';
 import TableWidget from './TableWidget';
 const formItemLayout = {
     labelCol: {
@@ -81,7 +81,14 @@ class FromSearch extends Component {
                     paddingRight: '90px',
                 }}
             >
-                <Card id="area" title={title} bordered={false}>
+                <Card
+                    id="area"
+                    title={title}
+                    bordered={false}
+                    style={{
+                        width: '100%',
+                    }}
+                >
                     <Form onSubmit={this.handleSearch}>
                         {this.getFields(searchItem)}
                         {/* {searchItem.map(v => (
@@ -150,9 +157,9 @@ class FromSearch extends Component {
                         </div>
                     </Form>
                 </Card>
-                <div style={{ width: '100%' }}>
+                {/* <div style={{ width: '100%' }}>
                     <Card bordered={false}>{<TableWidget />}</Card>
-                </div>
+                </div> */}
 
                 {false && (
                     <div>

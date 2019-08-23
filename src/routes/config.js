@@ -39,9 +39,27 @@ export default {
             // subs: []
         },
         {
-            key: '/app/caseshow',
-            title: 'UI库',
+            key: '/app/antdui/index',
+            title: 'antd UI库',
             icon: 'ant-design',
+            requirement: [],
+            subs: [
+                {
+                    key: '/app/antdui/index',
+                    title: 'antd UI汇总',
+                    component: 'AntdUi',
+                },
+                {
+                    key: '/app/antdui/antdform',
+                    title: '表单',
+                    component: 'AntdForm',
+                },
+            ],
+        },
+        {
+            key: '/app/caseshow',
+            title: '自定义UI库',
+            icon: 'dropbox',
             requirement: ['head'],
             subs: [
                 {
