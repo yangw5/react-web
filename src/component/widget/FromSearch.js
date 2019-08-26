@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Form, Button, Col, Card } from 'antd';
+import { Form, Button, Col, Card, Row } from 'antd';
 import CFromInput from './CFromInput';
-import FromInput from './FromInput';
+import FromInput from './Form/FromInput';
 import FormSelect from './Form/FormSelect';
+import FormCheckBox from './Form/FormCheckBox';
 import TableWidget from './TableWidget';
 const formItemLayout = {
     labelCol: {
@@ -24,7 +25,8 @@ class FromSearch extends Component {
     }
     onsumit = () => {
         // this.props.form.getFieldsValue();
-        alert(this.props.form.getFieldsValue()['password']);
+        console.log('表单数据：');
+        console.log(this.props.form.getFieldsValue());
         this.props.form.setFieldsValue({ password: '' });
     };
     //
@@ -44,6 +46,9 @@ class FromSearch extends Component {
     _renderFormSelect = parms => (
         <FormSelect {...{ ...formItemLayout, ...parms, ...this.props.form }} />
     );
+    _renderFormCheckBox = parms => (
+        <FormCheckBox {...{ ...formItemLayout, ...parms, ...this.props.form }} />
+    );
     //类型判断
     _renderFormItem = item => {
         switch (item.type) {
@@ -51,6 +56,9 @@ class FromSearch extends Component {
                 return this._renderFromInput(item);
             case 'select':
                 return this._renderFormSelect(item);
+            case 'check':
+                return this._renderFormCheckBox(item);
+            default:
         }
     };
     // fromItem jsx
@@ -91,6 +99,18 @@ class FromSearch extends Component {
                 >
                     <Form onSubmit={this.handleSearch}>
                         {this.getFields(searchItem)}
+                        {
+                            <Col
+                                span={24}
+                                style={{
+                                    textAlign: 'right',
+                                }}
+                            >
+                                <Button onClick={this.onsumit} type="primary">
+                                    FromSearch提交
+                                </Button>
+                            </Col>
+                        }
                         {/* {searchItem.map(v => (
                     <Col span={6}>
                         <FromInput

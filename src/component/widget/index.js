@@ -1,4 +1,4 @@
-import FromInput from './FromInput';
+
 // import FormSelect from './FormSelect';
 import Buttons from './Buttons';
 import FromSearch from './FromSearch';
@@ -7,11 +7,14 @@ import ModalContainer from './ModalContainer';
 import DataEdit from './DataEdit';
 import ImgList from './ImgList';
 
+import FromInput from './Form/FromInput';
 import FormSelect from './Form/FormSelect';
+import FormCheckBox from './Form/FormCheckBox'
 
 export {
     FromInput,
     FormSelect,
+    FormCheckBox,
     Buttons,
     FromSearch,
     BreadcrumbCustom,

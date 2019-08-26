@@ -33,24 +33,6 @@ class FormSelect extends Component {
         }
     };
     fetchtext = () => {
-        let datachildren = [
-            {
-                id: '1',
-                name: '数据1',
-                value: '数据1',
-            },
-            {
-                id: '2',
-                name: '数据3',
-                value: '数据2',
-            },
-            {
-                id: '3',
-                name: '数据1',
-                value: '数据3',
-            },
-        ];
-
         // this.setState({
         //     children: datachildren,
         // });

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form } from 'antd';
-import { FromInput, FormSelect, Col } from './index';
+import { FromInput, FormSelect } from './index';
 import styles from './DataEdit.module.less';
 
 class DataEdit extends Component {

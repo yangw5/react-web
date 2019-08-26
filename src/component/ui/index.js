@@ -44,6 +44,16 @@ class Ui extends Component {
                     },
                 ],
             },
+            {
+                label: '爱好',
+                field: 'like',
+                type: 'check',
+                options: [
+                    { label: 'Apple', value: 'Apple' },
+                    { label: 'Pear', value: 'Pear' },
+                    { label: 'Orange', value: 'Orange' },
+                ],
+            },
         ];
         return (
             <div>
