@@ -51,8 +51,32 @@ class Ui extends Component {
                 options: [
                     { label: 'Apple', value: 'Apple' },
                     { label: 'Pear', value: 'Pear' },
-                    { label: 'Orange', value: 'Orange' },
+                    // { label: 'Orange', value: 'Orange' },
                 ],
+            },
+            {
+                label: '时间',
+                field: 'timer',
+                type: 'data',
+            },
+            {
+                label: '查询',
+                field: 'search',
+                type: 'complete',
+                max: 5,
+                validator: (rule, value, callback, max = 10) => {
+                    if (value && value.length > 10) {
+                        callback(`不能输入超过${max}个字符`);
+                    } else {
+                        callback();
+                    }
+                },
+            },
+            {
+                label: '编辑时间',
+                field: 'edittimer',
+                type: 'data',
+                isrange: true,
             },
         ];
         return (

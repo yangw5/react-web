@@ -4,13 +4,17 @@ import CFromInput from './CFromInput';
 import FromInput from './Form/FromInput';
 import FormSelect from './Form/FormSelect';
 import FormCheckBox from './Form/FormCheckBox';
+import FormData from './Form/FormData';
+import FormRange from './Form/FormRange';
+import FormComplete from './Form/FormComplete';
+
 import TableWidget from './TableWidget';
 const formItemLayout = {
     labelCol: {
-        span: 6,
+        span: 7,
     },
     wrapperCol: {
-        span: 18,
+        span: 17,
     },
 };
 const length = 12;
@@ -23,11 +27,17 @@ class FromSearch extends Component {
             initialValue1: '性别',
         };
     }
+    //提交
     onsumit = () => {
         // this.props.form.getFieldsValue();
         console.log('表单数据：');
         console.log(this.props.form.getFieldsValue());
+        console.log(this.props.form.getFieldsValue()['edittimer'][0].format('YYYY-MM-DD'));
         this.props.form.setFieldsValue({ password: '' });
+    };
+    //重置
+    handleReset = () => {
+        this.props.form.resetFields();
     };
     //
     sliceArray = (array, size) => {
@@ -49,6 +59,15 @@ class FromSearch extends Component {
     _renderFormCheckBox = parms => (
         <FormCheckBox {...{ ...formItemLayout, ...parms, ...this.props.form }} />
     );
+    _renderFormData = parms => (
+        <FormData {...{ ...formItemLayout, ...parms, ...this.props.form }} />
+    );
+    _renderFormRange = parms => (
+        <FormRange {...{ ...formItemLayout, ...parms, ...this.props.form }} />
+    );
+    _rederFormComplete = parms => (
+        <FormComplete {...{ ...formItemLayout, ...parms, ...this.props.form }} />
+    );
     //类型判断
     _renderFormItem = item => {
         switch (item.type) {
@@ -58,6 +77,12 @@ class FromSearch extends Component {
                 return this._renderFormSelect(item);
             case 'check':
                 return this._renderFormCheckBox(item);
+            case 'data':
+                return this._renderFormData(item);
+            case 'range':
+                return this._renderFormRange(item);
+            case 'complete':
+                return this._rederFormComplete(item);
             default:
         }
     };
@@ -108,6 +133,13 @@ class FromSearch extends Component {
                             >
                                 <Button onClick={this.onsumit} type="primary">
                                     FromSearch提交
+                                </Button>
+                                <Button
+                                    style={{ marginLeft: 8 }}
+                                    onClick={this.handleReset}
+                                    type="primary"
+                                >
+                                    重置
                                 </Button>
                             </Col>
                         }
