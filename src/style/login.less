@@ -1,0 +1,68 @@
+:global {
+  @primary: rgba(120, 84, 162, 1);
+  @white: #ffffff;
+  @black: #313131;
+  .login {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .login-form {
+      width: 320px;
+      height: 340px;
+      //   box-shadow: 0 0 100px rgba(0, 0, 0, 0.08);
+      .login-logo {
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        cursor: pointer;
+        margin-bottom: 24px;
+      }
+    }
+
+    .ant-form-item {
+      margin-bottom: 20px;
+    }
+    .ant-form-item-children {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      .ant-input {
+        width: 100%;
+      }
+    }
+    .ant-btn-primary {
+      background-color: @primary;
+      border-color: @primary;
+      color: #fff;
+    }
+    .ant-checkbox-wrapper {
+      color: @black;
+    }
+    a {
+      color: @black;
+    }
+    .ant-input {
+      border: none;
+      background: #ececec;
+      height: 36px;
+    }
+    .has-error {
+      .ant-input {
+        border: 1px solid #f5222d;
+        &:hover {
+          border: 1px solid #f5222d;
+        }
+      }
+    }
+    .ant-input-group-addon {
+      background-color: #ececec;
+      border: none;
+    }
+    .karakal-icon-wenhao {
+      color: @primary !important;
+      font-size: 14px;
+    }
+  }
+}
