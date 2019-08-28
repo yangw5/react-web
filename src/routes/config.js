@@ -34,9 +34,37 @@ export default {
             key: '/app/toolsshow/index',
             title: '前端工具',
             icon: 'ant-cloud',
-            component: 'ToolsShow',
             requirement: ['head'],
-            // subs: []
+            subs: [
+                {
+                    key: '/app/toolsshow/index',
+                    title: '工具1',
+                    component: 'ToolsShow',
+                },
+                {
+                    key: '/app/toolsshow/D3',
+                    title: '工具2',
+                    component: 'D3',
+                },
+            ],
+        },
+        {
+            key: '/app/datashow/index',
+            title: '数据可视化',
+            icon: 'ant-cloud',
+            requirement: ['head'],
+            subs: [
+                {
+                    key: '/app/datashow/d3/index',
+                    title: 'D3',
+                    component: 'D3',
+                },
+                {
+                    key: '/app/datashow/echars/index',
+                    title: 'Echars',
+                    component: 'Echars',
+                },
+            ],
         },
         {
             key: '/app/antdui/index',

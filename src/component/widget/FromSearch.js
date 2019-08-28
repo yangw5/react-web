@@ -262,3 +262,4 @@ class FromSearch extends Component {
 }
 
 export default Form.create()(FromSearch);
+

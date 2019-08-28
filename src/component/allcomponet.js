@@ -12,10 +12,16 @@ import DashBoard from './dashboard';
 import Gameshow from './caseshow/gameshow/Gameshow';
 import AntdUi from './antdUi';
 import AntdForm from './antdUi/antdform/AntdForm';
+// export { default as D3 } from './datashow/d3';
+// export { default as Echars } from './datashow/echars';
+import D3 from './datashow/d3';
+import Echars from './datashow/echars';
 export default {
     FrontEnd,
     BaseStation,
     ToolsShow,
+    D3,
+    Echars,
     CaseShow,
     DashBoard,
     Uis,
