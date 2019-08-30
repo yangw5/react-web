@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import * as d3 from 'd3';
+import './domoitem.less';
 //版本 v4+
 import { creact } from './domoitem';
 function D3block() {
