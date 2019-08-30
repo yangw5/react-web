@@ -16,7 +16,7 @@ const CaseForm = (props, ref) => {
         {
             label: '状态',
             field: 'status',
-            fieldType: 'select',
+            fieldType: 'add',
             options: STATUS,
             required: true,
         },

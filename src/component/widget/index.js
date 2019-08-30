@@ -11,12 +11,14 @@ import FromInput from './Form/FromInput';
 import FormSelect from './Form/FormSelect';
 import FormCheckBox from './Form/FormCheckBox';
 import FormData from './Form/FormData';
+import Formcombin from './Form/Formcombin';
 
 export {
     FromInput,
     FormSelect,
     FormCheckBox,
     FormData,
+    Formcombin,
     Buttons,
     FromSearch,
     BreadcrumbCustom,
