@@ -14,7 +14,7 @@ class FormCombin extends Component {
                 </Form.Item>
                 <Col>
                     <div>
-                        <Select>111</Select>
+                        <Select>111g1</Select>
                         <Input />
                     </div>
                 </Col>
