@@ -7,6 +7,12 @@ class FormCombin extends Component {
         let { getFieldsValue, setFieldsValue, field } = this.props;
         //获取field
         const values = callback(getFieldsValue([field])[field] || []);
+        // console.log('start');
+        // console.log(getFieldsValue());
+        // console.log(getFieldsValue()[field]);
+        // console.log(getFieldsValue([field]));
+        // console.log(getFieldsValue([field])[field]);
+        // console.log('end');
         setFieldsValue({ [field]: values });
     };
     render() {

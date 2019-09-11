@@ -103,6 +103,24 @@ export default {
             ],
         },
         {
+            key: '/app/account/index',
+            title: '生活工具',
+            icon: 'snippets',
+            requirement: ['head'],
+            subs: [
+                {
+                    key: '/app/account/index',
+                    title: '工具汇总',
+                    component: 'Y5tool',
+                },
+                {
+                    key: '/app/account/accountbook',
+                    title: '账本',
+                    component: 'AccountBook',
+                },
+            ],
+        },
+        {
             key: '/app/caseshow/index',
             title: '案例展示',
             icon: 'file-done',

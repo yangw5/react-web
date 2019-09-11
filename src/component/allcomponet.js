@@ -16,6 +16,10 @@ import AntdForm from './antdUi/antdform/AntdForm';
 // export { default as Echars } from './datashow/echars';
 import D3 from './datashow/d3';
 import Echars from './datashow/echars';
+
+import Y5tool from './y5tool/index';
+import AccountBook from './y5tool/account/AccountBook';
+
 export default {
     FrontEnd,
     BaseStation,
@@ -29,4 +33,6 @@ export default {
     Gameshow,
     AntdUi,
     AntdForm,
+    Y5tool,
+    AccountBook,
 };
