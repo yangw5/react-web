@@ -21,7 +21,11 @@ export default {
                 {
                     key: '/app/frontend',
                     title: '前端总汇',
-                    component: 'FrontEnd',
+                    // component: 'FrontEnd',
+                    component:'CommonList',
+                    query: { configType: 'frontend'},
+                    // requirement: ['head'],
+
                 },
                 {
                     key: '/app/frontend/basestation',
@@ -99,6 +103,11 @@ export default {
                     key: '/app/ui/gallery',
                     title: '画廊',
                     component: 'Gallery',
+                },
+                {
+                    key: '/app/ui/datado',
+                    title: '弹框',
+                    component: 'Datado',
                 },
             ],
         },

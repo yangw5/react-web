@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Input, Col, Select, Icon } from 'antd';
+import { Form, Input, Col, Icon } from 'antd';
 import './Formcombin.less';
 
 class FormCombin extends Component {
@@ -28,7 +28,7 @@ class FormCombin extends Component {
                 <Col span={20} style={{ marginTop: 4, marginLeft: -27 }}>
                     {row && row.length > 0 && (
                         <div className="combin__div">
-                            <Select></Select>
+                            {/* <Select></Select> */}
                             <Input />
                         </div>
                     )}

@@ -47,7 +47,7 @@ actor.prototype.show = function() {
 //通过修改img的src 实现图片切换达到行走的效果
 //行为 行走
 actor.prototype.walk = function(e, distance) {
-    if (this.picSub == this.outside.length - 1) {
+    if (this.picSub === this.outside.length - 1) {
         this.picSub = 0;
     } else this.picSub++;
     this.src = this.outside[this.picSub];
@@ -99,7 +99,7 @@ actor1.prototype.say = function() {
 //初始化
 actor1.prototype.init = function(e) {
     //此时 setdata的this是Window
-    let _this = this;
+    // let _this = this;
     //()=>{}保存this指向
     window.addEventListener('keydown', e => {
         this.setdata(e);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BreadcrumbCustom, InputSearch } from '../widget';
-import { Botton, Input } from 'antd';
+import { Input } from 'antd';
 import { Button } from 'antd/lib/radio';
 import date from '../classextends/Date';
 class ToolsShow extends Component {
@@ -67,7 +67,7 @@ class ToolsShow extends Component {
                 </Button>
                 <div>
                     搜索：
-                    <InputSearch></InputSearch>
+                    <InputSearch>1</InputSearch>
                 </div>
             </div>
         );

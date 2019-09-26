@@ -5,7 +5,7 @@ import styles from './BreadcrumbCustom.less';
 
 const BreadcrumbItem = Breadcrumb.Item;
 const BreadcrumbCustom = props => {
-    const { title, separator = '>', breadItems } = props;
+    const { separator = '>', breadItems } = props;//title,
     return (
         <div style={{ margin: '20px' }}>
             <Breadcrumb separator={separator}>

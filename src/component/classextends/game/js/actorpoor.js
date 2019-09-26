@@ -37,6 +37,7 @@ function actorpoor({ type, id, name, outside, permission, actorpoor, dom, fight1
                 src,
             });
             break;
+            default:
     }
     if (actorpoor[type] instanceof Array) actorpoor[type].push(newactor);
     else {

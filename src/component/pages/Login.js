@@ -1,6 +1,6 @@
 import React from 'react';
 import { toHtmlPage, setCookie } from '../../utils';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button } from 'antd';
 class Login extends React.Component {
     constructor(props) {
         super(props);

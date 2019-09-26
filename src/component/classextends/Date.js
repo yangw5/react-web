@@ -3,9 +3,9 @@ function newdate(value = '', type = '-', hasTime = false) {
     let data = value ? new Date(value * 1000) : new Date();
     console.log('原型链实例：start');
     console.log(data.__proto__);
-    Date.prototype.opentime = () => {
-        alert(new Date());
-    };
+    // Date.prototype.opentime = () => {
+    //     alert(new Date());
+    // };
     data.__proto__.shiftFormat = () => {
         let _hour = data.getHours();
         let _minute = data.getMinutes();

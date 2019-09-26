@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 // 解耦
 //import { Form } from 'antd';
-import { Form, Select, Input } from 'antd';
+import { Form, Select } from 'antd';
 const { Option } = Select;
 
-function filterOption() {}
+// function filterOption() {}
 
 class FormSelect extends Component {
     constructor(props) {

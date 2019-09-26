@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import FromSearch from '../widget/FromSearch';
+// import FromSearch from '../widget/FromSearch';
 import { Button } from 'antd';
 import { numberFilter as valueFilter } from '../../utils';
 import CaseForm from './CaseForm';
 
 const CaseShowList = () => {
-    const [events, setEvents] = useState([]);
+    // const [events, setEvents] = useState([]);
 
     const modalFormRef = useRef(null);
     let [count, setCount] = useState(0);
@@ -72,6 +72,7 @@ const CaseShowList = () => {
         },
     ];
     const onOk = () => {
+        console.log(searchItem)
         // calendarMusicSearch({
         //     year: moment(date).year(),
         //     month: moment(date).month() + 1,

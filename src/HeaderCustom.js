@@ -29,6 +29,7 @@ class HeaderCustom extends Component {
                             <img
                                 className={this.props.collapsed ? 'logo-img-small' : 'logo-img'}
                                 src={require('./style/img/app-logo.png')}
+                                alt={'图片'}
                             />
                             {!this.props.collapsed && <span className={'logo-name'}>随手记</span>}
                             <Icon

@@ -10,6 +10,7 @@ function setdo(e, funobj) {
         case 69:
             funobj['69']();
             break;
+            default:
     }
 }
 

@@ -3,7 +3,7 @@ import { Form, DatePicker } from 'antd';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 moment.locale('zh-cn');
-const { MonthPicker, RangePicker } = DatePicker;
+const { RangePicker } = DatePicker;
 //format('YYYY-MM-DD')    //格式转换
 class FormData extends Component {
     onChange = () => {};
@@ -12,10 +12,10 @@ class FormData extends Component {
         let {
             label,
             labelCol = { span: 5 },
-            wrapperCol = { span: 24 },
+            wrapperCol = { span: 12 },
             getFieldDecorator,
             field,
-            rules,
+            // rules,
             isrange = false,
             dateFormat = 'YYYY/MM/DD',
             initialValue,

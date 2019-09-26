@@ -17,7 +17,7 @@ class FrontEnd extends Component {
         );
     }
     render() {
-        const breadItems = [{ title: '前端首页', icon: 'home' }];
+        const breadItems = [{ title: '前端汇总-commonList的应用', icon: 'home' }];
         return (
             <div>
                 <BreadcrumbCustom {...{ breadItems }} />

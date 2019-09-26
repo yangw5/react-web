@@ -73,12 +73,12 @@ export default ({
             addonAfter: <div style={{ padding: '9px 0', cursor: 'pointer' }}>{addonAfter()}</div>,
         });
     useEffect(() => {});
-    let clearinput = () => {
-        form.setFieldsValue({
-            field: '',
-        });
-        //value = value.trim();
-    };
+    // let clearinput = () => {
+    //     form.setFieldsValue({
+    //         field: '',
+    //     });
+    //     //value = value.trim();
+    // };
     return (
         <Form.Item
             className={'addonAfter='}

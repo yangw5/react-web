@@ -32,6 +32,10 @@ function FormGroup({
     let _deleteRow = i => {
         let cd = [...dataarray];
         cd.splice(i, 1);
+        _setFieldsValue(values => {
+            values.splice(i, 1);
+            return [...values];
+        });
         setDataarray(cd);
     };
     //保存数据

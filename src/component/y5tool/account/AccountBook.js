@@ -2,6 +2,7 @@ import React from 'react';
 import BreadcrumbCustom from '../../widget/BreadcrumbCustom';
 import { Form, Button } from 'antd';
 import FormGroup from './widget/FormGroup';
+import Stars from './widget/Stars';
 import { EXPENSE_TYPE, PAY_TYPE } from '../../../content/index';
 function AccountBook(props) {
     const breadItems = [{ title: '生活工具' }, { title: '账本' }];
@@ -49,13 +50,17 @@ function AccountBook(props) {
             }
         });
     };
+    let stars = {
+        allowHalf: true,
+        type: 'write',
+    };
     return (
         <div>
             <BreadcrumbCustom {...{ breadItems }} />
             <div style={{ padding: '20px' }}>
                 <Form onSubmit={_onsubmit}>
                     <FormGroup {...dataconfig} />
-
+                    <Stars {...stars} />
                     <Button type="primary" htmlType="submit" style={{ marginTop: '50px' }}>
                         提交
                     </Button>

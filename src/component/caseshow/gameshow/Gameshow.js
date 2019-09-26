@@ -52,10 +52,10 @@ import a19 from '../../classextends/game/imgs/37790/10.png';
 import a110 from '../../classextends/game/imgs/37790/11.png';
 
 let outside = [img1, img2, img3, img4, img5, img6, img7, img8];
-let foutside = [fimg1, fimg2, fimg3, fimg4, fimg5, fimg6, fimg7, fimg8];
+// let foutside = [fimg1, fimg2, fimg3, fimg4, fimg5, fimg6, fimg7, fimg8];
 let a = [a1, a2, a3, a4];
 let fa1 = [a11, a12, a13, a14, a15, a16, a17, a18, a19, a110];
-let aj = [aj1, aj2, aj3, aj4];
+// let aj = [aj1, aj2, aj3, aj4];
 let fh = [f1, f2, f3, f4];
 let fh1 = [f11, f12, f13, f14, f15];
 

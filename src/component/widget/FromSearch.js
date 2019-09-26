@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { Form, Button, Col, Card, Row } from 'antd';
-import CFromInput from './CFromInput';
+import { Form, Button, Col, Card } from 'antd';
+// import CFromInput from './CFromInput';
 import FromInput from './Form/FromInput';
 import FormSelect from './Form/FormSelect';
 import FormCheckBox from './Form/FormCheckBox';
 import FormData from './Form/FormData';
 import FormRange from './Form/FormRange';
 import FormComplete from './Form/FormComplete';
+import './FromSearch.less'
 
+import {Buttons} from '../widget'
 import TableWidget from './TableWidget';
 const formItemLayout = {
     labelCol: {
@@ -17,7 +19,7 @@ const formItemLayout = {
         span: 17,
     },
 };
-const length = 12;
+// const length = 12;
 
 class FromSearch extends Component {
     constructor(props) {
@@ -103,7 +105,7 @@ class FromSearch extends Component {
     //提交
     handleSearch = () => {};
     render() {
-        let { form, searchItem, title = '' } = this.props;
+        let { form, searchItem, title = '',...restProps } = this.props;
         return (
             <div
                 className={'From_input'}
@@ -209,53 +211,21 @@ class FromSearch extends Component {
                         </div>
                     </Form>
                 </Card>
-                {/* <div style={{ width: '100%' }}>
-                    <Card bordered={false}>{<TableWidget />}</Card>
-                </div> */}
-
-                {false && (
+                <Card>
                     <div>
-                        <CFromInput label={'姓名'} field={'userName'} max={50} required={true} />
-                        <p>----------------------</p>
-                        <FromInput
-                            max={5}
-                            form={form}
-                            field="password"
-                            label={'密码'}
-                            initialValue={this.state.initialValue}
-                            required={true}
-                            addonAfter={(id, props) => (
-                                <span
-                                    onClick={props => {
-                                        this.onsumit();
-                                    }}
-                                >
-                                    清除
-                                </span>
-                            )}
+                        <Buttons
+                        {...{
+                            hasButtons:true,
+                            requirement: restProps.btnsRequirement,
+                            }
+                        } 
                         />
-                        <FromInput
-                            max={5}
-                            form={form}
-                            field="sex"
-                            label={'性别'}
-                            initialValue={this.state.initialValue1}
-                            required={true}
-                            addonAfter={(id, props) => (
-                                <span
-                                    onClick={props => {
-                                        this.onsumit();
-                                    }}
-                                >
-                                    清除
-                                </span>
-                            )}
-                        />
-                        <Button onClick={this.onsumit} type="primary">
-                            FromSearch提交
-                        </Button>
                     </div>
-                )}
+                    <div style={{ width: '100%',marginTop:'20px' }}>
+                        <TableWidget />
+                    </div>
+                </Card>
+                
             </div>
         );
     }
