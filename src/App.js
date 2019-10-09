@@ -18,7 +18,7 @@ moment.locale('zh-cn');
 const { Header, Content, Footer } = Layout;
 class App extends React.Component {
     state = {
-        collapsed: false,
+        collapsed: false,//当前收起状态
     };
     componentDidMount() {
         

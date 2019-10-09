@@ -19,7 +19,7 @@ export default {
             requirement: ['head'],
             subs: [
                 {
-                    key: '/app/frontend',
+                    key: '/app/frontend/count',
                     title: '前端总汇',
                     // component: 'FrontEnd',
                     component:'CommonList',
@@ -35,49 +35,49 @@ export default {
             ],
         },
         {
-            key: '/app/toolsshow/index',
+            key: '/app/toolsshow',
             title: '前端工具',
             icon: 'ant-cloud',
             requirement: ['head'],
             subs: [
                 {
-                    key: '/app/toolsshow/index',
+                    key: '/app/toolsshow/tool1',
                     title: '工具1',
                     component: 'ToolsShow',
                 },
                 {
-                    key: '/app/toolsshow/D3',
+                    key: '/app/toolsshow/tool2',
                     title: '工具2',
                     component: 'D3',
                 },
             ],
         },
         {
-            key: '/app/datashow/index',
+            key: '/app/datashow',
             title: '数据可视化',
             icon: 'ant-cloud',
             requirement: ['head'],
             subs: [
                 {
-                    key: '/app/datashow/d3/index',
+                    key: '/app/datashow/d3',
                     title: 'D3',
                     component: 'D3',
                 },
                 {
-                    key: '/app/datashow/echars/index',
+                    key: '/app/datashow/echars',
                     title: 'Echars',
                     component: 'Echars',
                 },
             ],
         },
         {
-            key: '/app/antdui/index',
+            key: '/app/antdui',
             title: 'antd UI库',
             icon: 'ant-design',
             requirement: [],
             subs: [
                 {
-                    key: '/app/antdui/index',
+                    key: '/app/antdui/count',
                     title: 'antd UI汇总',
                     component: 'AntdUi',
                 },
@@ -89,13 +89,13 @@ export default {
             ],
         },
         {
-            key: '/app/caseshow',
+            key: '/app/ui',
             title: '自定义UI库',
             icon: 'dropbox',
             requirement: ['head'],
             subs: [
                 {
-                    key: '/app/ui',
+                    key: '/app/ui/count',
                     title: 'UI汇总',
                     component: 'Uis',
                 },
@@ -112,13 +112,13 @@ export default {
             ],
         },
         {
-            key: '/app/account/index',
+            key: '/app/account',
             title: '生活工具',
             icon: 'snippets',
             requirement: ['head'],
             subs: [
                 {
-                    key: '/app/account/index',
+                    key: '/app/account/count',
                     title: '工具汇总',
                     component: 'Y5tool',
                 },
@@ -130,18 +130,18 @@ export default {
             ],
         },
         {
-            key: '/app/caseshow/index',
+            key: '/app/caseshow',
             title: '案例展示',
             icon: 'file-done',
             requirement: ['head'],
             subs: [
                 {
-                    key: '/app/caseshow/index',
+                    key: '/app/caseshow/count',
                     title: '案例汇总',
                     component: 'CaseShow',
                 },
                 {
-                    key: '/app/caseshow/gameshow/Gameshow',
+                    key: '/app/caseshow/Gameshow',
                     title: '游戏人生',
                     component: 'Gameshow',
                 },

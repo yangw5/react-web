@@ -95,7 +95,7 @@ export const numberFilter = (value, regex = /\d+\.{0,1}\d*/g) => {
  * @param {*} requirement 按钮权限
  */
 export const mergeArrWithAuth=(btns=[],requirement)=>{
-    Object.keys(requirement).forEach(index=>{
+    requirement&&Object.keys(requirement).forEach(index=>{
         btns[index]={...btns[index],requirement:requirement[index]}
     })
     return btns;

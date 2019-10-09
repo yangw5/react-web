@@ -1,3 +1,6 @@
+/**
+ * 用于权限的验证
+ */
 import React from 'react'
 import AuthWiget from './AuthWiget'
 import { checkAuth } from '../../utils';

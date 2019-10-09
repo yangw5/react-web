@@ -105,7 +105,7 @@ class FromSearch extends Component {
     //提交
     handleSearch = () => {};
     render() {
-        let { form, searchItem, title = '',...restProps } = this.props;
+        let { form, searchItem,columnsItems,rowKey,searchApi,dataSource,showSelection, title = '',...restProps } = this.props;
         return (
             <div
                 className={'From_input'}
@@ -222,7 +222,30 @@ class FromSearch extends Component {
                         />
                     </div>
                     <div style={{ width: '100%',marginTop:'20px' }}>
-                        <TableWidget />
+                        <TableWidget 
+                            ref={table => (this.table = table)}
+                            fetchApi={searchApi}
+                            apiParams={''}
+                            // defaultFetch={false}
+                            callBackData={()=>{}}
+                            {...{
+                                // materialClassify,
+                                // isFormDataParam,
+                                // isJson,
+                                // materialFlag,
+                                // listTypeIds,
+                                // typeFlag,
+                                ...this.props,
+                            }}
+                            tableConfig={
+                            {
+                                columns:columnsItems,
+                                rowKey: row => row[rowKey],
+                                dataSource:dataSource,
+                                showSelection
+                            }
+                            }
+                        />
                     </div>
                 </Card>
                 
