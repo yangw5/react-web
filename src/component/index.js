@@ -1,10 +1,10 @@
-import React from "react";
-import { FromSearch } from "./widget";
+import React from 'react';
+import { FromSearch } from './widget';
 
 export default () => {
-  return (
-    <div>
-      <FromSearch />
-    </div>
-  );
+    return (
+        <div>
+            <FromSearch />
+        </div>
+    );
 };

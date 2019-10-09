@@ -1,3 +1,11 @@
+/*
+ * @Description:
+ * @Autor: yangw5
+ * @Email: yangw5@163.com
+ * @Date: 2019-08-26 08:22:55
+ * @LastEditors: yangw5
+ * @LastEditTime: 2019-08-26 08:22:55
+ */
 import React, { Component } from 'react';
 import { Layout, Icon } from 'antd';
 import styles from './HeaderCustom.module.less';

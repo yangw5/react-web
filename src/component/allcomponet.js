@@ -21,7 +21,7 @@ import Echars from './datashow/echars';
 import Y5tool from './y5tool/index';
 import AccountBook from './y5tool/account/AccountBook';
 
-import CommonList from './common/commonList'
+import CommonList from './common/commonList';
 
 export default {
     FrontEnd,
@@ -39,5 +39,5 @@ export default {
     AntdForm,
     Y5tool,
     AccountBook,
-    CommonList
+    CommonList,
 };
