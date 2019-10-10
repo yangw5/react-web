@@ -1,3 +1,11 @@
+/*
+ * @Description:
+ * @Autor: yangw5
+ * @Email: yangw5@163.com
+ * @Date: 2019-08-26 08:22:55
+ * @LastEditors: yangw5
+ * @LastEditTime: 2019-08-26 08:22:55
+ */
 /**
  * @default 组件汇总
  */
@@ -9,6 +17,7 @@ import CaseShow from './caseshow';
 import Uis from './ui';
 import Datado from './ui/datado';
 import Gallery from './ui/gallery';
+import TagTree from './ui/tag';
 import DashBoard from './dashboard';
 import Gameshow from './caseshow/gameshow/Gameshow';
 import AntdUi from './antdUi';
@@ -34,6 +43,7 @@ export default {
     Uis,
     Datado,
     Gallery,
+    TagTree,
     Gameshow,
     AntdUi,
     AntdForm,

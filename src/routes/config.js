@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Autor: yangw5
+ * @Email: yangw5@163.com
+ * @Date: 2019-08-27 16:26:04
+ * @LastEditors: yangw5
+ * @LastEditTime: 2019-08-27 16:26:04
+ */
 /**
  * @exports 路由配置文件
  */
@@ -22,10 +30,9 @@ export default {
                     key: '/app/frontend/count',
                     title: '前端总汇',
                     // component: 'FrontEnd',
-                    component:'CommonList',
-                    query: { configType: 'frontend'},
+                    component: 'CommonList',
+                    query: { configType: 'frontend' },
                     // requirement: ['head'],
-
                 },
                 {
                     key: '/app/frontend/basestation',
@@ -108,6 +115,11 @@ export default {
                     key: '/app/ui/datado',
                     title: '弹框',
                     component: 'Datado',
+                },
+                {
+                    key: '/app/ui/tag',
+                    title: '标签树',
+                    component: 'TagTree',
                 },
             ],
         },
