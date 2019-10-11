@@ -4,7 +4,7 @@
  * @Email: yangw5@163.com
  * @Date: 2019-08-27 16:26:04
  * @LastEditors: yangw5
- * @LastEditTime: 2019-10-09 16:33:30
+ * @LastEditTime: 2019-10-11 14:18:51
  */
 import React, { Component } from 'react';
 import { BreadcrumbCustom } from '../widget';
@@ -60,7 +60,7 @@ export default class DashBoard extends Component {
     render() {
         const breadItems = [{ title: '首页' }];
         return (
-            <div>
+            <div style={{ height: '100%' }}>
                 <BreadcrumbCustom {...{ breadItems }} />
                 <div ref={div => (this.div = div)} style={{ width: '600px', height: '400px' }} />
                 <div ref={div => (this.div2 = div)} style={{ width: '600px', height: '400px' }} />

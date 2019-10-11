@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Autor: yangw5
+ * @Email: yangw5@163.com
+ * @Date: 2019-08-27 16:26:04
+ * @LastEditors: yangw5
+ * @LastEditTime: 2019-08-27 16:26:04
+ */
 import React, { Component } from 'react';
 import allcomponent from '../component/allcomponet';
 import routesconfig from './config';

@@ -1,3 +1,11 @@
+/*
+ * @Description:
+ * @Autor: yangw5
+ * @Email: yangw5@163.com
+ * @Date: 2019-08-27 16:26:04
+ * @LastEditors: yangw5
+ * @LastEditTime: 2019-10-11 15:15:33
+ */
 import React from 'react';
 import { toHtmlPage, setCookie } from '../../utils';
 import { Form, Input, Button } from 'antd';
@@ -13,6 +21,7 @@ class Login extends React.Component {
                 if (value.userName === 'admin') {
                     setCookie('y5Login', 1, 1);
                     toHtmlPage('index', 'app');
+                    //debugge
                 }
                 if (value.userName === 'guest') {
                     alert(2);
@@ -24,6 +33,23 @@ class Login extends React.Component {
         let { getFieldDecorator } = this.props.form;
         return (
             <div className="login">
+                <div className={'elephant'}>
+                    <div className={'elephant-body'}>
+                        <div class="elephant-ear" />
+                    </div>
+                    <div className={'elephant-leg_1'}>
+                        <div className="elephant-foot" />
+                    </div>
+                    <div className={'elephant-leg_2'}>
+                        <div className="elephant-foot" />
+                    </div>
+                    <div className={'elephant-leg_3'}>
+                        <div className="elephant-foot" />
+                    </div>
+                    <div className={'elephant-leg_4'}>
+                        <div className="elephant-foot" />
+                    </div>
+                </div>
                 <div className="login-form">
                     <div className="login-logo">logo</div>
                     <Form onSubmit={this.handleSubmit}>
