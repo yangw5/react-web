@@ -1,0 +1,41 @@
+&:global {
+    .dataShow {
+        display: flex;
+        flex-wrap: wrap;
+        .dataShow_item {
+            display: flex;
+            margin-bottom: 25px;
+            .dataShow_lable {
+                width: 101px;
+                min-width: 101px;
+                line-height: 24px;
+                margin-right: 12px;
+                font-size: 13px;
+                color: #989898;
+                text-align: right;
+            }
+            .dataShow_value {
+                width: calc(~'100% - 75px');
+                line-height: 24px;
+                font-size: 13px;
+                color: #4c4c4c;
+            }
+        }
+        .whole {
+            display: flex;
+            flex-basis: 100%;
+        }
+        .average-2 {
+            flex-basis: 50%;
+            display: flex;
+        }
+        .average-3 {
+            flex-basis: 33.3%;
+            display: flex;
+        }
+        .average-4 {
+            flex-basis: 25%;
+            display: flex;
+        }
+    }
+}

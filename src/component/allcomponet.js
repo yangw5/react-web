@@ -1,15 +1,13 @@
 /*
- * @Description:
+ * @File:component\allcomponet.js
+ * @Description:路由组件汇总
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2019-08-26 08:22:55
  * @LastEditors: yangw5
- * @LastEditTime: 2019-08-26 08:22:55
+ * @LastEditTime: 2019-11-13 09:52:44
+ * @FilePath: \react-web\src\component\allcomponet.js
  */
-/**
- * @default 组件汇总
- */
-
 import FrontEnd from './frontend';
 import ToolsShow from './tootsshow';
 import BaseStation from './frontend/basestation';
@@ -31,6 +29,7 @@ import Y5tool from './y5tool/index';
 import AccountBook from './y5tool/account/AccountBook';
 
 import CommonList from './common/commonList';
+import commonshow from './common/commonshow';
 
 export default {
     FrontEnd,
@@ -50,4 +49,5 @@ export default {
     Y5tool,
     AccountBook,
     CommonList,
+    commonshow,
 };

@@ -1,6 +1,16 @@
+/*
+ * @File:
+ * @Description:
+ * @Autor: yangw5
+ * @Email: yangw5@163.com
+ * @Date: 2019-08-26 08:22:55
+ * @LastEditors: yangw5
+ * @LastEditTime: 2019-11-18 16:59:26
+ * @FilePath: \react-web\src\component\widget\datapage\Forminfo\DataEdit.js
+ */
 import React, { Component } from 'react';
 import { Form } from 'antd';
-import { FromInput,FormSelect, FormCheckBox,FormData,Formcombin,FromSearch, } from './index';
+import { FromInput, FormSelect, FormCheckBox, FormData, Formcombin, FromSearch } from '../../index';
 import styles from './DataEdit.module.less';
 
 class DataEdit extends Component {
@@ -11,9 +21,9 @@ class DataEdit extends Component {
             input: FromInput,
             select: FormSelect,
             add: Formcombin,
-            date:FormData,
-            search:FromSearch,
-            checkbox:FormCheckBox
+            date: FormData,
+            search: FromSearch,
+            checkbox: FormCheckBox,
             // 'textarea': FormTextArea,
             // 'radio': FormRadio,
             // 'inputGroup': FormInputGroup,
@@ -49,7 +59,7 @@ class DataEdit extends Component {
         return (
             <Form className={styles.root} layout="inline">
                 {items.map((item, i) => (
-                    <span key={i} className={styles[item.classname]||styles['whole']}>
+                    <span key={i} className={styles[item.classname] || styles['whole']}>
                         {this._renderForm(this.components[item.fieldType], item)}
                     </span>
                 ))}

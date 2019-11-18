@@ -1,3 +1,13 @@
+/*
+ * @File:\content\index.js
+ * @Description:公共常量统一定义文件
+ * @Autor: yangw5
+ * @Email: yangw5@163.com
+ * @Date: 2019-09-11 09:42:06
+ * @LastEditors: yangw5
+ * @LastEditTime: 2019-11-13 09:58:08
+ * @FilePath: \react-web\src\content\index.js
+ */
 export const PAY_TYPE = [
     {
         key: '1',
@@ -65,5 +75,20 @@ export const EXPENSE_TYPE = [
     {
         key: '7',
         value: '其他',
+    },
+];
+
+export const FRONTEND_TYPE = [
+    {
+        key: 1,
+        value: 'ES6',
+    },
+    {
+        key: 2,
+        value: 'GIT',
+    },
+    {
+        key: 3,
+        value: 'REACT',
     },
 ];

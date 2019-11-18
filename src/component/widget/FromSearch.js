@@ -7,9 +7,9 @@ import FormCheckBox from './Form/FormCheckBox';
 import FormData from './Form/FormData';
 import FormRange from './Form/FormRange';
 import FormComplete from './Form/FormComplete';
-import './FromSearch.less'
+import './FromSearch.less';
 
-import {Buttons} from '../widget'
+import { Buttons } from '../widget';
 import TableWidget from './TableWidget';
 const formItemLayout = {
     labelCol: {
@@ -105,7 +105,17 @@ class FromSearch extends Component {
     //提交
     handleSearch = () => {};
     render() {
-        let { form, searchItem,columnsItems,rowKey,searchApi,dataSource,showSelection, title = '',...restProps } = this.props;
+        let {
+            form,
+            searchItem,
+            columnsItems,
+            rowKey,
+            searchApi,
+            dataSource,
+            showSelection,
+            title = '',
+            ...restProps
+        } = this.props;
         return (
             <div
                 className={'From_input'}
@@ -113,7 +123,7 @@ class FromSearch extends Component {
                     display: 'flex',
                     justifyContent: 'flex-start',
                     flexWrap: 'wrap',
-                    paddingRight: '90px',
+                    padding: '10px',
                 }}
             >
                 <Card
@@ -211,23 +221,26 @@ class FromSearch extends Component {
                         </div>
                     </Form>
                 </Card>
-                <Card>
+                <Card
+                    style={{
+                        width: '100%',
+                    }}
+                >
                     <div>
                         <Buttons
-                        {...{
-                            hasButtons:true,
-                            requirement: restProps.btnsRequirement,
-                            }
-                        } 
+                            {...{
+                                hasButtons: true,
+                                requirement: restProps.btnsRequirement,
+                            }}
                         />
                     </div>
-                    <div style={{ width: '100%',marginTop:'20px' }}>
-                        <TableWidget 
+                    <div style={{ width: '100%', marginTop: '20px' }}>
+                        <TableWidget
                             ref={table => (this.table = table)}
                             fetchApi={searchApi}
                             apiParams={''}
                             // defaultFetch={false}
-                            callBackData={()=>{}}
+                            callBackData={() => {}}
                             {...{
                                 // materialClassify,
                                 // isFormDataParam,
@@ -237,22 +250,18 @@ class FromSearch extends Component {
                                 // typeFlag,
                                 ...this.props,
                             }}
-                            tableConfig={
-                            {
-                                columns:columnsItems,
+                            tableConfig={{
+                                columns: columnsItems,
                                 rowKey: row => row[rowKey],
-                                dataSource:dataSource,
-                                showSelection
-                            }
-                            }
+                                dataSource: dataSource,
+                                showSelection,
+                            }}
                         />
                     </div>
                 </Card>
-                
             </div>
         );
     }
 }
 
 export default Form.create()(FromSearch);
-

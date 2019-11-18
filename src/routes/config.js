@@ -1,10 +1,10 @@
 /*
- * @Description: 
+ * @Description:
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2019-08-27 16:26:04
  * @LastEditors: yangw5
- * @LastEditTime: 2019-08-27 16:26:04
+ * @LastEditTime: 2019-11-13 09:47:32
  */
 /**
  * @exports 路由配置文件
@@ -158,6 +158,18 @@ export default {
                     component: 'Gameshow',
                 },
             ],
+        },
+    ],
+    others: [
+        {
+            key: '/app/material/frontend/info/:id?',
+            title: '数据显示',
+            component: 'commonshow',
+        },
+        {
+            key: '/app/material/frontend/edit/:id?',
+            title: '数据编辑',
+            component: 'commonedit',
         },
     ],
 };

@@ -4,7 +4,7 @@
  * @Email: yangw5@163.com
  * @Date: 2019-08-15 17:27:51
  * @LastEditors: yangw5
- * @LastEditTime: 2019-10-11 14:36:18
+ * @LastEditTime: 2019-11-18 16:51:51
  */
 import React from 'react';
 import './App.css';
@@ -12,6 +12,7 @@ import Cp from './component';
 import { Button, Layout, LocaleProvider } from 'antd';
 import HeaderCustom from './HeaderCustom';
 import SiderCustom from './component/SiderCustom';
+import { BackTop } from './component/widget';
 import './style/index.less';
 import './style/antd/index.less';
 import Routes from './routes';
@@ -22,6 +23,7 @@ import { getCookie } from './utils';
 import { receiveData } from './reducer/action';
 import { connect } from 'react-redux'; //设置store
 import { bindActionCreators } from 'redux';
+import { from } from 'rxjs';
 moment.locale('zh-cn');
 const { Header, Content, Footer } = Layout;
 class App extends React.Component {
@@ -52,7 +54,7 @@ class App extends React.Component {
                     >
                         <SiderCustom collapsed={this.state.collapsed} />
                         <Layout style={{ background: '#fff' }}>
-                            <Content style={{ overflow: 'auto' }}>
+                            <Content id="content" style={{ overflow: 'auto' }}>
                                 <Routes />
                             </Content>
                             <Footer
@@ -71,6 +73,7 @@ class App extends React.Component {
                                     ' copy © karakal {new Date().getFullYear()} created by karakal-fed'
                                 )}
                             </Footer>
+                            <BackTop id={'content'} />
                         </Layout>
                     </Layout>
                 </Layout>
@@ -86,7 +89,4 @@ const mapDispatchToProps = dispatch => ({
     receiveData: bindActionCreators(receiveData, dispatch),
 });
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
