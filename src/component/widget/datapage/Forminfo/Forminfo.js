@@ -5,7 +5,7 @@
  * @Email: yangw5@163.com
  * @Date: 2019-11-13 08:52:56
  * @LastEditors: yangw5
- * @LastEditTime: 2019-11-18 17:27:48
+ * @LastEditTime: 2019-11-19 16:54:29
  * @FilePath: \react-web\src\component\widget\datapage\datashow\DataShow.js
  */
 //基础模板
@@ -16,6 +16,7 @@ import DataShow from './DataShow';
 import ButtonsMaterial from '../../../widget/ButtonsMaterial';
 import { BoxInfo } from '../../index';
 import DataEdit from './DataEdit';
+import { withRouter } from 'react-router-dom';
 const { TabPane } = Tabs;
 const imgURL = require('../../../../style/img/default.png');
 /**
@@ -128,14 +129,14 @@ let infoItem = [
 ];
 let items = [
     {
-        label: '案例名称',
+        label: '名称',
         field: 'name',
         fieldType: 'input',
         required: true,
         classname: 'average-2',
     },
     {
-        label: '案例编号',
+        label: '翻译',
         field: 'date',
         fieldType: 'input',
         required: true,
@@ -156,9 +157,32 @@ let items = [
         classname: 'average-2',
     },
 ];
+const postdata = () => {
+    let data = {
+        name: 'es6',
+        oname: 'ECMAScript6',
+        autor: '阮一峰',
+        type: 'javescript',
+        time: '2015-6',
+        hotpoint: '100',
+        where: '英国',
+        native: '中国',
+        count: '12000',
+    };
+};
 
 const Forminfo = props => {
     let { query, edit, onEdit, onBack, form } = props;
+    let onEditing = () => {
+        onEdit && onEdit();
+        const { match, history } = props;
+        history.push({ pathname: `/app/material/frontend/edit/${match.params.id}` }); //编辑进行跳转
+    };
+    let onBacking = () => {
+        onBack && onBack();
+        const { match, history } = props;
+        history.push({ pathname: `/app/material/frontend/info/${match.params.id}` }); //编辑进行跳转
+    };
     return (
         <div className={'root'}>
             <Tabs>
@@ -209,10 +233,10 @@ const Forminfo = props => {
                     alert('提交');
                 }}
                 onEdit={() => {
-                    onEdit();
+                    onEditing();
                 }}
                 onBack={() => {
-                    onBack();
+                    onBacking();
                 }}
                 onLog={() => {
                     alert('日志');
@@ -222,4 +246,4 @@ const Forminfo = props => {
     );
 };
 
-export default Forminfo;
+export default withRouter(Forminfo);

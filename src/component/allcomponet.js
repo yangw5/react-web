@@ -5,7 +5,7 @@
  * @Email: yangw5@163.com
  * @Date: 2019-08-26 08:22:55
  * @LastEditors: yangw5
- * @LastEditTime: 2019-11-13 09:52:44
+ * @LastEditTime: 2019-11-18 17:51:46
  * @FilePath: \react-web\src\component\allcomponet.js
  */
 import FrontEnd from './frontend';
@@ -30,6 +30,7 @@ import AccountBook from './y5tool/account/AccountBook';
 
 import CommonList from './common/commonList';
 import commonshow from './common/commonshow';
+import commonEdit from './common/commonEdit';
 
 export default {
     FrontEnd,
@@ -50,4 +51,5 @@ export default {
     AccountBook,
     CommonList,
     commonshow,
+    commonEdit,
 };

@@ -5,7 +5,7 @@
  * @Email: yangw5@163.com
  * @Date: 2019-11-13 09:06:07
  * @LastEditors: yangw5
- * @LastEditTime: 2019-11-18 17:32:50
+ * @LastEditTime: 2019-11-18 18:01:35
  * @FilePath: \react-web\src\component\common\commonshow.js
  */
 import React from 'react';
@@ -32,17 +32,17 @@ class CommomList extends React.Component {
         return (
             <div>
                 <Forminfo
-                    edit={edit}
-                    onEdit={() => {
-                        this.setState({
-                            edit: true,
-                        });
-                    }}
-                    onBack={() => {
-                        this.setState({
-                            edit: false,
-                        });
-                    }}
+                    edit={false}
+                    // onEdit={() => {
+                    //     this.setState({
+                    //         edit: true,
+                    //     });
+                    // }}
+                    // onBack={() => {
+                    //     this.setState({
+                    //         edit: false,
+                    //     });
+                    // }}
                     form={form}
                 />
             </div>

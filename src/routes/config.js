@@ -4,7 +4,7 @@
  * @Email: yangw5@163.com
  * @Date: 2019-08-27 16:26:04
  * @LastEditors: yangw5
- * @LastEditTime: 2019-11-13 09:47:32
+ * @LastEditTime: 2019-11-22 15:02:25
  */
 /**
  * @exports 路由配置文件
@@ -79,13 +79,13 @@ export default {
         },
         {
             key: '/app/antdui',
-            title: 'antd UI库',
+            title: 'antdup UI库',
             icon: 'ant-design',
             requirement: [],
             subs: [
                 {
                     key: '/app/antdui/count',
-                    title: 'antd UI汇总',
+                    title: 'antdup UI汇总',
                     component: 'AntdUi',
                 },
                 {
@@ -169,7 +169,7 @@ export default {
         {
             key: '/app/material/frontend/edit/:id?',
             title: '数据编辑',
-            component: 'commonedit',
+            component: 'commonEdit',
         },
     ],
 };
