@@ -10688,10 +10688,10 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-antdup@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/react-antdup/-/react-antdup-0.0.4.tgz#1c286b42524f60c0141d21f61f48439a132f2a3f"
-  integrity sha512-JSNdntS31rvuPjOMwVOUYLqUUy7Pv6qQyRyzJafBZnLuTp6z6Eik/Fqt02KQtHgDQ4hCYMmEc6RxkeGwCxVLdw==
+react-antdup@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/react-antdup/-/react-antdup-0.0.10.tgz#8476a83babe0826820ec28ef3e34c892a798017d"
+  integrity sha512-QfxQTT+kHTUNm/dBxRVWAFocAoXM4mcD2APtwgy100XQyxem4GS4dJOBHWviYb7g0bTxAyl/bbJu4cj8BwWQhw==
   dependencies:
     babel-cli "^6.26.0"
     babel-preset-es2015 "^6.24.1"

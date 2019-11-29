@@ -5,15 +5,19 @@
  * @Email: yangw5@163.com
  * @Date: 2019-08-26 08:23:03
  * @LastEditors: yangw5
- * @LastEditTime: 2019-11-25 14:45:30
+ * @LastEditTime: 2019-11-27 12:49:51
  * @FilePath: \react-web\src\component\antdUi\index.js
  */
 import React, { useState } from 'react';
 import { BreadcrumbCustom } from '../widget';
-import { Alert } from 'react-antdup';
+import { Alert, imgsourceshow } from 'react-antdup';
 import { Button } from 'antd';
+let imgsrc = require('../../assets/img/m1.jfif');
 
 function AntdUi() {
+    let showImgSource = () => {
+        imgsourceshow.show(imgsrc);
+    };
     const breadItems = [{ title: 'antdup Ui库', icon: 'home' }];
     return (
         <div>
@@ -52,6 +56,15 @@ function AntdUi() {
                 >
                     弹框
                 </Button>
+                <img
+                    src={imgsrc}
+                    alt="测试"
+                    width="100"
+                    height="100"
+                    onClick={() => {
+                        showImgSource();
+                    }}
+                />
             </div>
         </div>
     );
