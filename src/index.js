@@ -1,7 +1,18 @@
+/*
+ * @File:
+ * @Description:
+ * @Autor: yangw5
+ * @Email: yangw5@163.com
+ * @Date: 2019-08-15 17:27:51
+ * @LastEditors: yangw5
+ * @LastEditTime: 2020-01-08 15:08:06
+ * @FilePath: \react-web\src\index.js
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.less';
-import { Provider } from 'react-redux'; //根组件使用provider嵌套 组件层级中的 connect() 方法都能够获得 Redux store
+import { Provider } from 'react-redux';
+//根组件使用provider嵌套 组件层级中的 connect() 方法都能够获得 Redux store
 import thunk from 'redux-thunk';
 import * as serviceWorker from './serviceWorker';
 import Page from './Page';
