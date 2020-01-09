@@ -5,12 +5,13 @@
  * @Email: yangw5@163.com
  * @Date: 2020-01-08 15:32:01
  * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-08 18:09:15
+ * @LastEditTime : 2020-01-09 09:45:20
  * @FilePath: \react-web\src\component\header\index.js
  */
 import React, { Component } from 'react';
 import { Layout, Icon, Input, Select, AutoComplete } from 'antd';
 import classnames from 'classnames';
+import screenfull from 'screenfull';
 import styles from './header.module.less';
 const Option = Select.Option;
 const InputGroup = Input.Group;
@@ -21,32 +22,87 @@ class HeaderCustom extends Component {
         super(props);
         this.state = {
             istitle: true,
+            type: '',
+            children: [],
         };
     }
-    searchDom = () => (
-        <div className={styles['header-right__search']}>
-            <InputGroup compact>
-                <Select value={this.state.type} onChange={this.handleChange}>
-                    <Option value="artist">条件1</Option>
-                    <Option value="song">条件2</Option>
-                    <Option value="album">条件3</Option>
-                    <Option value="mv">条件4</Option>
-                    <Option value="playlist">条件5</Option>
-                    <Option value="speclib">条件6</Option>
-                    <Option value="fingerprint">条件7</Option>
-                </Select>
-                <AutoComplete
-                    onSearch={this.handleSearch}
-                    onSelect={this.onSelect}
-                    optionLabelProp="title"
-                    labelInValue
-                    placeholder={'请输入需要查询的字段'}
-                >
-                    {this.state.children}
-                </AutoComplete>
-            </InputGroup>
-        </div>
-    );
+    //搜索类型选择
+    handleChange = value => {
+        this.setState({
+            type: value,
+        });
+    };
+    //搜索下拉列表显示
+    handleSearch = value => {
+        let { type } = this.state;
+        let { searchApi, searchOption, searchOptionDom } = this.props.config.search;
+        let children = [];
+        if (searchOptionDom) {
+            //自定义显示样式
+        } else {
+            //默认显示样式
+            children = searchApi({ type, value: value }).map((v, i) => (
+                <Option title={v[searchOption.key]} key={v[searchOption.key]}>
+                    {searchOption.OptionItem.map((item, i) =>
+                        i !== searchOption.OptionItem.length - 1
+                            ? v[item] + (searchOption.link ? searchOption.link : '-')
+                            : v[item]
+                    )}
+                </Option>
+            ));
+        }
+        this.setState({ children });
+        // searchApi({ type, value: value }).then(res => {
+        //     children = res.data.list.map((v, i) => <Option title={v.id}>{v.name}</Option>);
+        // });
+    };
+    //点击搜索的下拉列表
+    onSelect = value => {
+        let { selectApi } = this.props.config.search;
+        selectApi(value);
+        // selectApi(value).then(res => {
+        //     console.log(res);
+        // });
+    };
+    //搜索框定义
+    searchDom = () => {
+        let { search } = this.props.config;
+        let { type, children } = this.state;
+        return (
+            <div className={styles['header-right__search']}>
+                <InputGroup compact>
+                    <Select
+                        value={type}
+                        onChange={value => {
+                            search.callback && search.callback();
+                            this.handleChange(value);
+                        }}
+                    >
+                        {search.slectOption.map(v => (
+                            <Option key={v.value} value={v.value}>
+                                {v.name}
+                            </Option>
+                        ))}
+                    </Select>
+                    <AutoComplete
+                        onSearch={this.handleSearch}
+                        onSelect={this.onSelect}
+                        optionLabelProp="title"
+                        labelInValue
+                        placeholder={'请输入需要查询的字段'}
+                    >
+                        {children}
+                    </AutoComplete>
+                </InputGroup>
+            </div>
+        );
+    };
+    //全屏
+    screenFull = () => {
+        if (screenfull.enabled) {
+            screenfull.request();
+        }
+    };
     render() {
         let { config, collapsed, toggle } = this.props;
         return (

@@ -47,6 +47,8 @@ react-web 是一个可扩展的 react 后台管理系统的项目模板。可以
 -   [echarts]()：js 可视化库 👍
 -   [lodash](https://www.lodashjs.com/)：一个一致性、模块化、高性能的 JavaScript 实用工具库 👍
 -   [antd-young5]():基于 antd 的组件库 👍
+-   [screenfull](https://github.com/sindresorhus/screenfull.js):JavaScript 全屏 API 的跨浏览器使用的简单包装 👍
+-   [react-beautiful-dnd]():react 拖拽组件
 -   ...
 
 ## 项目目录
@@ -99,13 +101,23 @@ react-web 是一个可扩展的 react 后台管理系统的项目模板。可以
 
 -   静态登陆
 -   首页
--   导航
+-   自定义导航
 -   自定义表单
 -   数据可视化
 -   自定义组件
 -   图片库
 
 ## 功能展示
+
+## 开发模式
+
+-   组件化开发
+-   配置化开发
+
+注：
+
+1. 公共组件开发：该模块开发减少自身 state,更多点通过父组件传递 props 进行控制
+2. 组件分为 ui 组件和逻辑组件，功能要单一
 
 ## 坑点
 

@@ -3,21 +3,24 @@
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2019-08-26 08:22:55
- * @LastEditors: yangw5
- * @LastEditTime: 2019-10-09 14:41:40
+ * @LastEditors  : yangw5
+ * @LastEditTime : 2020-01-09 17:05:28
  */
 
 import React from 'react';
 import { Menu, Icon } from 'antd';
 import queryString from 'query-string'; //获取格式化url参数
 import { Link } from 'react-router-dom';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+//用于包装拖拽根组件，Draggable和Droppable都需要包裹在DragDropContex内
+//Droppable可被拖拽的区域
 const SubMenu = Menu.SubMenu;
 const MenuItem = Menu.Item;
 
 const renderMenuItem = item => (
     <MenuItem key={item.key}>
         {item.href ? (
-            <a>
+            <a href={'ww'}>
                 {item.icon && <Icon type={`${item.icon}`} />}
                 <span>{item.title}</span>
             </a>
@@ -49,23 +52,43 @@ const renderSubMenu = item => (
             </span>
         }
     >
-        {item.subs.map(item => renderMenuItem(item))}
+        {item.subs.map(v => renderMenuItem(v))}
     </SubMenu>
 );
 
 export default ({ menus, defaultSelectedKeys = ['/app'], ...props }) => (
-    <Menu
-        // defaultSelectedKeys
-        style={{
-            background: '#f0f2f5',
-            height: '100%',
-            paddingTop: '50px',
-            maxWidth: '200px',
+    <DragDropContext
+        onDragEnd={() => {
+            //数据更新
         }}
-        defaultOpenKeys={['/app/frontend']}
-        {...props}
-        mode="inline"
     >
-        {menus && menus.map(item => (item.subs ? renderSubMenu(item) : renderMenuItem(item)))}
-    </Menu>
+        <Droppable droppableId="id">
+            {provided => (
+                <div ref={provided.innerRef} {...provided.droppableProps}>
+                    {/* <Menu {...props}>
+                        {menus &&
+                            menus.map((item, i) =>
+                                item.subs ? renderSubMenu(item) : renderMenuItem(item)
+                            )}
+                    </Menu> */}
+                    {menus &&
+                        menus.map((item, i) => (
+                            <Draggable key={i} draggableId={item.key} index={i}>
+                                {p => (
+                                    <div
+                                        ref={p.innerRef}
+                                        {...p.draggableProps}
+                                        {...p.dragHandleProps}
+                                    >
+                                        <Menu {...props}>
+                                            {item.subs ? renderSubMenu(item) : renderMenuItem(item)}
+                                        </Menu>
+                                    </div>
+                                )}
+                            </Draggable>
+                        ))}
+                </div>
+            )}
+        </Droppable>
+    </DragDropContext>
 );
