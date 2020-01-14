@@ -3,8 +3,8 @@
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2019-08-27 16:26:04
- * @LastEditors: yangw5
- * @LastEditTime: 2019-11-22 15:02:25
+ * @LastEditors  : yangw5
+ * @LastEditTime : 2020-01-09 17:31:43
  */
 /**
  * @exports 路由配置文件
@@ -105,6 +105,11 @@ export default {
                     key: '/app/ui/count',
                     title: 'UI汇总',
                     component: 'Uis',
+                },
+                {
+                    key: '/app/ui/form',
+                    title: '表单',
+                    component: 'FormCustom',
                 },
                 {
                     key: '/app/ui/gallery',

@@ -1,10 +1,10 @@
 /*
- * @Description: 导航基础组件
+ * @Description: 导航组件
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2019-08-26 08:22:55
  * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-09 18:06:43
+ * @LastEditTime : 2020-01-09 17:47:09
  */
 
 import React from 'react';
@@ -65,7 +65,12 @@ export default ({ menus, defaultSelectedKeys = ['/app'], ...props }) => (
         <Droppable droppableId="id">
             {provided => (
                 <div ref={provided.innerRef} {...provided.droppableProps}>
-                    {provided.placeholder}
+                    {/* <Menu {...props}>
+                        {menus &&
+                            menus.map((item, i) =>
+                                item.subs ? renderSubMenu(item) : renderMenuItem(item)
+                            )}
+                    </Menu> */}
                     {menus &&
                         menus.map((item, i) => (
                             <Draggable key={i} draggableId={item.key} index={i}>

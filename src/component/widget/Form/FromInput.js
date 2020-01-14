@@ -38,7 +38,7 @@ export default ({
     field, //表单属性名
     required = false, //是否必填
     readOnly, //只读还是编辑
-    ruleType = 'number', //格式类型
+    ruleType, //格式类型
     labelCol = { span: 5 }, //label长度
     wrapperCol = { span: 60 }, //input长度
     validator, //自定义验证格式
@@ -81,7 +81,7 @@ export default ({
     // };
     return (
         <Form.Item
-            className={'addonAfter='}
+            className={'addonAfter'}
             {...{
                 label,
                 labelCol,
@@ -93,6 +93,7 @@ export default ({
                 rules,
                 //  validateFirst: true, //当某一规则校验不通过时，是否停止剩下的规则的校验
                 normalize: value => {
+                    //自定义数据转换 格式化输出
                     if (valueFilter) return valueFilter(value);
                     return value;
                 },
@@ -100,7 +101,11 @@ export default ({
                 readOnly ? (
                     <span>{label}</span>
                 ) : (
-                    <Input placeholder={placeholder || `请输入${label}`} {...inputProps} />
+                    <Input
+                        placeholder={placeholder || `请输入${label}`}
+                        {...inputProps}
+                        allowClear={restProps.clear}
+                    />
                 )
             )}
         </Form.Item>

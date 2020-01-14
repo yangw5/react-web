@@ -4,18 +4,21 @@
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2019-08-26 08:22:55
- * @LastEditors: yangw5
- * @LastEditTime: 2019-11-18 17:51:46
+ * @LastEditors  : yangw5
+ * @LastEditTime : 2020-01-14 15:37:48
  * @FilePath: \react-web\src\component\allcomponet.js
  */
 import FrontEnd from './frontend';
 import ToolsShow from './tootsshow';
 import BaseStation from './frontend/basestation';
 import CaseShow from './caseshow';
+//自定义UI库
 import Uis from './ui';
+import FormCustom from './ui/FormCustom';
 import Datado from './ui/datado';
 import Gallery from './ui/gallery';
 import TagTree from './ui/tag';
+
 import DashBoard from './dashboard';
 import Gameshow from './caseshow/gameshow/Gameshow';
 import AntdUi from './antdUi';
@@ -41,6 +44,7 @@ export default {
     CaseShow,
     DashBoard,
     Uis,
+    FormCustom,
     Datado,
     Gallery,
     TagTree,

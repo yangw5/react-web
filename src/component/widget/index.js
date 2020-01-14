@@ -4,42 +4,47 @@
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2019-08-26 08:22:55
- * @LastEditors: yangw5
- * @LastEditTime: 2019-11-18 16:39:06
+ * @LastEditors  : yangw5
+ * @LastEditTime : 2020-01-14 17:26:48
  * @FilePath: \react-web\src\component\widget\index.js
  */
 // import FormSelect from './FormSelect';
 import Buttons from './Buttons';
-import FromSearch from './FromSearch';
+import ButtonGroup from './ButtonGroup';
+import BoxInfo from './BoxInfo';
+
 import BreadcrumbCustom from './BreadcrumbCustom';
 import ModalContainer from './ModalContainer';
 import DataEdit from './datapage/Forminfo/DataEdit';
 import ImgList from './ImgList';
 import InputSearch from './basis/InputSearch';
-import BoxInfo from './BoxInfo';
 
+import FromSearch from './FromSearch';
 import FromInput from './Form/FromInput';
 import FormSelect from './Form/FormSelect';
 import FormCheckBox from './Form/FormCheckBox';
 import FormData from './Form/FormData';
 import Formcombin from './Form/Formcombin';
+import FormSearch from './Form/FormSearch';
 
 import Forminfo from './datapage/Forminfo/Forminfo';
 import BackTop from './BackTop';
 export {
+    Buttons,
+    ButtonGroup,
+    BreadcrumbCustom,
+    BoxInfo,
+    BackTop,
+    DataEdit,
     FromInput,
     FormSelect,
     FormCheckBox,
     FormData,
     Formcombin,
-    Buttons,
+    FormSearch,
     FromSearch,
-    BreadcrumbCustom,
-    ModalContainer,
-    DataEdit,
+    Forminfo,
     ImgList,
     InputSearch,
-    Forminfo,
-    BoxInfo,
-    BackTop,
+    ModalContainer,
 };

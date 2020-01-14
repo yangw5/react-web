@@ -1,11 +1,11 @@
 /*
  * @File:
- * @Description:自定义导航栏配置组件
+ * @Description:自定义导航栏
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2019-08-26 08:22:55
  * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-09 18:06:35
+ * @LastEditTime : 2020-01-09 17:54:04
  * @FilePath: \react-web\src\component\SiderCustom.js
  */
 import React, { PureComponent } from 'react';
@@ -32,7 +32,6 @@ class SiderCustom extends PureComponent {
     }
 
     static setMenuOpen = props => {
-        //目前支持2级菜单
         const { pathname } = props.location;
         return {
             //展开key
@@ -101,6 +100,7 @@ class SiderCustom extends PureComponent {
                     mode="inline"
                     // inlineCollapsed={false}
                 />
+                {/* {provided.placeholder} */}
             </Sider>
         );
     }
