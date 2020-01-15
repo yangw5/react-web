@@ -1,4 +1,14 @@
-import React, { useEffect, useState } from 'react';
+/*
+ * @File:
+ * @Description:
+ * @Autor: yangw5
+ * @Email: yangw5@163.com
+ * @Date: 2019-08-27 16:26:04
+ * @LastEditors  : yangw5
+ * @LastEditTime : 2020-01-15 17:51:07
+ * @FilePath: \react-web\src\component\widget\Form\FormComplete.js
+ */
+import React, { useState } from 'react';
 import { Form, AutoComplete } from 'antd';
 const { Option } = AutoComplete;
 function FormComplete({
@@ -8,12 +18,19 @@ function FormComplete({
     rules,
     initialValue,
     defaultActiveFirstOption,
+    disabled = false,
     labelCol = { span: 7 },
     wrapperCol = { span: 17 },
+    dataSource,
+    optionLabelProp,
+    allowClear = false,
+    filterOption = false,
+    ChildrenCustom,
 }) {
-    let [dataSource, setdataSource] = useState(['Burns Bay Road', 'Downing Street', 'Wall Street']);
     let [Children, setChildren] = useState([]);
+    let [childrendata, setChildrendata] = useState(dataSource || []);
     let handleSearch = () => {
+        setChildrendata(['数据1', '数据2', '数据3', '数据4', '数据5']);
         let childrendata = ['数据1', '数据2', '数据3', '数据4', '数据5'].map(v => (
             <Option key={v}>{v}</Option>
         ));
@@ -31,19 +48,23 @@ function FormComplete({
                 {getFieldDecorator(field, { rules, initialValue })(
                     <AutoComplete
                         style={{ width: '100%' }}
-                        // dataSource={dataSource}
                         placeholder={`请输入${label}`}
-                        // filterOption={(inputValue, option) =>
-                        //     option.props.children
-                        //         .toUpperCase()
-                        //         .indexOf(inputValue.toUpperCase()) !== -1
-                        // }
-                        // initialValue={[]}
-                        onSearch={handleSearch}
-                        optionLabelProp="inputtext"
-                        defaultActiveFirstOption={defaultActiveFirstOption}
+                        initialValue={initialValue}
+                        filterOption={(inputValue, option) =>
+                            filterOption &&
+                            option.props.children
+                                .toUpperCase()
+                                .indexOf(inputValue.toUpperCase()) !== -1
+                        }
+                        allowClear={allowClear}
+                        dataSource={ChildrenCustom ? childrendata : dataSource}
+                        disabled={disabled}
+                        onSearch={handleSearch} //搜索补全项的时候调用
+                        optionLabelProp={optionLabelProp} //回填属性
+                        defaultActiveFirstOption={defaultActiveFirstOption} //是否默认高亮第一个选项。
                     >
-                        {Children}
+                        {/* 自定义输入组件 */}
+                        {ChildrenCustom ? ChildrenCustom() : Children}
                     </AutoComplete>
                 )}
             </Form.Item>

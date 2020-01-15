@@ -5,39 +5,18 @@
  * @Email: yangw5@163.com
  * @Date: 2020-01-14 15:38:16
  * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-15 17:13:54
+ * @LastEditTime : 2020-01-15 17:50:00
  * @FilePath: \react-web\src\component\ui\FormCustom\widgets\config.js
  */
 import React from 'react';
+import { Input } from 'antd';
+const { TextArea } = Input;
 let searchItem = [
     {
         label: '文本框',
         field: 'input',
         type: 'input',
         clear: true,
-    },
-    {
-        label: '文本域',
-        field: 'textarea',
-        type: 'textarea',
-        max: 20,
-        min: 5,
-        required: true,
-        // readOnly: true,
-        // initialValue: '只读',
-        // clear: true,
-        // valueFilter: value => {
-        //     //输入转换
-        //     if (/^[0-9]*$/.test(value)) {
-        //         return value;
-        //     } else return value.replace(/[^0-9]/gi, '');
-        // },
-        validator: (rule, value, callback) => {
-            //输入校验
-            if (value === '55555') {
-                return callback('5个555');
-            }
-        },
     },
     {
         label: '区间',
@@ -48,8 +27,8 @@ let searchItem = [
         // clear: true,
     },
     {
-        label: '状态',
-        field: 'status',
+        label: '选择器',
+        field: 'select',
         type: 'select',
         // mode: 'multiple',
         showSearch: true,
@@ -78,6 +57,47 @@ let searchItem = [
                 value: '数据22',
             },
         ],
+    },
+    {
+        label: '查询器',
+        field: 'search',
+        type: 'complete',
+        dataSource: ['Burns Bay Road', 'Downing Street', 'Wall Street'],
+        max: 5,
+        allowClear: true,
+        ChildrenCustom: () => {
+            return <TextArea style={{ height: 50 }} />;
+        },
+        validator: (rule, value, callback, max = 10) => {
+            if (value && value.length > 10) {
+                callback(`不能输入超过${max}个字符`);
+            } else {
+                callback();
+            }
+        },
+    },
+    {
+        label: '文本域',
+        field: 'textarea',
+        type: 'textarea',
+        max: 20,
+        min: 5,
+        required: true,
+        // readOnly: true,
+        // initialValue: '只读',
+        // clear: true,
+        // valueFilter: value => {
+        //     //输入转换
+        //     if (/^[0-9]*$/.test(value)) {
+        //         return value;
+        //     } else return value.replace(/[^0-9]/gi, '');
+        // },
+        validator: (rule, value, callback) => {
+            //输入校验
+            if (value === '55555') {
+                return callback('5个555');
+            }
+        },
     },
 ];
 
