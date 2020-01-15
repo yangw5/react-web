@@ -3,8 +3,8 @@
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2019-08-27 16:22:13
- * @LastEditors: yangw5
- * @LastEditTime: 2019-11-13 09:54:26
+ * @LastEditors  : yangw5
+ * @LastEditTime : 2020-01-15 14:04:03
  */
 /**
  * 转换对象的值为json对象值
@@ -56,3 +56,13 @@ export const setArryItem = (data, oldvalue, newvalue, newdata = []) => {
 export const renderName = row => (
     <Link to={`/app/material/frontend/info/${row.id}`}>{row['name']}</Link>
 );
+
+export const getJsType = obj => {
+    if (typeof obj === 'function') {
+        //是函数    其中 FunName 为函数名称
+        return true;
+    } else {
+        //不是函数
+        return false;
+    }
+};

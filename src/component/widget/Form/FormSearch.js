@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Form, Col, Card } from 'antd';
 // import CFromInput from './CFromInput';
 import FromInput from '../Form/FromInput';
+import FromTextArea from '../Form/FormTextArea';
+import FormPointsRange from '../Form/FormPointsRange';
 import FormSelect from '../Form/FormSelect';
 import FormCheckBox from '../Form/FormCheckBox';
 import FormData from '../Form/FormData';
@@ -24,6 +26,9 @@ const formItemLayout = {
 class FormSearch extends Component {
     constructor(props) {
         super(props);
+        this.components = {
+            pointsrange: FormPointsRange,
+        };
         this.state = {
             initialValue: '密码',
             initialValue1: '性别',
@@ -55,6 +60,9 @@ class FormSearch extends Component {
     _renderFromInput = parms => (
         <FromInput {...{ ...formItemLayout, ...parms, ...this.props.form }} />
     );
+    _renderFromTextarea = parms => (
+        <FromTextArea {...{ ...formItemLayout, ...parms, ...this.props.form }} />
+    );
     _renderFormSelect = parms => (
         <FormSelect {...{ ...formItemLayout, ...parms, ...this.props.form }} />
     );
@@ -75,6 +83,8 @@ class FormSearch extends Component {
         switch (item.type) {
             case 'input':
                 return this._renderFromInput(item);
+            case 'textarea':
+                return this._renderFromTextarea(item);
             case 'select':
                 return this._renderFormSelect(item);
             case 'check':
@@ -86,7 +96,11 @@ class FormSearch extends Component {
             case 'complete':
                 return this._rederFormComplete(item);
             default:
+                return this._renderForm(this.components[item.type], item);
         }
+    };
+    _renderForm = (ComponentName, parms) => {
+        return <ComponentName {...{ ...formItemLayout, ...parms, ...this.props.form }} />;
     };
     // fromItem jsx
     getFields = fromItems => {
