@@ -5,7 +5,7 @@
  * @Email: yangw5@163.com
  * @Date: 2020-01-14 15:44:43
  * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-14 16:16:51
+ * @LastEditTime : 2020-01-17 16:07:49
  * @FilePath: \react-web\src\component\ui\FormCustom\widgets\index.js
  */
 import React from 'react';
@@ -21,7 +21,7 @@ function FormCustomConfig() {
                 }}
             >
                 <strong style={{ paddingRight: '10px' }}> FormSearch : </strong>
-                form表单组件与table的组合.通过form表单查询并返回相应数据
+                form表单组件与table的组合.通过form表单查询并返回相应数据.包括基础的文本框，文本域，选择器，查询器，区域器,单选框，多选框，日期选择器，开关，滑块，还包括自定义组件。
             </div>
         );
     };

@@ -9,6 +9,12 @@ import FormCheckBox from '../Form/FormCheckBox';
 import FormData from '../Form/FormData';
 import FormRange from '../Form/FormRange';
 import FormComplete from '../Form/FormComplete';
+import FormMultiple from '../Form/FormMultiple';
+import FormRadio from '../Form/FormRadio';
+import FormSwitch from '../Form/FormSwitch';
+import FormSlider from '../Form/FormSlider';
+import FormRate from '../Form/FormRate';
+import FromUpload from '../Form/FromUpload';
 import './FormSearch.less';
 
 import { Buttons, ButtonGroup } from '../../widget';
@@ -28,6 +34,12 @@ class FormSearch extends Component {
         super(props);
         this.components = {
             pointsrange: FormPointsRange,
+            multiple: FormMultiple,
+            radio: FormRadio,
+            switch: FormSwitch,
+            slider: FormSlider,
+            rate: FormRate,
+            upload: FromUpload,
         };
         this.state = {
             initialValue: '密码',
@@ -105,16 +117,28 @@ class FormSearch extends Component {
     // fromItem jsx
     getFields = fromItems => {
         return fromItems.map((v, i) => (
-            // <Row gutter={24} key={i}>
-            //     v.map((m,n)=>(
-            // <Row gutter={24} key={i}>
-            <Col span={6} key={i}>
-                {this._renderFormItem(v)}
+            <Col span={Number(this.getClassType(v.classType, 6))} key={i}>
+                <Col span={Number(this.getClassType(v.contentType, 24))}>
+                    {this._renderFormItem(v)}
+                </Col>
             </Col>
-            //  )
-            //     )
-            // </Row>
         ));
+    };
+    getClassType = (type, index) => {
+        let span = index;
+        if (type) {
+            switch (type) {
+                case 'row':
+                    span = 24;
+                    break;
+                case 'row2':
+                    span = 12;
+                    break;
+                default:
+                    span = 6;
+            }
+        }
+        return span;
     };
     //提交
     handleSearch = () => {};

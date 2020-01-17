@@ -1,3 +1,13 @@
+/*
+ * @File:
+ * @Description:时间组件
+ * @Autor: yangw5
+ * @Email: yangw5@163.com
+ * @Date: 2019-08-27 16:26:04
+ * @LastEditors  : yangw5
+ * @LastEditTime : 2020-01-17 15:25:38
+ * @FilePath: \react-web\src\component\widget\Form\FormData.js
+ */
 import React, { Component } from 'react';
 import { Form, DatePicker } from 'antd';
 import moment from 'moment';
@@ -15,13 +25,14 @@ class FormData extends Component {
             wrapperCol = { span: 12 },
             getFieldDecorator,
             field,
-            // rules,
             isrange = false,
-            dateFormat = 'YYYY/MM/DD',
+            dateFormat = 'YYYY/MM/DD', // 'YYYY-MM-DD HH:mm'
             initialValue,
             placeholder = '时间',
             validator,
-            showTime = true,
+            showTime = false,
+            showToday = true,
+            allowClear,
         } = this.props;
         return (
             <div>
@@ -62,16 +73,24 @@ class FormData extends Component {
                                     moment('2015/01/01', dateFormat),
                                     moment('2015/01/01', dateFormat),
                                 ]}
-                                format={dateFormat}
+                                format={dateFormat || 'YYYY-MM-DD HH:mm'}
+                                showTime={showTime}
+                                showToday={showToday}
+                                allowClear={allowClear}
                             />
                         ) : (
                             <DatePicker
                                 style={{ width: '100%' }}
+                                getCalendarContainer={() =>
+                                    document.getElementById('area') ||
+                                    document.querySelector('body')
+                                }
                                 onChange={this.onChange}
                                 onOk={this.onOk}
                                 placeholder={placeholder}
-                                format="YYYY-MM-DD HH:mm"
+                                format={dateFormat}
                                 showTime={showTime}
+                                allowClear
                             />
                         )
                     )}

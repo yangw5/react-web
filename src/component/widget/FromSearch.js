@@ -88,6 +88,19 @@ class FromSearch extends Component {
             default:
         }
     };
+    getClassType = item => {
+        let span = 6;
+        switch (item.classType) {
+            case 'whole':
+                span = 24;
+                break;
+            case '1':
+                span = 12;
+                break;
+            default:
+        }
+        return 12;
+    };
     // fromItem jsx
     getFields = fromItems => {
         return fromItems.map((v, i) => (

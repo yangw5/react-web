@@ -15,8 +15,11 @@ function FormCheckBox(props) {
         isAllCheck = true,
         setFieldsValue,
         initialValue,
+        placeholder, //占位符
+        onallChange,
+        checkedstatic,
     } = props;
-    let [rules, setRules] = useState([{ required: true, message: `请选择${label}` }]);
+    let rules = [{ required: true, message: placeholder ? placeholder : `请选择${label}` }];
     let [plainOptions, setPlainOptions] = useState([]); //选择
     let [checkAll, setCheckALL] = useState(false); //全选择
     let [indeterminate, setIndeterminate] = useState(true); //样式控制
@@ -36,7 +39,7 @@ function FormCheckBox(props) {
             setIndeterminate(false);
         }
     };
-
+    //设置options
     let setOptions = () => {
         let optionsdom = options.map((v, i) => (
             <Col className="form_checkbox" key={i}>
@@ -49,8 +52,12 @@ function FormCheckBox(props) {
         ));
         setPlainOptions(optionsdom);
     };
+    //全选
     let onCheckAllChange = e => {
-        setFieldsValue({ [field]: e.target.checked ? options.map(v => v.value || v.id) : [] });
+        onallChange && onallChange();
+        setFieldsValue({
+            [field]: e.target.checked ? options.map(v => v.value || v.id) : [...checkedstatic],
+        });
         setCheckALL(e.target.checked);
         setIndeterminate(false);
     };

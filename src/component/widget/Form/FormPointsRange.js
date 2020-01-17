@@ -5,7 +5,7 @@
  * @Email: yangw5@163.com
  * @Date: 2020-01-15 08:44:08
  * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-15 14:37:39
+ * @LastEditTime : 2020-01-16 16:16:28
  * @FilePath: \react-web\src\component\widget\Form\FormTextarea.js
  */
 import React from 'react';
@@ -68,7 +68,7 @@ export default props => {
     ];
     let FormItemCustom = index => {
         return (
-            <Form.Item>
+            <Form.Item style={{ marginBottom: '0px' }}>
                 {getFieldDecorator(field[index], {
                     initialValue,
                     rules,
