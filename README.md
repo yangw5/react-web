@@ -105,14 +105,13 @@ react-web 是一个可扩展的 react 后台管理系统的项目模板。可以
 -   自定义表单
 -   数据可视化
 -   自定义组件
-
-1.
-
 -   图片库
 
-        ![自定义表单](src/assets/img/form,png)
-
 ## 功能展示
+
+1. 自定义表单
+
+![自定义表单](/src/assets/img/imgs/form.png)
 
 ## 开发模式
 
