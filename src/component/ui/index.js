@@ -1,6 +1,15 @@
+/*
+ * @File:
+ * @Description:
+ * @Autor: yangw5
+ * @Email: yangw5@163.com
+ * @Date: 2019-08-26 08:22:55
+ * @LastEditors  : yangw5
+ * @LastEditTime : 2020-01-21 15:31:53
+ * @FilePath: \react-web\src\component\ui\index.js
+ */
 import React, { Component } from 'react';
-import { BreadcrumbCustom } from '../widget';
-import FromSearch from '../widget/FromSearch';
+import { BreadcrumbCustom, FormSearch } from '../widget';
 
 class Ui extends Component {
     render() {
@@ -82,7 +91,7 @@ class Ui extends Component {
         return (
             <div>
                 <BreadcrumbCustom {...{ breadItems }} />
-                <FromSearch
+                <FormSearch
                     wrappedComponentRef={form => (this.form = form)}
                     {...{
                         searchItem,

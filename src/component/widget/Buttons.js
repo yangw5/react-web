@@ -4,8 +4,8 @@
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2019-08-26 08:22:55
- * @LastEditors: yangw5
- * @LastEditTime: 2019-11-13 09:37:09
+ * @LastEditors  : yangw5
+ * @LastEditTime : 2020-01-20 16:46:27
  * @FilePath: \react-web\src\component\widget\Buttons.js
  */
 import React, { useState, useEffect } from 'react';
@@ -42,4 +42,35 @@ function Buttons({ hasButtons, requirement }) {
     );
 }
 
-export default Buttons;
+class ButtonClass extends React.Component {
+    render() {
+        let { hasButtons, requirement = false } = this.props;
+        let btns = [
+            {
+                title: '新建',
+            },
+            {
+                title: '导入',
+            },
+        ];
+        btns = mergeArrWithAuth(btns, requirement);
+        return (
+            hasButtons && (
+                <div>
+                    <Button.Group>
+                        {btns &&
+                            btns.map(v => (
+                                <AuthPermission requirement={v.requirement} key={v.title}>
+                                    <Button>{v.title}</Button>
+                                </AuthPermission>
+                            ))}
+                    </Button.Group>
+                </div>
+            )
+        );
+    }
+}
+
+// export default Buttons;
+
+export default ButtonClass;

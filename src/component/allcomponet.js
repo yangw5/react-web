@@ -5,7 +5,7 @@
  * @Email: yangw5@163.com
  * @Date: 2019-08-26 08:22:55
  * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-14 15:37:48
+ * @LastEditTime : 2020-01-20 14:38:38
  * @FilePath: \react-web\src\component\allcomponet.js
  */
 import FrontEnd from './frontend';
@@ -15,6 +15,7 @@ import CaseShow from './caseshow';
 //自定义UI库
 import Uis from './ui';
 import FormCustom from './ui/FormCustom';
+import Basis from './ui/Basis';
 import Datado from './ui/datado';
 import Gallery from './ui/gallery';
 import TagTree from './ui/tag';
@@ -45,6 +46,7 @@ export default {
     DashBoard,
     Uis,
     FormCustom,
+    Basis,
     Datado,
     Gallery,
     TagTree,

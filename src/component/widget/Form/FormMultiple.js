@@ -24,7 +24,7 @@ export default ({
     multipleObj,
     initialValue,
     label,
-    labelCol = { span: 5 },
+    labelCol = { span: 4 },
     wrapperCol = { span: 12 },
     validator,
     required,

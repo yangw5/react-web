@@ -13,8 +13,8 @@ import { Form, Slider } from 'antd';
 
 export default ({
     label,
-    labelCol = { span: 5 },
-    wrapperCol = { span: 60 },
+    labelCol = { span: 4 },
+    wrapperCol = { span: 12 },
     form,
     disabled,
     getFieldDecorator,

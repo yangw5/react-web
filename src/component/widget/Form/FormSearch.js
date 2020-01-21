@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Form, Col, Card } from 'antd';
-// import CFromInput from './CFromInput';
 import FromInput from '../Form/FromInput';
 import FromTextArea from '../Form/FormTextArea';
 import FormPointsRange from '../Form/FormPointsRange';

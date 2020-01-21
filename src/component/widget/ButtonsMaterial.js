@@ -4,8 +4,8 @@
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2019-11-18 15:27:21
- * @LastEditors: yangw5
- * @LastEditTime: 2019-11-18 16:25:42
+ * @LastEditors  : yangw5
+ * @LastEditTime : 2020-01-21 15:22:30
  * @FilePath: \react-web\src\component\widget\ButtonsMaterial.js
  */
 import React from 'react';
@@ -36,6 +36,7 @@ export default ({ onSubmit, onEdit, onBack, onLog }) => {
     ];
     return (
         <div className={'btns'}>
+            {/* 设置div的背景图片，背景图片是张精灵图，调节精灵图的位置来显示不同的按钮 */}
             {btns.map(
                 v =>
                     v.onClick && (

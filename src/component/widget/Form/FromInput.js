@@ -39,8 +39,8 @@ export default ({
     required = false, //是否必填
     readOnly, //只读还是编辑
     ruleType, //格式类型
-    labelCol = { span: 5 }, //label长度
-    wrapperCol = { span: 60 }, //input长度
+    labelCol = { span: 4 }, //label长度
+    wrapperCol = { span: 12 }, //input长度
     validator, //自定义验证格式
     addonAfter, //输入框后标签
     ...restProps //其他相关属性

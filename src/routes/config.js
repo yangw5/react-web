@@ -4,7 +4,7 @@
  * @Email: yangw5@163.com
  * @Date: 2019-08-27 16:26:04
  * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-09 17:31:43
+ * @LastEditTime : 2020-01-20 14:37:53
  */
 /**
  * @exports 路由配置文件
@@ -110,6 +110,11 @@ export default {
                     key: '/app/ui/form',
                     title: '表单',
                     component: 'FormCustom',
+                },
+                {
+                    key: '/app/ui/basis',
+                    title: '基础组件',
+                    component: 'Basis',
                 },
                 {
                     key: '/app/ui/gallery',

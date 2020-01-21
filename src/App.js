@@ -3,8 +3,8 @@
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2019-08-15 17:27:51
- * @LastEditors: yangw5
- * @LastEditTime: 2019-11-18 16:51:51
+ * @LastEditors  : yangw5
+ * @LastEditTime : 2020-01-21 15:41:50
  */
 import React from 'react';
 import './App.css';
@@ -23,7 +23,6 @@ import { getCookie } from './utils';
 import { receiveData } from './reducer/action';
 import { connect } from 'react-redux'; //设置store
 import { bindActionCreators } from 'redux';
-import { from } from 'rxjs';
 moment.locale('zh-cn');
 const { Header, Content, Footer } = Layout;
 class App extends React.Component {
@@ -32,7 +31,7 @@ class App extends React.Component {
     };
     componentDidMount() {
         //权限保存到本地 设置全局用户权限
-        localStorage.setItem('user', JSON.stringify({ uid: 369, permissions: ['show', 'show2'] }));
+        localStorage.setItem('user', JSON.stringify({ uid: 369, permissions: ['new', 'edit'] }));
         this.props.receiveData(JSON.parse(localStorage.getItem('user') || {}).permissions, 'auth');
         if (!getCookie('ysLogin')) return;
     }

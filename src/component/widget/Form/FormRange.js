@@ -7,8 +7,8 @@ class FormRange extends Component {
     render() {
         let {
             label,
-            labelCol = { span: 5 },
-            wrapperCol = { span: 24 },
+            labelCol = { span: 4 },
+            wrapperCol = { span: 12 },
             getFieldDecorator,
             field,
             rules,

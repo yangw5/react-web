@@ -21,7 +21,7 @@ class FormData extends Component {
     render() {
         let {
             label,
-            labelCol = { span: 5 },
+            labelCol = { span: 4 },
             wrapperCol = { span: 12 },
             getFieldDecorator,
             field,

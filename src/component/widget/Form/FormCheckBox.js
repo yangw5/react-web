@@ -8,8 +8,8 @@ function FormCheckBox(props) {
         label,
         field,
         options,
-        labelCol = { span: 7 },
-        wrapperCol = { span: 17 },
+        labelCol = { span: 4 }, //label长度
+        wrapperCol = { span: 12 }, //input长度
         pcheckAll = false,
         optionText,
         isAllCheck = true,

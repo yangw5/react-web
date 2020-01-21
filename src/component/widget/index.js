@@ -5,7 +5,7 @@
  * @Email: yangw5@163.com
  * @Date: 2019-08-26 08:22:55
  * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-14 17:26:48
+ * @LastEditTime : 2020-01-21 15:32:37
  * @FilePath: \react-web\src\component\widget\index.js
  */
 // import FormSelect from './FormSelect';
@@ -19,7 +19,6 @@ import DataEdit from './datapage/Forminfo/DataEdit';
 import ImgList from './ImgList';
 import InputSearch from './basis/InputSearch';
 
-import FromSearch from './FromSearch';
 import FromInput from './Form/FromInput';
 import FormSelect from './Form/FormSelect';
 import FormCheckBox from './Form/FormCheckBox';
@@ -42,7 +41,6 @@ export {
     FormData,
     Formcombin,
     FormSearch,
-    FromSearch,
     Forminfo,
     ImgList,
     InputSearch,

@@ -20,8 +20,8 @@ const numberValidator = (rule, value, callback, validator, ruleType) => {
 export default props => {
     let {
         label,
-        labelCol = { span: 5 },
-        wrapperCol = { span: 60 },
+        labelCol = { span: 4 },
+        wrapperCol = { span: 12 },
         colon = true,
         labelAlign = 'right',
         form,

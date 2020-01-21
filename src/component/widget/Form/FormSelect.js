@@ -121,7 +121,7 @@ class FormSelect extends Component {
             disabled = false,
             label,
             loading = false,
-            labelCol = { span: 5 },
+            labelCol = { span: 4 },
             wrapperCol = { span: 12 },
             autoClearSearchValue,
             notFoundContent,

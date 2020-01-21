@@ -94,16 +94,20 @@ export const numberFilter = (value, regex = /\d+\.{0,1}\d*/g) => {
  * @param {*} btns 按钮数组
  * @param {*} requirement 按钮权限
  */
-export const mergeArrWithAuth=(btns=[],requirement)=>{
-    requirement&&Object.keys(requirement).forEach(index=>{
-        btns[index]={...btns[index],requirement:requirement[index]}
-    })
+export const mergeArrWithAuth = (btns = [], requirement) => {
+    requirement &&
+        Object.keys(requirement).forEach(index => {
+            btns[index] = { ...btns[index], requirement: requirement[index] };
+        });
     return btns;
-}
+};
 //权限验证
-
-export const checkAuth=(permissions,requirement, every)=>{
-    if(!permissions) return true;
-    const reqarry=window._.intersection(permissions, requirement);
-    return reqarry.length>0 ?every&&reqarry.length < requirement.length?false:true:false;
-}
+export const checkAuth = (permissions, requirement, every) => {
+    if (!permissions) return true;
+    const reqarry = window._.intersection(permissions, requirement);
+    return reqarry.length > 0
+        ? every && reqarry.length < requirement.length
+            ? false
+            : true
+        : false;
+};

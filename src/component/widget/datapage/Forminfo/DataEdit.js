@@ -4,13 +4,13 @@
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2019-08-26 08:22:55
- * @LastEditors: yangw5
- * @LastEditTime: 2019-11-19 16:10:53
+ * @LastEditors  : yangw5
+ * @LastEditTime : 2020-01-21 15:31:32
  * @FilePath: \react-web\src\component\widget\datapage\Forminfo\DataEdit.js
  */
 import React, { Component } from 'react';
 import { Form } from 'antd';
-import { FromInput, FormSelect, FormCheckBox, FormData, Formcombin, FromSearch } from '../../index';
+import { FromInput, FormSelect, FormCheckBox, FormData, Formcombin, FormSearch } from '../../index';
 import styles from './DataEdit.module.less';
 import { object } from 'prop-types';
 let _ = window._;
@@ -24,7 +24,7 @@ class DataEdit extends Component {
             select: FormSelect,
             add: Formcombin,
             date: FormData,
-            search: FromSearch,
+            search: FormSearch,
             checkbox: FormCheckBox,
             // 'textarea': FormTextArea,
             // 'radio': FormRadio,

@@ -125,7 +125,7 @@ export const formSearchProps = {
     showSelection: false,
     rowKey: 'key',
     btnsRequirement: {
-        0: ['show'],
-        1: ['show2'],
+        0: ['new'],
+        1: ['edit'],
     },
 };

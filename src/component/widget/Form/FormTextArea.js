@@ -13,8 +13,8 @@ import { Form, Input } from 'antd';
 let Textarea = Input.TextArea;
 export default ({
     label,
-    labelCol = { span: 5 },
-    wrapperCol = { span: 60 },
+    labelCol = { span: 4 },
+    wrapperCol = { span: 12 },
     colon = true,
     labelAlign = 'right',
     form,

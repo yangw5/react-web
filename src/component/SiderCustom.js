@@ -5,7 +5,7 @@
  * @Email: yangw5@163.com
  * @Date: 2019-08-26 08:22:55
  * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-09 18:06:35
+ * @LastEditTime : 2020-01-21 16:00:44
  * @FilePath: \react-web\src\component\SiderCustom.js
  */
 import React, { PureComponent } from 'react';
@@ -69,6 +69,17 @@ class SiderCustom extends PureComponent {
         });
     };
     openMenu = v => {
+        // this.setState(
+        //     {
+        //         openKey: 'null',
+        //         firstHide: false,
+        //     },
+        //     () => {
+        //         this.setState({
+        //             openKey: v.length > 0 ? v[v.length - 1] : 'null',
+        //         });
+        //     }
+        // );
         this.setState({
             openKey: v.length > 0 ? v[v.length - 1] : 'null',
             firstHide: false,
@@ -98,7 +109,7 @@ class SiderCustom extends PureComponent {
                     menus={routes.menus}
                     // defaultOpenKeys={['/app/frontend']}
                     theme="light"
-                    mode="inline"
+                    mode="inline" //vertical horizontal inline
                     // inlineCollapsed={false}
                 />
             </Sider>
