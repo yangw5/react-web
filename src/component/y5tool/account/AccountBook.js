@@ -1,5 +1,15 @@
+/*
+ * @File:
+ * @Description:
+ * @Autor: yangw5
+ * @Email: yangw5@163.com
+ * @Date: 2020-01-21 16:29:15
+ * @LastEditors: yangw5
+ * @LastEditTime: 2020-02-04 13:42:32
+ * @FilePath: \react-web\src\component\y5tool\account\AccountBook.js
+ */
 import React from 'react';
-import BreadcrumbCustom from '../../widget/BreadcrumbCustom';
+import { BreadcrumbCustom } from '../../widget';
 import { Form, Button } from 'antd';
 import FormGroup from './widget/FormGroup';
 import Stars from './widget/Stars';

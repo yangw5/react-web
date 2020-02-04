@@ -5,7 +5,7 @@
  * @Email: yangw5@163.com
  * @Date: 2019-08-26 08:22:55
  * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-21 15:32:37
+ * @LastEditTime : 2020-02-04 13:39:16
  * @FilePath: \react-web\src\component\widget\index.js
  */
 // import FormSelect from './FormSelect';
@@ -13,7 +13,7 @@ import Buttons from './Buttons';
 import ButtonGroup from './ButtonGroup';
 import BoxInfo from './BoxInfo';
 
-import BreadcrumbCustom from './BreadcrumbCustom';
+import BreadcrumbCustom from './basis/BreadcrumbCustom';
 import ModalContainer from './ModalContainer';
 import DataEdit from './datapage/Forminfo/DataEdit';
 import ImgList from './ImgList';
@@ -27,7 +27,7 @@ import Formcombin from './Form/Formcombin';
 import FormSearch from './Form/FormSearch';
 
 import Forminfo from './datapage/Forminfo/Forminfo';
-import BackTop from './BackTop';
+import BackTop from './basis/BackTop';
 export {
     Buttons,
     ButtonGroup,

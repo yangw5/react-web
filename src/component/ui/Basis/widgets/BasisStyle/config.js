@@ -5,13 +5,14 @@
  * @Email: yangw5@163.com
  * @Date: 2020-01-20 14:39:29
  * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-21 10:52:35
+ * @LastEditTime : 2020-02-04 14:43:27
  * @FilePath: \react-web\src\component\ui\Basis\widgets\config.js
  */
 
 import React from 'react';
 import { Input } from 'antd';
 import { ButtonGroup, Buttons } from '../../../../widget';
+import { DividerCustom, BreadcrumbCustom, ButtonsMaterial, Gap } from '../../../../widget/basis';
 
 const { Search } = Input;
 
@@ -77,15 +78,59 @@ let items = [
     },
     {
         name: '分隔线',
-        description: '',
+        description: '基于antd的Divider，包括style,type等相同的api',
+        ComponentName: DividerCustom,
+        children: '',
+        propsConfig: {
+            style: {
+                border: '1px solid red',
+            },
+        },
     },
     {
         name: '间距器',
-        description: '',
+        description: '设置留白',
+        ComponentName: Gap,
+        propsConfig: {
+            height: '50px',
+            style: {
+                background: '#fff',
+            },
+        },
+    },
+    {
+        name: '面包屑',
+        description: '配置父子对象，包括名称，图标，跳转地址，还可配置自定义连接符',
+        ComponentName: BreadcrumbCustom,
+        propsConfig: {
+            breadItems: [
+                { title: '自定义Ui库', icon: 'home', herf: '/app/ui/count' },
+                { title: '基础组件' },
+            ],
+        },
+    },
+    {
+        name: '全局操作按钮',
+        description: '右下角，可进行权限组件包裹控制显示',
+        ComponentName: ButtonsMaterial,
+        propsConfig: {
+            onSubmit: () => {
+                alert('提交');
+            },
+            onEdit: () => {
+                alert('编辑');
+            },
+            onBack: () => {
+                alert('返回');
+            },
+            onLog: () => {
+                alert('日志');
+            },
+        },
     },
     {
         name: '回到顶部',
-        description: '',
+        description: '右下角',
     },
 ];
 

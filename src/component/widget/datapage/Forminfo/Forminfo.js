@@ -13,7 +13,7 @@
 import React from 'react';
 import { Tabs, Col, Row } from 'antd';
 import DataShow from './DataShow';
-import ButtonsMaterial from '../../../widget/ButtonsMaterial';
+import ButtonsMaterial from '../../basis/ButtonsMaterial';
 import { BoxInfo } from '../../index';
 import DataEdit from './DataEdit';
 import { withRouter } from 'react-router-dom';

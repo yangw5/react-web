@@ -1,3 +1,13 @@
+/*
+ * @File:
+ * @Description:
+ * @Autor: yangw5
+ * @Email: yangw5@163.com
+ * @Date: 2019-08-26 08:22:55
+ * @LastEditors  : yangw5
+ * @LastEditTime : 2020-02-04 13:40:20
+ * @FilePath: \react-web\src\component\widget\basis\BreadcrumbCustom.js
+ */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Breadcrumb, Icon } from 'antd';
@@ -23,14 +33,8 @@ const BreadcrumbCustom = props => {
                           )
                       )
                     : ''}
-
-                {/* <BreadcrumbItem>
-                    <Link className={styles['ant-breadcrumb-link-a']}>
-                        <Icon type="user" />
-                        {title}
-                    </Link>
-                </BreadcrumbItem> */}
             </Breadcrumb>
+            {/* 其他相关显示 */}
         </div>
     );
 };
