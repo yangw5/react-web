@@ -5,11 +5,14 @@
  * @Email: yangw5@163.com
  * @Date: 2019-08-26 08:22:55
  * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-20 14:38:38
+ * @LastEditTime : 2020-02-05 15:17:33
  * @FilePath: \react-web\src\component\allcomponet.js
  */
 import FrontEnd from './frontend';
+
 import ToolsShow from './tootsshow';
+import ToolsCusrom from './tootsshow/toolsCusrom';
+
 import BaseStation from './frontend/basestation';
 import CaseShow from './caseshow';
 //自定义UI库
@@ -40,6 +43,7 @@ export default {
     FrontEnd,
     BaseStation,
     ToolsShow,
+    ToolsCusrom,
     D3,
     Echars,
     CaseShow,

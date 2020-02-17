@@ -5,7 +5,7 @@
  * @Email: yangw5@163.com
  * @Date: 2020-01-20 17:09:09
  * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-21 10:04:36
+ * @LastEditTime : 2020-02-05 14:25:22
  * @FilePath: \react-web\src\component\widget\basis\ActionRedux.js
  */
 import React from 'react';
@@ -29,8 +29,10 @@ const mapStateToProps = state => {
     const { auth = { data: {} } } = state.httpData;
     return { auth };
 };
+//需要把 action creator 往下传到一个组件上，
+//却不想让这个组件觉察到 Redux 的存在，而且不希望把 dispatch 或 Redux store 传给它
 const mapDispatchToProps = dispatch => ({
-    receiveData: bindActionCreators(receiveData, dispatch),
+    receiveData: bindActionCreators(receiveData, dispatch), //类似于dispatch(receiveData())调用
 });
 //store就通过props注入到了组件中
 //获取 props.auth

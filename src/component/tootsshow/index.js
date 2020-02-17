@@ -1,8 +1,15 @@
+/*
+ * @File:
+ * @Description:
+ * @Autor: yangw5
+ * @Email: yangw5@163.com
+ * @Date: 2019-08-27 16:26:04
+ * @LastEditors  : yangw5
+ * @LastEditTime : 2020-02-05 15:20:43
+ * @FilePath: \react-web\src\component\tootsshow\index.js
+ */
 import React, { Component } from 'react';
-import { BreadcrumbCustom, InputSearch } from '../widget';
-import { Input } from 'antd';
-import { Button } from 'antd/lib/radio';
-import date from '../classextends/Date';
+import { BreadcrumbCustom } from '../widget';
 class ToolsShow extends Component {
     constructor(props) {
         super(props);
@@ -13,62 +20,12 @@ class ToolsShow extends Component {
         };
     }
     componentDidMount() {}
-    shift = () => {
-        let value = date(this.state.data, this.state.type).shiftFormat();
-        console.log(value);
-        // date().opentime();
-        this.setState({
-            value: value,
-        });
-    };
+
     render() {
-        let breadItems = [{ title: '前端工具' }];
+        let breadItems = [{ title: '前端工具' }, { title: '第三方工具' }];
         return (
             <div>
                 <BreadcrumbCustom {...{ breadItems }} />
-                <div
-                    style={{
-                        width: '20%',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        margin: '20px',
-                    }}
-                >
-                    时间戳：{' '}
-                    <Input
-                        value={this.state.data}
-                        placeholder="请输入时间戳"
-                        onChange={event => {
-                            this.setState({
-                                data: event.target.value,
-                            });
-                        }}
-                    />{' '}
-                    转换格式：{' '}
-                    <Input
-                        value={this.state.type}
-                        placeholder="请输入转换格式"
-                        onChange={event => {
-                            this.setState({
-                                type: event.target.value,
-                            });
-                        }}
-                    />
-                    <div>
-                        转换文本:<span>{this.state.value}</span>
-                    </div>
-                </div>
-                <Button
-                    onClick={() => {
-                        this.shift();
-                    }}
-                >
-                    转换
-                </Button>
-                <div>
-                    搜索：
-                    <InputSearch>1</InputSearch>
-                </div>
             </div>
         );
     }

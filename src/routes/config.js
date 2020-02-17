@@ -4,7 +4,7 @@
  * @Email: yangw5@163.com
  * @Date: 2019-08-27 16:26:04
  * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-20 14:37:53
+ * @LastEditTime : 2020-02-05 15:17:15
  */
 /**
  * @exports 路由配置文件
@@ -49,55 +49,19 @@ export default {
             subs: [
                 {
                     key: '/app/toolsshow/tool1',
-                    title: '工具1',
+                    title: '第三方工具',
                     component: 'ToolsShow',
                 },
                 {
-                    key: '/app/toolsshow/tool2',
-                    title: '工具2',
-                    component: 'D3',
-                },
-            ],
-        },
-        {
-            key: '/app/datashow',
-            title: '数据可视化',
-            icon: 'ant-cloud',
-            requirement: ['head'],
-            subs: [
-                {
-                    key: '/app/datashow/d3',
-                    title: 'D3',
-                    component: 'D3',
-                },
-                {
-                    key: '/app/datashow/echars',
-                    title: 'Echars',
-                    component: 'Echars',
-                },
-            ],
-        },
-        {
-            key: '/app/antdui',
-            title: 'antdup UI库',
-            icon: 'ant-design',
-            requirement: [],
-            subs: [
-                {
-                    key: '/app/antdui/count',
-                    title: 'antdup UI汇总',
-                    component: 'AntdUi',
-                },
-                {
-                    key: '/app/antdui/antdform',
-                    title: '表单',
-                    component: 'AntdForm',
+                    key: '/app/toolsshow/toolscusrom',
+                    title: '自定义工具',
+                    component: 'ToolsCusrom',
                 },
             ],
         },
         {
             key: '/app/ui',
-            title: '自定义UI库',
+            title: '自定义组件',
             icon: 'dropbox',
             requirement: ['head'],
             subs: [
@@ -130,6 +94,42 @@ export default {
                     key: '/app/ui/tag',
                     title: '标签树',
                     component: 'TagTree',
+                },
+            ],
+        },
+        {
+            key: '/app/antdui',
+            title: '自定义组件库',
+            icon: 'ant-design',
+            requirement: [],
+            subs: [
+                {
+                    key: '/app/antdui/count',
+                    title: 'antdup UI汇总',
+                    component: 'AntdUi',
+                },
+                {
+                    key: '/app/antdui/antdform',
+                    title: '表单',
+                    component: 'AntdForm',
+                },
+            ],
+        },
+        {
+            key: '/app/datashow',
+            title: '数据可视化',
+            icon: 'ant-cloud',
+            requirement: ['head'],
+            subs: [
+                {
+                    key: '/app/datashow/d3',
+                    title: 'D3',
+                    component: 'D3',
+                },
+                {
+                    key: '/app/datashow/echars',
+                    title: 'Echars',
+                    component: 'Echars',
                 },
             ],
         },
