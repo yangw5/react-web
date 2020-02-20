@@ -10,7 +10,7 @@ const DeleteItems=(props,ref)=>{
    
 };
   return <div>
-    删除
+    删除1
   </div>
 }
 export default forwardRef(DeleteItems);
