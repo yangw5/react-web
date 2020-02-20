@@ -15,6 +15,7 @@ import BoxInfo from './BoxInfo';
 
 import BreadcrumbCustom from './basis/BreadcrumbCustom';
 import ModalContainer from './ModalContainer';
+import DataShow from './datapage/Forminfo/DataShow';
 import DataEdit from './datapage/Forminfo/DataEdit';
 import ImgList from './ImgList';
 import InputSearch from './basis/InputSearch';
@@ -35,6 +36,7 @@ export {
     BoxInfo,
     BackTop,
     DataEdit,
+    DataShow,
     FromInput,
     FormSelect,
     FormCheckBox,

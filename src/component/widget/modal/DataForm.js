@@ -11,7 +11,7 @@
 import React, { Component } from 'react';
 import DataModal from './DataModal';
 import { Form } from 'antd';
-import { DataEdit } from '../../widget/index';
+import { DataEdit,DataShow } from '../../widget/index';
 
 class DataForm extends Component {
     constructor(props) {
@@ -39,14 +39,14 @@ class DataForm extends Component {
         });
     };
     render() {
-        let { config, _onCance } = this.props;
-        let { dataConfig, title, destroyOnClose } = config;
+        let {edit=false, _onCance,title,formItems,formDatas,destroyOnClose=true ,...restprops} = this.props;
         let props = {
             ...this.props,
         };
         if (typeof this.props.getInstance === 'function') {
             props.ref = props.getInstance;
         }
+        let otherprops=props.edit?null:{footer:null}
         return (
             <div>
                 <DataModal
@@ -55,12 +55,26 @@ class DataForm extends Component {
                     title={title}
                     _onSubmit={this.onSubmit}
                     _onCance={_onCance}
+                    {
+                        ...{
+                         ...restprops,
+                         ...otherprops,
+                        }
+                    }
                 >
-                    <DataEdit
-                        items={dataConfig}
-                        form={this.props.form}
-                        destroyOnClose={destroyOnClose}
-                    />
+                  {
+                      edit ?  <DataEdit
+                      items={formItems}
+                      form={this.props.form}
+                      data={formDatas}
+                      destroyOnClose={destroyOnClose}
+                  />:
+                  <DataShow
+                  items={formItems}
+                  data={formDatas}
+                  destroyOnClose={destroyOnClose}
+              />
+                  }
                 </DataModal>
             </div>
         );

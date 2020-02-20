@@ -8,7 +8,7 @@
  * @LastEditTime : 2020-01-21 16:02:03
  * @FilePath: \react-web\src\component\ui\datado\config.js
  */
-let dataConfig = [
+export let formItems = [
     {
         label: '案例名称',
         field: 'name',
@@ -53,8 +53,16 @@ let dataConfig = [
         classname: 'average-3',
     },
 ];
-let title = 'Form表单';
-export default {
-    dataConfig,
-    title,
-};
+export let title = 'Form表单操作'; 
+export let formDatas={
+    name:'react-web',
+    number:1,
+    old:'2岁',
+    date:'2008-08-03',
+    autor:'young5',
+    secondname:'小伍',
+    country:'中国'
+
+
+
+}

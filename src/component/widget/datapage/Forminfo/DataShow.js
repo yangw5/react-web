@@ -13,13 +13,13 @@
 import React from 'react';
 import './DataShow.less';
 const DataShow = props => {
-    let { data } = props;
+    let { data=[],items } = props;
     return (
         <div className={'dataShow'}>
             {/* 基础信息显示模板 */}
-            {data &&
-                data.length &&
-                data.map((v, i) => {
+            {items &&
+                items.length &&
+                items.map((v, i) => {
                     return (
                         !v.detailHide && //不显示
                         (v.noshow ? (
@@ -32,10 +32,10 @@ const DataShow = props => {
                                 className={`dataShow_item ${v.class ? v.class : 'average-3'}`}
                                 key={i}
                             >
-                                {v.lable && (
-                                    <div className={'dataShow_lable'}>{`${v.lable}  :`}</div>
+                                {v.label && (
+                                    <div className={'dataShow_lable'}>{`${v.label}  :`}</div>
                                 )}
-                                {!v.type && <div className={'dataShow_value'}>{v.value}</div>}
+                                {!v.type && <div className={'dataShow_value'}>{data[v.field]}</div>}
                                 {v.type === 'stars' && (
                                     <div className={'dataShow_value'}>{v.value}</div>
                                 )}

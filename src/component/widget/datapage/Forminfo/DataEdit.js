@@ -46,8 +46,11 @@ class DataEdit extends Component {
             // 'colors': FormColors,
         };
     }
-    componentDidUpdate() {
+    componentDidMount(){
         this._setFieldsValue();
+    }
+    componentDidUpdate() {
+        // this._setFieldsValue();
     }
     //初始表单设置
     _setFieldsValue = () => {
@@ -55,7 +58,7 @@ class DataEdit extends Component {
         if (!data) return;
         const { getFieldsValue, setFieldsValue } = form;
         let values = getFieldsValue();
-        let tempObj = _.pick(data, object.keys(values));
+        let tempObj = _.pick(data, Object.keys(values));
         setFieldsValue({ ...tempObj });
     };
 
