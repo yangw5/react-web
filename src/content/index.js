@@ -5,7 +5,7 @@
  * @Email: yangw5@163.com
  * @Date: 2019-09-11 09:42:06
  * @LastEditors: yangw5
- * @LastEditTime: 2019-11-13 09:58:08
+ * @LastEditTime: 2020-02-21 20:21:05
  * @FilePath: \react-web\src\content\index.js
  */
 export const PAY_TYPE = [
@@ -90,5 +90,20 @@ export const FRONTEND_TYPE = [
     {
         key: 3,
         value: 'REACT',
+    },
+];
+
+export const COP_TYPE = [
+    {
+        id: '1',
+        name: '表单组件',
+    },
+    {
+        id: '2',
+        name: '基础组件',
+    },
+    {
+        id: '3',
+        name: '弹框组件',
     },
 ];

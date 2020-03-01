@@ -3,8 +3,8 @@
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2019-08-15 17:27:51
- * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-21 15:41:50
+ * @LastEditors: yangw5
+ * @LastEditTime: 2020-02-27 15:37:53
  */
 import React from 'react';
 import './App.css';
@@ -43,7 +43,7 @@ class App extends React.Component {
     render() {
         return (
             <LocaleProvider locale={zh_CN}>
-                <Layout style={{ height: '100%' }}>
+                <Layout style={{ height: '100%', background: '#f7f8f9' }}>
                     <HeaderCustom toggle={this.toggle} collapsed={this.state.collapsed} />
                     <Layout
                         style={{
@@ -52,26 +52,29 @@ class App extends React.Component {
                         }}
                     >
                         <SiderCustom collapsed={this.state.collapsed} />
-                        <Layout style={{ background: '#fff' }}>
-                            <Content id="content" style={{ overflow: 'auto' }}>
+                        <Layout style={{ background: '#fff', backgroundColor: '#f7f8f9' }}>
+                            <Content id="content">
+                                {/*style={{ overflow: 'auto' }} */}
                                 <Routes />
                             </Content>
-                            <Footer
-                                style={{
-                                    textAlign: 'center',
-                                    height: '40px',
-                                    padding: '10px 50px',
-                                }}
-                            >
-                                {false ? (
-                                    <div>
-                                        <Button type="primary">APP-Primary</Button>
-                                        <Cp />
-                                    </div>
-                                ) : (
-                                    ' copy © karakal {new Date().getFullYear()} created by karakal-fed'
-                                )}
-                            </Footer>
+                            {false && (
+                                <Footer
+                                    style={{
+                                        textAlign: 'center',
+                                        height: '40px',
+                                        padding: '10px 50px',
+                                    }}
+                                >
+                                    {false ? (
+                                        <div>
+                                            <Button type="primary">APP-Primary</Button>
+                                            <Cp />
+                                        </div>
+                                    ) : (
+                                        ' copy © karakal {new Date().getFullYear()} created by karakal-fed'
+                                    )}
+                                </Footer>
+                            )}
                             <BackTop id={'content'} />
                         </Layout>
                     </Layout>

@@ -1,11 +1,11 @@
 /*
  * @File:
- * @Description:
+ * @Description:评分
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2020-01-17 16:09:17
- * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-17 16:16:10
+ * @LastEditors: yangw5
+ * @LastEditTime: 2020-02-25 10:09:37
  * @FilePath: \react-web\src\component\widget\Form\FormRate.js
  */
 import React from 'react';

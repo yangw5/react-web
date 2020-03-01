@@ -4,8 +4,8 @@
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2019-08-26 08:22:55
- * @LastEditors  : yangw5
- * @LastEditTime : 2020-02-04 13:39:16
+ * @LastEditors: yangw5
+ * @LastEditTime: 2020-02-23 12:02:37
  * @FilePath: \react-web\src\component\widget\index.js
  */
 // import FormSelect from './FormSelect';
@@ -26,6 +26,7 @@ import FormCheckBox from './Form/FormCheckBox';
 import FormData from './Form/FormData';
 import Formcombin from './Form/Formcombin';
 import FormSearch from './Form/FormSearch';
+import FormTextArea from './Form/FormTextArea';
 
 import Forminfo from './datapage/Forminfo/Forminfo';
 import BackTop from './basis/BackTop';
@@ -44,6 +45,7 @@ export {
     Formcombin,
     FormSearch,
     Forminfo,
+    FormTextArea,
     ImgList,
     InputSearch,
     ModalContainer,

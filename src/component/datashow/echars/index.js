@@ -4,71 +4,47 @@
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2020-01-21 16:29:14
- * @LastEditors  : yangw5
- * @LastEditTime : 2020-02-05 15:06:20
+ * @LastEditors: yangw5
+ * @LastEditTime: 2020-02-27 16:06:36
  * @FilePath: \react-web\src\component\datashow\echars\index.js
  */
 import React, { Component } from 'react';
 import { BreadcrumbCustom } from '../../widget';
-import * as echarts from 'echarts';
 import 'echarts-gl'; //可直接使用echarts-for-react插件进行开发
-// 指定图表的配置项和数据
-let option = {
-    title: {
-        text: '系统数据',
-    },
-    tooltip: {},
-    legend: {
-        data: ['数量'],
-    },
-    xAxis: {
-        data: [
-            '前端知识',
-            '前端工具',
-            '数据可视化',
-            '自定义组件库',
-            '自定义组件',
-            '生活工具',
-            '案例展示',
-        ],
-    },
-    yAxis: {},
-    series: [
-        {
-            name: '数量',
-            type: 'bar',
-            data: [5, 20, 36, 10, 10, 10, 20],
-        },
-    ],
-};
-const series = [
-    {
-        name: '访问来源',
-        type: 'pie',
-        radius: '55%',
-        data: [
-            { value: 235, name: '前端知识' },
-            { value: 274, name: '前端工具' },
-            { value: 310, name: '数据可视化' },
-            { value: 335, name: '自定义组件库' },
-            { value: 250, name: '自定义组件' },
-            { value: 50, name: '生活工具' },
-            { value: 100, name: '案例展示' },
-        ],
-    },
-];
+import EacharPoint from './widget/EacharPoint';
+import {
+    option,
+    option2,
+    option3,
+    option4,
+    option5,
+    option6,
+    option7,
+    option8,
+    option9,
+    option10,
+} from './widget/data';
 class Echaers extends Component {
-    componentDidMount() {
-        //初始化
-        let myecharts = echarts.init(this.div);
-        let myecharts2 = echarts.init(this.div2);
-        // 使用刚指定的配置项和数据显示图表。
-        myecharts.setOption(option);
-        myecharts2.setOption({
-            series,
+    doacton = myecharts => {
+        myecharts.on('updateAxisPointer', function(event) {
+            var xAxisInfo = event.axesInfo[0];
+            if (xAxisInfo) {
+                var dimension = xAxisInfo.value + 1;
+                myecharts.setOption({
+                    series: {
+                        id: 'pie',
+                        label: {
+                            formatter: '{b}: {@[' + dimension + ']} ({d}%)',
+                        },
+                        encode: {
+                            value: dimension,
+                            tooltip: dimension,
+                        },
+                    },
+                });
+            }
         });
-    }
-
+    };
     render() {
         const breadItems = [{ title: '数据可视化' }, { title: 'echar' }];
         return (
@@ -77,16 +53,74 @@ class Echaers extends Component {
                 <div
                     style={{
                         display: 'flex',
+                        flexWrap: 'wrap',
+                        padding: '30px',
                     }}
                 >
-                    <div
-                        ref={div => (this.div = div)}
-                        style={{ width: '600px', height: '400px' }}
-                    />
-                    <div
-                        ref={div => (this.div2 = div)}
-                        style={{ width: '600px', height: '400px' }}
-                    />
+                    <div>
+                        <div>基础图表</div>
+                        <EacharPoint option={option} id="x1" width={'300px'} height={'300px'} />
+                    </div>
+                    <div>
+                        <div>dataset图表</div>
+                        <EacharPoint option={option2} id="x2" width={'300px'} height={'300px'} />
+                    </div>
+                    <div>
+                        <div>dataset+seriesLayoutBy 配置项图表</div>
+                        <EacharPoint option={option3} id="x3" width={'300px'} height={'300px'} />
+                    </div>
+                    <div>
+                        <div>绘制南丁格尔图</div>
+                        <EacharPoint option={option4} id="x4" width={'300px'} height={'300px'} />
+                    </div>
+                    <div>
+                        <div>异步数据处理</div>
+                        <EacharPoint
+                            id="x5"
+                            option={option5().option}
+                            getoption={option5().setoption}
+                            width={'300px'}
+                            height={'300px'}
+                        />
+                    </div>
+                    <div>
+                        <div>异步加载数据处理</div>
+                        <EacharPoint
+                            id="x6"
+                            option={option6().option}
+                            type={'axios'}
+                            width={'300px'}
+                            height={'300px'}
+                        />
+                    </div>
+                    <div>
+                        <div>异步数据动态更新</div>
+                        <EacharPoint
+                            id="x7"
+                            option={option7().option}
+                            getoption={option7().setoption}
+                            width={'300px'}
+                            height={'300px'}
+                        />
+                    </div>
+                    <div>
+                        <div>自定义x y</div>
+                        <EacharPoint id="x8" option={option8} width={'300px'} height={'300px'} />
+                    </div>
+                    <div>
+                        <div>自定义 共享数据加联动</div>
+                        <EacharPoint
+                            id="x9"
+                            action={this.doacton}
+                            option={option9}
+                            width={'600px'}
+                            height={'600px'}
+                        />
+                    </div>
+                    <div>
+                        <div>图表事件</div>
+                        <EacharPoint id="x10" option={option10} width={'600px'} height={'600px'} />
+                    </div>
                 </div>
             </div>
         );

@@ -3,8 +3,8 @@
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2019-08-27 16:26:04
- * @LastEditors  : yangw5
- * @LastEditTime : 2020-02-05 15:17:15
+ * @LastEditors: yangw5
+ * @LastEditTime: 2020-02-28 09:40:01
  */
 /**
  * @exports 路由配置文件
@@ -81,14 +81,19 @@ export default {
                     component: 'Basis',
                 },
                 {
+                    key: '/app/ui/datado',
+                    title: '弹框',
+                    component: 'Datado',
+                },
+                {
                     key: '/app/ui/gallery',
                     title: '画廊',
                     component: 'Gallery',
                 },
                 {
-                    key: '/app/ui/datado',
-                    title: '弹框',
-                    component: 'Datado',
+                    key: '/app/ui/limits',
+                    title: '权限控制',
+                    component: 'Limits',
                 },
                 {
                     key: '/app/ui/tag',
@@ -180,6 +185,16 @@ export default {
             key: '/app/material/frontend/edit/:id?',
             title: '数据编辑',
             component: 'commonEdit',
+        },
+        {
+            key: '/app/ui/info/:id?',
+            title: 'ui数据显示',
+            component: 'UisInfo',
+        },
+        {
+            key: '/app/ui/edit/:id?',
+            title: 'ui数据编辑',
+            component: 'UisEdit',
         },
     ],
 };

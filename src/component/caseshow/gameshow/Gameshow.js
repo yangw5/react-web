@@ -155,7 +155,8 @@ class CaseShow extends Component {
                 <BreadcrumbCustom {...{ breadItems }} />
                 <div
                     style={{
-                        position: 'absolute',
+                        display: 'flex',
+                        // position: 'absolute',
                         width: '89%',
                         height: '89%',
                     }}
@@ -179,8 +180,8 @@ class CaseShow extends Component {
                                     style={{
                                         display: 'fiex',
                                         position: 'relative',
-                                        left: `${v.left}px`,
-                                        top: `${v.top}px`,
+                                        // left: `${v.left}px`,
+                                        // top: `${v.top}px`,
                                         marginLeft: '50px',
                                     }}
                                 >
@@ -193,7 +194,7 @@ class CaseShow extends Component {
                                     className="actor__div"
                                     style={{
                                         position: 'fiex',
-                                        left: `${actorarry[key].left}px`,
+                                        // left: `${actorarry[key].left}px`,
                                     }}
                                 >
                                     <img src={actorarry[key].src} title={actorarry[key].name} />

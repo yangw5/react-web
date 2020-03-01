@@ -4,8 +4,8 @@
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2020-01-21 16:29:14
- * @LastEditors  : yangw5
- * @LastEditTime : 2020-02-05 15:27:43
+ * @LastEditors: yangw5
+ * @LastEditTime: 2020-02-27 17:28:45
  * @FilePath: \react-web\src\component\tootsshow\toolsCusrom\index.js
  */
 import React, { Component } from 'react';
@@ -81,10 +81,6 @@ class ToolsCusrom extends Component {
                         >
                             转换
                         </Button>
-                    </div>
-                    <div>
-                        搜索：
-                        <InputSearch>1</InputSearch>
                     </div>
                 </div>
             </div>

@@ -4,13 +4,21 @@
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2019-08-26 08:22:55
- * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-21 15:31:32
+ * @LastEditors: yangw5
+ * @LastEditTime: 2020-02-23 13:03:52
  * @FilePath: \react-web\src\component\widget\datapage\Forminfo\DataEdit.js
  */
 import React, { Component } from 'react';
 import { Form } from 'antd';
-import { FromInput, FormSelect, FormCheckBox, FormData, Formcombin, FormSearch } from '../../index';
+import {
+    FromInput,
+    FormSelect,
+    FormCheckBox,
+    FormData,
+    Formcombin,
+    FormSearch,
+    FormTextArea,
+} from '../../index';
 import styles from './DataEdit.module.less';
 import { object } from 'prop-types';
 let _ = window._;
@@ -26,7 +34,7 @@ class DataEdit extends Component {
             date: FormData,
             search: FormSearch,
             checkbox: FormCheckBox,
-            // 'textarea': FormTextArea,
+            textarea: FormTextArea,
             // 'radio': FormRadio,
             // 'inputGroup': FormInputGroup,
             // 'inputMultiple': FormInputMultiple,
@@ -46,7 +54,7 @@ class DataEdit extends Component {
             // 'colors': FormColors,
         };
     }
-    componentDidMount(){
+    componentDidMount() {
         this._setFieldsValue();
     }
     componentDidUpdate() {
@@ -75,7 +83,7 @@ class DataEdit extends Component {
         return (
             <Form className={styles.root} layout="inline">
                 {items.map((item, i) => (
-                    <span key={i} className={styles[item.classname] || styles['whole']}>
+                    <span key={i} className={styles[item.class] || styles['average-3']}>
                         {this._renderForm(this.components[item.fieldType], item)}
                     </span>
                 ))}

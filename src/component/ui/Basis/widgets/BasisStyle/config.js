@@ -4,15 +4,21 @@
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2020-01-20 14:39:29
- * @LastEditors  : yangw5
- * @LastEditTime : 2020-02-04 14:43:27
- * @FilePath: \react-web\src\component\ui\Basis\widgets\config.js
+ * @LastEditors: yangw5
+ * @LastEditTime: 2020-02-25 10:36:17
+ * @FilePath: \react-web\src\component\ui\Basis\widgets\BasisStyle\config.js
  */
 
 import React from 'react';
 import { Input } from 'antd';
 import { ButtonGroup, Buttons } from '../../../../widget';
-import { DividerCustom, BreadcrumbCustom, ButtonsMaterial, Gap } from '../../../../widget/basis';
+import {
+    DividerCustom,
+    BreadcrumbCustom,
+    ButtonsMaterial,
+    Gap,
+    MouseCustom,
+} from '../../../../widget/basis';
 
 const { Search } = Input;
 
@@ -97,6 +103,12 @@ let items = [
                 background: '#fff',
             },
         },
+    },
+    {
+        name: '鼠标事件',
+        description: '对鼠标时间进行封装',
+        ComponentName: MouseCustom,
+        children: '鼠标右键',
     },
     {
         name: '面包屑',

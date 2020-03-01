@@ -4,8 +4,8 @@
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2019-08-26 08:22:55
- * @LastEditors  : yangw5
- * @LastEditTime : 2020-02-05 15:17:33
+ * @LastEditors: yangw5
+ * @LastEditTime: 2020-03-01 11:51:37
  * @FilePath: \react-web\src\component\allcomponet.js
  */
 import FrontEnd from './frontend';
@@ -21,10 +21,13 @@ import FormCustom from './ui/FormCustom';
 import Basis from './ui/Basis';
 import Datado from './ui/datado';
 import Gallery from './ui/gallery';
+import Limits from './ui/limits';
 import TagTree from './ui/tag';
+import UisInfo from './ui/allinf/widget/CommonInfo';
+import UisEdit from './ui/allinf/widget/CommonEdit';
 
 import DashBoard from './dashboard';
-import Gameshow from './caseshow/gameshow/Gameshow';
+import Gameshow from './caseshow/gameshow';
 import AntdUi from './antdUi';
 import AntdForm from './antdUi/antdform/AntdForm';
 // export { default as D3 } from './datashow/d3';
@@ -53,6 +56,7 @@ export default {
     Basis,
     Datado,
     Gallery,
+    Limits,
     TagTree,
     Gameshow,
     AntdUi,
@@ -62,4 +66,6 @@ export default {
     CommonList,
     commonshow,
     commonEdit,
+    UisInfo,
+    UisEdit,
 };

@@ -11,7 +11,7 @@ class FormSelect extends Component {
         super(props);
         this.state = {
             children: null, //option对象
-            flog: false, //下拉列表初始化
+            flog: true, //下拉列表初始化
             fetching: false, //搜索加载
         };
     }
@@ -104,6 +104,8 @@ class FormSelect extends Component {
             //     { name: '远程数据1', value: 'y1', id: 'y1' },
             //     { name: '远程数据2', value: 'y2', id: 'y2' },
             // ]);
+        } else {
+            this.setOptions();
         }
         //第一次点击获取数据，之后不需要
     };
@@ -141,6 +143,9 @@ class FormSelect extends Component {
                     label,
                     labelCol,
                     wrapperCol,
+                    style: {
+                        display: 'flex',
+                    },
                 }}
             >
                 {getFieldDecorator(field, { rules })(
@@ -167,7 +172,7 @@ class FormSelect extends Component {
                             option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                         }
                         optionFilterProp="children" //搜索过滤
-                        getPopupContainer={() => document.getElementById('area')} //菜单渲染位置
+                        getPopupContainer={() => document.getElementById('area') || document.body} //菜单渲染位置
                         mode={mode} //设置模式	'multiple' | 'tags'
                         placeholder={message || `请选择${label}`}
                         onChange={(value, option) => {

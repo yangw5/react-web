@@ -4,9 +4,9 @@
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2020-01-21 14:14:53
- * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-21 16:02:03
- * @FilePath: \react-web\src\component\ui\datado\config.js
+ * @LastEditors: yangw5
+ * @LastEditTime: 2020-02-23 13:30:19
+ * @FilePath: \react-web\src\component\ui\datado\formconfig.js
  */
 export let formItems = [
     {
@@ -31,8 +31,18 @@ export let formItems = [
     {
         label: '法人',
         field: 'autor',
-        fieldType: 'input',
+        fieldType: 'select',
         classname: 'average-3',
+        options: [
+            {
+                id: '1',
+                name: '杨文伍',
+            },
+            {
+                id: '2',
+                name: '小五',
+            },
+        ],
     },
     {
         label: '别名',
@@ -53,16 +63,13 @@ export let formItems = [
         classname: 'average-3',
     },
 ];
-export let title = 'Form表单操作'; 
-export let formDatas={
-    name:'react-web',
-    number:1,
-    old:'2岁',
-    date:'2008-08-03',
-    autor:'young5',
-    secondname:'小伍',
-    country:'中国'
-
-
-
-}
+export let title = 'Form表单操作';
+export let formDatas = {
+    name: 'react-web',
+    number: 1,
+    old: '2岁',
+    date: '2008-08-03',
+    autor: 'young5',
+    secondname: '小伍',
+    country: '中国',
+};

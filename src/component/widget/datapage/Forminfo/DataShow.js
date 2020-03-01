@@ -5,15 +5,46 @@
  * @Email: yangw5@163.com
  * @Date: 2019-11-13 08:52:56
  * @LastEditors: yangw5
- * @LastEditTime: 2019-11-13 17:56:34
- * @FilePath: \react-web\src\component\widget\datapage\datashow\DataShow.js
+ * @LastEditTime: 2020-02-22 14:37:39
+ * @FilePath: \react-web\src\component\widget\datapage\Forminfo\DataShow.js
  */
 //基础模板
 //可以自定义模板
 import React from 'react';
 import './DataShow.less';
+const handleEnter = (data, field, callback) => {
+    if (callback) {
+        data = callback(data, field);
+    }
+    //处理字符串中的回车格式
+    return (
+        data && data
+        //     data
+        //         .toString()
+        //         .split('\n')
+        //         .map((m, n) => <div key={n}>{m}</div>)
+    );
+};
+
+/**
+ * 通用渲染value
+ * @param {*} v
+ */
+const renderNormal = (v, data, callback) => {
+    if (v.render) return v.render({ data });
+    class Render {
+        select = () => {
+            const option = v.options.find(option => option.id === data[v.field]);
+            return option ? option.name || option.id : '';
+        };
+        other = () => handleEnter(data[v.field], v.field, callback);
+        radio = () => this.select();
+    }
+    const render = new Render();
+    return (render[v.fieldType] || render.other)();
+};
 const DataShow = props => {
-    let { data=[],items } = props;
+    let { data = [], items } = props;
     return (
         <div className={'dataShow'}>
             {/* 基础信息显示模板 */}
@@ -35,7 +66,10 @@ const DataShow = props => {
                                 {v.label && (
                                     <div className={'dataShow_lable'}>{`${v.label}  :`}</div>
                                 )}
-                                {!v.type && <div className={'dataShow_value'}>{data[v.field]}</div>}
+                                {!v.type && (
+                                    <div className={'dataShow_value'}> {renderNormal(v, data)}</div>
+                                )}
+
                                 {v.type === 'stars' && (
                                     <div className={'dataShow_value'}>{v.value}</div>
                                 )}

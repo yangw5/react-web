@@ -1,3 +1,13 @@
+/*
+ * @File:
+ * @Description:
+ * @Autor: yangw5
+ * @Email: yangw5@163.com
+ * @Date: 2020-01-09 17:30:19
+ * @LastEditors: yangw5
+ * @LastEditTime: 2020-02-25 10:07:15
+ * @FilePath: \react-web\src\component\widget\Form\Formcombin.js
+ */
 import React, { Component } from 'react';
 import { Form, Input, Col, Icon } from 'antd';
 import './Formcombin.less';

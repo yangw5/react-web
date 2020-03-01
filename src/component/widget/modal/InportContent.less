@@ -1,0 +1,47 @@
+&:global {
+    .IpoC_root {
+        .IpoC_item {
+            margin: 20px 10px;
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            color: #666666;
+            .IpoC_item_title {
+                margin-right: 16px;
+            }
+            .IpoC_item_action {
+                color: blue;
+            }
+            .IpoC_item_upload {
+                position: relative;
+                width: 70px;
+                height: 26px;
+                line-height: 26px;
+                text-align: center;
+                border: 1px solid #dbdbdb;
+                cursor: pointer;
+                &:hover {
+                    color: blue;
+                    border: 1px solid blue;
+                    cursor: pointer;
+                }
+                .IpoC_item_upload__input {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 70px;
+                    height: 26px;
+                    opacity: 0;
+                    filter: alpha(opacity=0);
+                    cursor: pointer;
+                    font-size: 0;
+                }
+            }
+            .IpoC_item_file_name {
+                font-size: 13px;
+                color: #cccccc;
+                margin-left: 8px;
+            }
+        }
+    }
+}
