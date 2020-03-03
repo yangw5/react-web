@@ -140,13 +140,13 @@ export default {
         },
         {
             key: '/app/account',
-            title: '生活工具',
+            title: '第三方组件',
             icon: 'snippets',
             requirement: ['head'],
             subs: [
                 {
                     key: '/app/account/count',
-                    title: '工具汇总',
+                    title: '组件汇总',
                     component: 'Y5tool',
                 },
                 {

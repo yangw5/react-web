@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Account extends Component {
     render() {
-        return <div>生活工具</div>;
+        return <div>第三方组件</div>;
     }
 }
 

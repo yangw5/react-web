@@ -5,7 +5,7 @@
  * @Email: yangw5@163.com
  * @Date: 2020-03-01 16:36:59
  * @LastEditors: yangw5
- * @LastEditTime: 2020-03-01 17:24:41
+ * @LastEditTime: 2020-03-01 20:50:18
  * @FilePath: \react-web\src\component\caseshow\gameshow\widget\Clock.js
  */
 
@@ -27,9 +27,7 @@ export default () => {
         let month = date.getMonth(); //获取当前月份(0-11,0代表1月)
         let day = date.getDate(); //获取当前日(1-31)
         setDate(
-            `${year}-${month.length === 1 ? `0${month}` : month}-${
-                (day + 1).length === 1 ? `0${day + 1}` : day + 1
-            }`
+            `${year}-${month + 1 <= 9 ? `0${month + 1}` : month + 1}-${day <= 9 ? `0${day}` : day}`
         );
         let week = date.getDay();
         let weelItem = '';

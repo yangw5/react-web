@@ -5,7 +5,7 @@
  * @Email: yangw5@163.com
  * @Date: 2019-08-15 17:27:51
  * @LastEditors: yangw5
- * @LastEditTime: 2020-01-08 15:08:06
+ * @LastEditTime: 2020-03-02 16:36:27
  * @FilePath: \react-web\src\index.js
  */
 import React from 'react';
@@ -18,6 +18,8 @@ import * as serviceWorker from './serviceWorker';
 import Page from './Page';
 import reducer from './reducer';
 import { createStore, applyMiddleware } from 'redux';
+import 'react-antdup/lib/index.css';
+
 // 加载mock
 import './mock.js';
 // redux 注入操作

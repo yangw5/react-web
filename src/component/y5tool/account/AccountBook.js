@@ -5,7 +5,7 @@
  * @Email: yangw5@163.com
  * @Date: 2020-01-21 16:29:15
  * @LastEditors: yangw5
- * @LastEditTime: 2020-02-04 13:42:32
+ * @LastEditTime: 2020-03-02 14:28:13
  * @FilePath: \react-web\src\component\y5tool\account\AccountBook.js
  */
 import React from 'react';
@@ -15,7 +15,7 @@ import FormGroup from './widget/FormGroup';
 import Stars from './widget/Stars';
 import { EXPENSE_TYPE, PAY_TYPE } from '../../../content/index';
 function AccountBook(props) {
-    const breadItems = [{ title: '生活工具' }, { title: '账本' }];
+    const breadItems = [{ title: '第三方组件' }, { title: '账本' }];
     let { form } = props;
     const multipleObj = [
         {
