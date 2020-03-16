@@ -3,8 +3,8 @@
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2019-08-26 08:22:55
- * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-09 10:28:33
+ * @LastEditors: yangw5
+ * @LastEditTime: 2020-03-03 21:51:59
  */
 import React, { Component } from 'react';
 // import { Layout, Icon } from 'antd';
@@ -147,6 +147,7 @@ class HeaderCustom extends Component {
                         render: () => {
                             return (
                                 <img
+                                    className={'heard-tx'}
                                     src={imgsrc}
                                     alt="测试"
                                     style={{

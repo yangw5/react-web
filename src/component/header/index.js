@@ -4,8 +4,8 @@
  * @Autor: yangw5
  * @Email: yangw5@163.com
  * @Date: 2020-01-08 15:32:01
- * @LastEditors  : yangw5
- * @LastEditTime : 2020-01-09 09:45:20
+ * @LastEditors: yangw5
+ * @LastEditTime: 2020-03-03 22:04:12
  * @FilePath: \react-web\src\component\header\index.js
  */
 import React, { Component } from 'react';
@@ -115,7 +115,9 @@ class HeaderCustom extends Component {
                                 src={this.config.logo ? this.config.fullName :require('./style/img/app-logo.png')}
                                 alt={'图片'}
                             /> */}
-                            {!collapsed && <span className={'logo-name'}>{config.fullName}</span>}
+                            {!collapsed && (
+                                <span className={styles['logo-name']}>{config.fullName}</span>
+                            )}
                             <Icon
                                 className={styles['trigger']}
                                 type={collapsed ? 'menu-unfold' : 'menu-fold'}
