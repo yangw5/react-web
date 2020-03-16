@@ -1,0 +1,32 @@
+@import '../../../node_modules/antd/lib/style/themes/default.less';
+// 基础颜色
+@white: #ffffff;
+// 主题色
+@primary-color: #3c74ff;
+// 主题浅色
+@primary-color-light: fade(lighten(@primary-color, 5%), 15%);
+// 主题深色
+@primary-color-dark: darken(@primary-color, 20%);
+// 菜单栏深色-顶部
+@primary-color-spin: spin(@primary-color, 30);
+// 菜单栏深色-较浅-底部
+@primary-color-spin-light: spin(@primary-color, 10);
+// 菜单栏深色-active
+@primary-color-shade: fade(shade(@primary-color, 60%), 22%);
+// 顶部背景色
+@layout-header-background: @primary-color;
+// 左边菜单light颜色
+@layout-sider-background-light: #f9f9f9;
+// 字体颜色
+@text-color: #1d2431;
+@table-selected-row-bg: #fbfbfb;
+@grey-color: #717a8d;
+@red-color: #e9357d;
+@primary-2: @primary-color-light;
+// 基础圆角
+@border-radius-base: 4px;
+// 输入框后缀背景色
+@input-addon-bg: @primary-color;
+
+@input-height-base: 36px;
+@btn-height-base: 36px;

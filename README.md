@@ -1,44 +1,135 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# react-web ts 版本
 
-## Available Scripts
+作者：young5 :baby:
 
-In the project directory, you can run:
+邮箱：yangw5@163.com
 
-### `npm start`
+react-web 是一个可扩展的 react 后台管理系统的项目模板。可以通过它搭建基础的 react 项目，在此基础上开发相应的业务。
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[github 完整源码地址](https://github.com/yangw5/react-web.git)：https://github.com/yangw5/react-web.git 🔥🔥🔥🔥🔥
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- 本项目目前拥有 5 个分支 master(主分支) ，react（测试），react-dev(全开发) ，react-ts（ts 分支）和 book-dev（娱乐开发分支），这 5 个分支都是通过 :two_hearts: javescript :two_hearts: 进行开发。稳定版本为 master 分支。
+- 已经增加 TypeScript 开发分支，敬请期待吧 😁😁😁😁😁 :eyes: :eyes: :eyes: :eyes: :eyes:
 
-### `npm test`
+## react-web 的安装使用
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1.  通过脚手架进行安装
 
-### `npm run build`
+    1.  通过脚手架 react-young5-cli 进行安装
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+            npm i react-young-cli -g
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+            react-young5-cli i
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+            yarn
 
-### `npm run eject`
+            yarn/npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    更多关于 react-young5-cli 脚手架以及自定义脚手架工具的相关知识，请点击 :point_right: [https://github.com/yangw5/react-young5-cli](https://github.com/yangw5/react-young5-cli) :point_left: 进行查看:thumbsup:。
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    2.  通过 git 拉去 gitbub 源码安装
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+             git clone https://github.com/yangw5/react-young5-cli.git
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+             yarn
 
-## Learn More
+             yarn/npm start
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2.  项目打包
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+            yarn build or npm run build
+
+## 项目依赖
+
+- [react]()：js 框架 👍
+- [antd]()：蚂蚁金服 UI 框架 👍（版本在 4.0 以上）
+- [axios]()：封装的 http 请求库 👍
+- [echarts]()：js 可视化库 👍
+- [lodash](https://www.lodashjs.com/)：一个一致性、模块化、高性能的 JavaScript 实用工具库 👍
+- [antd-young5]():基于 antd 的组件库 👍
+- [screenfull](https://github.com/sindresorhus/screenfull.js):JavaScript 全屏 API 的跨浏览器使用的简单包装 👍
+- [react-beautiful-dnd]():react 拖拽组件
+- ...
+
+## 项目目录
+
+        + --config/                            ---项目配置文件
+        |    --- webpack.config                ---webpack配置文件
+        + --public/                            ---项目如口页面文件
+        |    --- index.html                    ---项目如口页面文件
+        + --scripts/                           ---项目测试打包文件
+        |
+        + --src/                               ---项目源代码
+        |       +-- axios/                     ---http请求
+        |       |   ---index.js
+        |       |   ---config.js
+        |       +--component/                  ---项目组件
+        |       |   +--antdui/
+        |       |       ---...
+        |       |   +--widget/                 ---功能组件
+        |       |       ---...
+        |       |   +--page/
+        |       |       ---...
+        |       + --content/                   ---全局静态变量
+        |       |   ---index.js
+        |       |   ---config.js
+        |       + --reducer/                   ---redux配置文件
+        |       |   ---index.js
+        |       |   ---action.js
+        |       + --routes/                    ---路由配置文件
+        |       |   ---index.js
+        |       |   ---config.js
+        |       + --style/                     ---自定义样式文件
+        |       |   +--antd/
+        |       |   ---index.less
+        |       + --utils/                     ---功能函数文件
+        |       |   ---index.js
+        |       |   ---toots.js
+        |       + .app.js
+        |       + .index.js                    ---入口文件
+        |
+        |
+        + --theme/                             ---主题配置文件
+        + .gitignore                           ---git提交忽略文件
+        + .npmignore                           ---npm忽略文件
+        + .prettierrc                          ---代码格式验证配置文件
+        + .eslintrc                            ---自定义eslint规则
+        + .package.json                        ---项目信息及相关依赖文件
+        + .README.md                           ---项目说明文件
+
+## 功能模块
+
+- 静态登陆
+- 首页
+- 自定义导航
+- 自定义表单
+- 数据可视化
+- 自定义组件
+- 图片库
+
+## 功能展示
+
+1. 自定义表单
+
+![自定义表单](/src/assets/img/imgs/form.png)
+
+## 开发模式
+
+- 组件化开发
+- 配置化开发
+
+注：
+
+1. 公共组件开发：该模块开发减少自身 state,更多点通过父组件传递 props 进行控制
+2. 组件分为 ui 组件和逻辑组件，功能要单一
+
+## 坑点
+
+## 结尾
+
+项目中存在的问题和有优化的地方，希望大家多多的指出 👏👏👏👏👏👏。
+如果有相关的疑惑，可以加入 QQ 群与我联系：
+
+- 254486893
+
+赠人玫瑰，手有余香，希望对大家有所帮助，同时你觉得有所获得的话，那就戳一个 star 吧~~❤️❤️❤️❤️❤️，感谢! :pray: :pray: :pray:

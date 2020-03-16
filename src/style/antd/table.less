@@ -1,0 +1,58 @@
+.ant-table-body {
+    .ant-table-tbody,
+    .ant-table-thead {
+        > tr {
+            > th {
+                background: #f5f7fb;
+                color: #717a8d;
+                height: 50px;
+            }
+            > td {
+                height: 60px;
+                a {
+                    color: @primary-color;
+                }
+            }
+            > th,
+            > td {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+        }
+    }
+}
+
+.ant-table-row {
+    &:hover {
+        background: @primary-color !important;
+        td {
+            color: #fff !important;
+            background: @primary-color !important;
+            .icon.iconfont {
+                color: #fff !important;
+            }
+            .text-primary {
+                color: #fff !important;
+            }
+        }
+        a {
+            color: #fff !important;
+        }
+        .primary {
+            color: @white !important;
+        }
+        .infoPlatsListCell-container .ant-avatar {
+            border: 1px solid @white;
+            color: @white;
+        }
+    }
+}
+
+.table {
+    &_op {
+        display: flex;
+        .icon_expand {
+            margin-left: auto;
+        }
+    }
+}

@@ -1,0 +1,54 @@
+[class*='btn'] {
+    cursor: pointer;
+}
+
+.bg-primary {
+    background: @primary-color;
+}
+
+.bg-primary-gradient {
+    background: linear-gradient(225deg, @primary-color-spin 0%, @primary-color-spin-light 100%);
+}
+.border_color-primary {
+    border-color: @primary-color;
+}
+.font_color-primary {
+    color: @primary-color;
+}
+
+//start btn
+
+.user-toolbar_left_useradd.bg-primary .ant-btn {
+    background: @primary-color;
+    border: 1px solid @primary-color;
+}
+
+//end btn
+
+/** 修改上传多个图片margin-top不一致的问题 */
+.rac_form_upload .ant-upload-list-item + .ant-upload-list-item {
+    margin-top: 0 !important;
+}
+
+.auto-width {
+    width: auto !important;
+    max-width: none !important;
+}
+
+.ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.text-primary {
+    color: @primary-color;
+    cursor: pointer;
+}
+.text-error {
+    color: @red-color;
+}
+
+.filter-grey {
+    filter: grayscale(1);
+}
