@@ -5,7 +5,7 @@
  * @Email: yangw5@163.com
  * @Date: 2020-03-16 14:46:29
  * @LastEditors: yangw5
- * @LastEditTime: 2020-03-16 15:33:13
+ * @LastEditTime: 2020-03-16 17:54:37
  * @FilePath: \react-web\project.md
  -->
 
@@ -22,6 +22,8 @@
     -   antd 4.0.3 （全局引入样式 组件引入）[官网](https://ant.design/docs/react/use-in-typescript-cn)
     -   lodash
     -   axios
+    -   query-string： url 参数解析（queryString.stringify，queryString.parse）
+    -
     -   react-router-dom
 
 3.  项目结构调整

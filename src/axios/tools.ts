@@ -5,7 +5,7 @@
  * @Email: yangw5@163.com
  * @Date: 2020-03-16 15:14:39
  * @LastEditors: yangw5
- * @LastEditTime: 2020-03-16 15:34:25
+ * @LastEditTime: 2020-03-16 17:45:57
  * @FilePath: \react-web\src\axios\tools.ts
  */
 
@@ -66,6 +66,30 @@ const toLogin = (message = '登录已过期，请重新登录') => {
     //     },
     // });
 };
+
+// 1.  timeout: 1000, //`timeout`指定请求超时之前的毫秒数。 如果请求的时间超过'timeout'，请求将被中止。
+// 2.   headers: {'X-Requested-With': 'XMLHttpRequest'}, 、、`headers`是要发送的自定义 headers
+
+// 3. `transformRequest`允许在请求数据发送到服务器之前对其进行更改
+// 这只适用于请求方法'PUT'，'POST'和'PATCH'
+// 数组中的最后一个函数必须返回一个字符串，一个 ArrayBuffer或一个 Stream
+//   transformRequest: [function (data) {
+//     // 做任何你想要的数据转换
+//     return data;
+//   }],
+// 4. `transformResponse`允许在 then / catch之前对响应数据进行更改
+//   transformResponse: [function (data) {
+//     // Do whatever you want to transform the data
+//     return data;
+//   }],
+
+// 5. `auth'表示应该使用 HTTP 基本认证，并提供凭据。
+// 这将设置一个`Authorization'头，覆盖任何现有的`Authorization'自定义头，使用`headers`设置。
+//   auth: {
+//     username: 'janedoe',
+//     password: 's00pers3cret'
+//   },
+
 export const get = ({ url, msg = '接口异常', config }: IFRequestParam, hasAuth?: boolean) =>
     axios(setAxiosOption({ url, ...config }, hasAuth))
         .then(res => {
